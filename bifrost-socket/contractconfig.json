@@ -2,29 +2,29 @@
 	"bifrost": {
 		"contracts": [
 			{"name": "authority", "address": "0x0000000000000000000000000000000000000400", "abi_file": "abi.authority.json", "deploy_height": 0},
-			{"name": "vault", "address": "0x142F4f73BF968E7317d1DafB4fEB45E87325Da6a", "abi_file": "abi.vault.json", "deploy_height": 0},
-			{"name": "socket", "address": "0x400fC0F52Ab595D07277566bE434771fdfEd1ACD", "abi_file": "abi.socket.json", "deploy_height": 0}
+			{"name": "vault", "address": "0x142F4f73BF968E7317d1DafB4fEB45E87325Da6a", "abi_file": "abi.vault.json", "deploy_height": 1382},
+			{"name": "socket", "address": "0x400fC0F52Ab595D07277566bE434771fdfEd1ACD", "abi_file": "abi.socket.json", "deploy_height": 1384}
 		]
 	},
 	"ethereum": {
 		"contracts": [
-			{"name": "authority", "address": "0x83351B2a4e8B4377aF262Bd073d627d7A83a5F40", "abi_file": "abi.authority.json", "deploy_height": 0},
-			{"name": "vault", "address": "0x8835426Ad00f4007Cb4EdE8E3253231F5cd73FE0", "abi_file": "abi.vault.json", "deploy_height": 0},
-			{"name": "socket", "address": "0x26A5db8548ef1cC02DAEf2Ba74b419713EFA26bA", "abi_file": "abi.socket.json", "deploy_height": 0}
+			{"name": "authority", "address": "0x83351B2a4e8B4377aF262Bd073d627d7A83a5F40", "abi_file": "abi.authority.json", "deploy_height": 7474689},
+			{"name": "vault", "address": "0x8835426Ad00f4007Cb4EdE8E3253231F5cd73FE0", "abi_file": "abi.vault.json", "deploy_height": 7472926},
+			{"name": "socket", "address": "0x26A5db8548ef1cC02DAEf2Ba74b419713EFA26bA", "abi_file": "abi.socket.json", "deploy_height": 7472929}
 		]
 	},
 	"polygon": {
 		"contracts": [
-			{"name": "authority", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
-			{"name": "vault", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
-			{"name": "socket", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0}
+			{"name": "authority", "address": "0xDE23135c958536eE291019B405921EAE84fFa759", "abi_file": "abi.authority.json", "deploy_height": 27823307},
+			{"name": "vault", "address": "0xd1E060FD930B75DA9A709c91E6Ad03B330Fb2950", "abi_file": "abi.vault.json", "deploy_height": 27823311},
+			{"name": "socket", "address": "0x02B0891CC3f3865E52bB0F9c4DF2Dc3d172ff9a3", "abi_file": "abi.socket.json", "deploy_height": 27823315}
 		]
 	},
 	"binace": {
 		"contracts": [
-			{"name": "authority", "address": "0xEDD5922Fa1Bc54cCBa5AC18c206E64D08BDA9472", "abi_file": "abi.authority.json", "deploy_height": 0},
-			{"name": "vault", "address": "0xd8e501fc9A4AcFC616B01fceC0b71A744a310D08", "abi_file": "abi.vault.json", "deploy_height": 0},
-			{"name": "socket", "address": "0x4bb70f390bfE7181179534795238784c3344c365", "abi_file": "abi.socket.json", "deploy_height": 0}
+			{"name": "authority", "address": "0xEDD5922Fa1Bc54cCBa5AC18c206E64D08BDA9472", "abi_file": "abi.authority.json", "deploy_height": 22283563},
+			{"name": "vault", "address": "0xd8e501fc9A4AcFC616B01fceC0b71A744a310D08", "abi_file": "abi.vault.json", "deploy_height": 22275379},
+			{"name": "socket", "address": "0x4bb70f390bfE7181179534795238784c3344c365", "abi_file": "abi.socket.json", "deploy_height": 22275383}
 		]
 	}
 }
