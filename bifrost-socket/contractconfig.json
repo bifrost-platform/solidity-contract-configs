@@ -1,0 +1,30 @@
+{
+	"bifrost": {
+		"contracts": [
+			{"name": "authority", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "vault", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "socket", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0}
+		]
+	},
+	"ethereum": {
+		"contracts": [
+			{"name": "authority", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "vault", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "socket", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0}
+		]
+	},
+	"polygon": {
+		"contracts": [
+			{"name": "authority", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "vault", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "socket", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0}
+		]
+	},
+	"binace": {
+		"contracts": [
+			{"name": "authority", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "vault", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0},
+			{"name": "socket", "address": "0xaddress", "abi_file": "<file_name>", "deploy_height": 0}
+		]
+	}
+}
