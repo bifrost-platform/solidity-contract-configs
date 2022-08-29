@@ -583,59 +583,6 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "bytes32[]",
-                "name": "data",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "oracle_aggregate_feeding",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "uint256[]",
-                "name": "rounds",
-                "type": "uint256[]"
-            },
-            {
-                "internalType": "bytes32[]",
-                "name": "data",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "oracle_consensus_feeding",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
         "inputs": [],
         "name": "orc_manager",
         "outputs": [
@@ -834,7 +781,7 @@
         "outputs": [
             {
                 "internalType": "bool",
-                "name": "returnData",
+                "name": "",
                 "type": "bool"
             }
         ],
@@ -1184,7 +1131,7 @@
                 "type": "tuple"
             }
         ],
-        "name": "round_control_poll",
+        "name": "round_control_relay",
         "outputs": [
             {
                 "internalType": "bool",
@@ -1343,49 +1290,6 @@
         ],
         "name": "set_vault",
         "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "socket_aggregate_oracle",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "uint256[]",
-                "name": "rounds",
-                "type": "uint256[]"
-            }
-        ],
-        "name": "socket_consensus_oracle",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
