@@ -22,9 +22,9 @@
 	},
 	"binace": {
 		"contracts": [
-			{"name": "authority", "address": "0x7e86A44ebB934a6a63e2355543f47E0680CBDf62", "abi_file": "abi.authority.json", "deploy_height": 22283563},
-			{"name": "vault", "address": "0xA440958526421a90bC461E6781C61ce8aD8524c6", "abi_file": "abi.vault.json", "deploy_height": 22275379},
-			{"name": "socket", "address": "0xfb227D3d049a2cdB7b5b75D5227B50219eDe3224", "abi_file": "abi.socket.json", "deploy_height": 22275383}
+			{"name": "authority", "address": "0x7e86A44ebB934a6a63e2355543f47E0680CBDf62", "abi_file": "abi.authority.json", "deploy_height": 22426196},
+			{"name": "vault", "address": "0xA440958526421a90bC461E6781C61ce8aD8524c6", "abi_file": "abi.vault.json", "deploy_height": 22426200},
+			{"name": "socket", "address": "0xfb227D3d049a2cdB7b5b75D5227B50219eDe3224", "abi_file": "abi.socket.json", "deploy_height": 22426204}
 		]
 	}
 }
