@@ -3,7 +3,8 @@
 		"contracts": [
 			{"name": "authority", "address": "0x0000000000000000000000000000000000000400", "abi_file": "abi.authority.json", "deploy_height": 0},
 			{"name": "vault", "address": "0x142F4f73BF968E7317d1DafB4fEB45E87325Da6a", "abi_file": "abi.vault.json", "deploy_height": 1382},
-			{"name": "socket", "address": "0x400fC0F52Ab595D07277566bE434771fdfEd1ACD", "abi_file": "abi.socket.json", "deploy_height": 1384}
+			{"name": "socket", "address": "0x400fC0F52Ab595D07277566bE434771fdfEd1ACD", "abi_file": "abi.socket.json", "deploy_height": 1384},
+			{"name": "oracle_manager", "address": "0x1d3A4341DC88312e200240F065e7d23075Dddd52", "abi_file": "abi.oracle_manager.json", "deploy_height": 206686}
 		]
 	},
 	"ethereum": {
