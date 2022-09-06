@@ -386,6 +386,24 @@
     {
         "inputs": [
             {
+                "internalType": "Socket_Struct.Asset_Index",
+                "name": "_asset_index",
+                "type": "uint128"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "liquidity_deposit",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
@@ -729,6 +747,76 @@
                 "type": "bool"
             }
         ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Socket_Struct.Asset_Index",
+                "name": "_asset_index",
+                "type": "uint128"
+            },
+            {
+                "internalType": "address",
+                "name": "_token",
+                "type": "address"
+            }
+        ],
+        "name": "set_erc20_address",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Socket_Struct.Asset_Index",
+                "name": "_asset_index",
+                "type": "uint128"
+            },
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint32",
+                                "name": "_type",
+                                "type": "uint32"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "fee_rate",
+                                "type": "uint64"
+                            },
+                            {
+                                "internalType": "address",
+                                "name": "target",
+                                "type": "address"
+                            }
+                        ],
+                        "internalType": "struct Vault_Struct.Asset_Config",
+                        "name": "config",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "fee",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Vault_Struct.AssetInfo",
+                "name": "_asset_info",
+                "type": "tuple"
+            }
+        ],
+        "name": "set_erc20_info",
+        "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     },
