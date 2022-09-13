@@ -10,9 +10,9 @@
 			{"name": "usdthandler", "address": "0xCEf74c59dc47D166cc1c75B2887Db74C17EA0314", "abi_file": "abi.lendinghandler.json", "deploy_height": -1},
 			{"name": "busdhandler", "address": "0x85207761De2456F9B57364476d2311EeE0Dec374", "abi_file": "abi.lendinghandler.json", "deploy_height": -1}
 			
-			{"name": "uniswapv2factory", "address": "0xnot_deployed_yet", "abi_file": "abi.uniswapv2factory.json", "deploy_height": "-1"},
-			{"name": "UniswapV2Router02", "address": "0xnot_deployed_yet", "abi_file": "abi.uniswapv2router02.json", "deploy_height": "-1"},
-			{"name": "wbfc", "address": "0xnot_deployed_yet", "abi_file": "abi.erc20.json", "deploy_height": "-1"}
+			{"name": "uniswapv2factory", "address": "0x48dF14307dAA776C19c3A7E88C0E6a54B5AA1A8c", "abi_file": "abi.uniswapv2factory.json", "deploy_height": "-1"},
+			{"name": "UniswapV2Router02", "address": "0xEdF6eB7EaC8CAEAa90639E6f92451E95571c9955", "abi_file": "abi.uniswapv2router02.json", "deploy_height": "-1"},
+			{"name": "wbfc", "address": "0xC9B1EbB9826A89665E35017F01a3dbaC6eE5F933", "abi_file": "abi.wbfc.json", "deploy_height": "-1"}
 		]
 	}
 }
