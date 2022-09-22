@@ -142,25 +142,6 @@
     {
         "inputs": [
             {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "aggregate_oracle",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "internalType": "address",
                 "name": "",
                 "type": "address"
@@ -206,30 +187,6 @@
     {
         "inputs": [],
         "name": "claimOwnership",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "uint128[]",
-                "name": "rounds",
-                "type": "uint128[]"
-            }
-        ],
-        "name": "consensus_oracle",
         "outputs": [
             {
                 "internalType": "bool",
@@ -435,7 +392,26 @@
                 "type": "bytes32"
             }
         ],
-        "name": "latest",
+        "name": "last_oracle_data",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_Manager_Struct.Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            }
+        ],
+        "name": "last_oracle_info",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -443,12 +419,58 @@
                 "type": "uint256"
             },
             {
-                "internalType": "bytes32",
+                "components": [
+                    {
+                        "internalType": "bytes32",
+                        "name": "data",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "block",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "time",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "authority_round",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "feeder_length",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct Oracle_Manager_Struct.Oracle_Manager_Source",
                 "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_Manager_Struct.Oracle_ID",
+                "name": "oid",
                 "type": "bytes32"
             }
         ],
-        "stateMutability": "nonpayable",
+        "name": "last_oracle_round",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -478,7 +500,77 @@
                 "type": "bytes32"
             }
         ],
-        "name": "latest_round",
+        "name": "latest_oracle_data",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_Manager_Struct.Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            }
+        ],
+        "name": "latest_oracle_info",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "bytes32",
+                        "name": "data",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "block",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "time",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "authority_round",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "feeder_length",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct Oracle_Manager_Struct.Oracle_Manager_Source",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_Manager_Struct.Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            }
+        ],
+        "name": "latest_oracle_round",
         "outputs": [
             {
                 "internalType": "uint256",

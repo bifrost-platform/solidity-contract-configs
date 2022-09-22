@@ -2,25 +2,25 @@
 	"bifrost": {
 		"contracts": [
 			{"name": "authority", "address": "0x0000000000000000000000000000000000000400", "abi_file": "abi.authority.bifrost.json", "deploy_height": 0},
-			{"name": "vault", "address": "0x59d1216D2AEACBf1666307417b57d3979d9cd5bB", "abi_file": "abi.vault.bifrost.json", "deploy_height": 5441},
-			{"name": "socket", "address": "0xe5464242b6572507240B8d6BC86f2f6d4a98f14D", "abi_file": "abi.socket.bifrost.json", "deploy_height": 5443},
-			{"name": "oracle", "address": "0x7175D85658600D71B4feF32D8EC4aE8D2EB2b4B7", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 5439},
-			{"name": "ETH_ETHEREUM", "address": "0xAb2dB3Ec63342e4172e75D788F38fBF7E604e549", "abi_file": "abi.erc20.json"},
-            {"name": "BIFI_ETHEREUM", "address": "0xb3f5C3a2237Df09F94dDAC32F63E5D962Ae66a42", "abi_file": "abi.erc20.json"},
-            {"name": "BNB_BINANCE", "address": "0xDE23135c958536eE291019B405921EAE84fFa759", "abi_file": "abi.erc20.json"},
-            {"name": "MATIC_POLYGON", "address": "0x619d50242bCA4141aEEE35822F751D768e63397a", "abi_file": "abi.erc20.json"},
-            {"name": "KLAY_KLAYTN", "address": "0xd1E060FD930B75DA9A709c91E6Ad03B330Fb2950", "abi_file": "abi.erc20.json"},
-            {"name": "USDC_ETHEREUM", "address": "0x02B0891CC3f3865E52bB0F9c4DF2Dc3d172ff9a3", "abi_file": "abi.erc20.json"},
-            {"name": "USDT_ETHEREUM", "address": "0x6EeE91b7c69e3576C13cE7a9C7C0E305dF6996F9", "abi_file": "abi.erc20.json"},
-            {"name": "BUSD_BINANCE", "address": "0xF2419ceE93d19F6BcC19220007DCFc418A2AaCcf", "abi_file": "abi.erc20.json"}
+			{"name": "vault", "address": "0x8CB0C0f0D9B77F0cCeAE27C80b2b8Df48A466A05", "abi_file": "abi.vault.bifrost.json", "deploy_height": 890},
+			{"name": "socket", "address": "0x242f67F5A254749c17C24F8826e9b1d3a0cf038B", "abi_file": "abi.socket.bifrost.json", "deploy_height": 892},
+			{"name": "oracle", "address": "0x3Dcbe0BF17a01cF0AB61DFCed9354efd4d67e956", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 888},
+			{"name": "ETH_ETHEREUM", "address": "0xDE23135c958536eE291019B405921EAE84fFa759", "abi_file": "abi.erc20.json"},
+            {"name": "BIFI_ETHEREUM", "address": "0x619d50242bCA4141aEEE35822F751D768e63397a", "abi_file": "abi.erc20.json"},
+            {"name": "BNB_BINANCE", "address": "0xd1E060FD930B75DA9A709c91E6Ad03B330Fb2950", "abi_file": "abi.erc20.json"},
+            {"name": "MATIC_POLYGON", "address": "0xb3f5C3a2237Df09F94dDAC32F63E5D962Ae66a42", "abi_file": "abi.erc20.json"},
+            {"name": "KLAY_KLAYTN", "address": "0x02B0891CC3f3865E52bB0F9c4DF2Dc3d172ff9a3", "abi_file": "abi.erc20.json"},
+            {"name": "USDC_ETHEREUM", "address": "0x6EeE91b7c69e3576C13cE7a9C7C0E305dF6996F9", "abi_file": "abi.erc20.json"},
+            {"name": "USDT_ETHEREUM", "address": "0xF2419ceE93d19F6BcC19220007DCFc418A2AaCcf", "abi_file": "abi.erc20.json"},
+            {"name": "BUSD_BINANCE", "address": "0x9c8B701961C20d006cb7c4B5B91c6cb93EdB44Ac", "abi_file": "abi.erc20.json"}
 		]
 	},
 	"ethereum": {
 		"contracts": [
-			{"name": "authority", "address": "0x91112F0B8a3b9b98e0521Cb534122C8C68229ccC", "abi_file": "abi.authority.external.json", "deploy_height": 7541108},
-			{"name": "vault", "address": "0x6EDa01a302Ab3D4AbB732787cBf6C3dDb61b05Df", "abi_file": "abi.vault.external.json", "deploy_height": 7541113},
-			{"name": "socket", "address": "0xf5aF6426C075567b55dDE90A08081f2fF5219E55", "abi_file": "abi.socket.external.json", "deploy_height": 7541118},
-			{"name": "BFC_BIFROST", "address": "0x67fBEB3b54dBbBe3aC710D019eb2781b66486886", "abi_file": "abi.erc20.json"},
+			{"name": "authority", "address": "0x7B69cCaf50C1C0d4B034b1bC2f2a14E21fB1aEAb", "abi_file": "abi.authority.external.json", "deploy_height": 7637352},
+			{"name": "vault", "address": "0x7d1E79e197662c2BC58b2DCcd2eAeE4c9194849d", "abi_file": "abi.vault.external.json", "deploy_height": 7637355},
+			{"name": "socket", "address": "0xD4EcFA8662cda71740B97391946ED5CC58996bC9", "abi_file": "abi.socket.external.json", "deploy_height": 7637359},
+			{"name": "BFC_BIFROST", "address": "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54", "abi_file": "abi.erc20.json"},
             {"name": "BIFI_ETHEREUM", "address": "0x055ED934c426855caB467FdF8441D4FD6a7D2659", "abi_file": "abi.erc20.json"},
             {"name": "USDC_ETHEREUM", "address": "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70", "abi_file": "abi.erc20.json"},
             {"name": "USDT_ETHEREUM", "address": "0xF26d15E6484e00Af2772b840eb4F2B36F0BD569C", "abi_file": "abi.erc20.json"}
@@ -28,24 +28,24 @@
 	},
 	"polygon": {
 		"contracts": [
-			{"name": "authority", "address": "0x979Bc4889094EAeb9717200390D3D38c4126eb59", "abi_file": "abi.authority.external.json", "deploy_height": 27961243},
-			{"name": "vault", "address": "0x8835426Ad00f4007Cb4EdE8E3253231F5cd73FE0", "abi_file": "abi.vault.external.json", "deploy_height": 27961246},
-			{"name": "socket", "address": "0x26A5db8548ef1cC02DAEf2Ba74b419713EFA26bA", "abi_file": "abi.socket.external.json", "deploy_height": 27961249}
+			{"name": "authority", "address": "0xB217d0ED6BB1668b2420395F38B31Af298cFFcDc", "abi_file": "abi.authority.external.json", "deploy_height": 28230653},
+			{"name": "vault", "address": "0xF2155E6eb684aCE7994FefC2C71A46D578A775a2", "abi_file": "abi.vault.external.json", "deploy_height": 28230655},
+			{"name": "socket", "address": "0xeC13486a91094050837EE3D83733e36121d7D9BD", "abi_file": "abi.socket.external.json", "deploy_height": 28230659}
 		]
 	},
 	"binance": {
 		"contracts": [
-			{"name": "authority", "address": "0xEaDD2907428abF60115e0d3c5dAC0476288C9b93", "abi_file": "abi.authority.external.json", "deploy_height": 22603321},
-			{"name": "vault", "address": "0x02387529E0E61123E0f4Cf8CC4A5055df8F0f9E1", "abi_file": "abi.vault.external.json", "deploy_height": 22603325},
-			{"name": "socket", "address": "0xb7C53932f982390A399d2319253fa14DFA94A138", "abi_file": "abi.socket.external.json", "deploy_height": 22603329},
+			{"name": "authority", "address": "0x455e03a6480Dd536d63027F4FC1877504b1e30aC", "abi_file": "abi.authority.external.json", "deploy_height": 23054108},
+			{"name": "vault", "address": "0x47D9f67b93195Ce8902F7E7E79362F9e9D267ae0", "abi_file": "abi.vault.external.json", "deploy_height": 23054112},
+			{"name": "socket", "address": "0xc098653aEAE5057a0ffEC92bC52B9695e64eFb38", "abi_file": "abi.socket.external.json", "deploy_height": 23054116},
 			{"name": "BUSD_BINANCE", "address": "0x312d92B462492B2D110c7b378a72F6F78B1d6289", "abi_file": "abi.erc20.json"}
 		]
 	},
 	"klaytn": {
 		"contracts": [
-			{"name": "authority", "address": "0xDE23135c958536eE291019B405921EAE84fFa759", "abi_file": "abi.authority.external.json", "deploy_height": 100893102},
-			{"name": "vault", "address": "0xd1E060FD930B75DA9A709c91E6Ad03B330Fb2950", "abi_file": "abi.vault.external.json", "deploy_height": 100893107},
-			{"name": "socket", "address": "0x02B0891CC3f3865E52bB0F9c4DF2Dc3d172ff9a3", "abi_file": "abi.socket.external.json", "deploy_height": 100893113}
+			{"name": "authority", "address": "0xbfC5cdaCD8b7b0E125EF8E7653a06EF36ABC35da", "abi_file": "abi.authority.external.json", "deploy_height": 102244371},
+			{"name": "vault", "address": "0x1cfF08739930AB441efB96A9342F1DbDe839c872", "abi_file": "abi.vault.external.json", "deploy_height": 102244377},
+			{"name": "socket", "address": "0x8bFCDc46b9B8Bf36Ba162355E3bac2368C8aDaD8", "abi_file": "abi.socket.external.json", "deploy_height": 102244383}
 		]
 	}
 }
