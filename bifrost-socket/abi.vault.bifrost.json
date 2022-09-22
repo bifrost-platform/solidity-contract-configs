@@ -114,6 +114,16 @@
             {
                 "components": [
                     {
+                        "internalType": "uint128",
+                        "name": "min_amount",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "max_amount",
+                        "type": "uint128"
+                    },
+                    {
                         "internalType": "uint32",
                         "name": "_type",
                         "type": "uint32"
@@ -381,6 +391,25 @@
         "name": "init",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Socket_Struct.Asset_Index",
+                "name": "",
+                "type": "uint128"
+            }
+        ],
+        "name": "lendingPools",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -780,6 +809,16 @@
                     {
                         "components": [
                             {
+                                "internalType": "uint128",
+                                "name": "min_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint128",
+                                "name": "max_amount",
+                                "type": "uint128"
+                            },
+                            {
                                 "internalType": "uint32",
                                 "name": "_type",
                                 "type": "uint32"
@@ -847,6 +886,60 @@
             }
         ],
         "name": "set_fee_rate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Socket_Struct.Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_lendingPools",
+                "type": "address[]"
+            }
+        ],
+        "name": "set_lendingPool",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Socket_Struct.Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
+            {
+                "internalType": "uint128[]",
+                "name": "_max_amount",
+                "type": "uint128[]"
+            }
+        ],
+        "name": "set_max",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Socket_Struct.Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
+            {
+                "internalType": "uint128[]",
+                "name": "_min_amount",
+                "type": "uint128[]"
+            }
+        ],
+        "name": "set_min",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

@@ -614,9 +614,9 @@
                 "type": "bytes32[]"
             },
             {
-                "internalType": "uint256[]",
+                "internalType": "uint128[]",
                 "name": "rounds",
-                "type": "uint256[]"
+                "type": "uint128[]"
             },
             {
                 "internalType": "bytes32[]",
@@ -1343,49 +1343,6 @@
         ],
         "name": "set_vault",
         "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "socket_aggregate_oracle",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_Manager_Struct.Oracle_ID[]",
-                "name": "oids",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "uint256[]",
-                "name": "rounds",
-                "type": "uint256[]"
-            }
-        ],
-        "name": "socket_consensus_oracle",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
