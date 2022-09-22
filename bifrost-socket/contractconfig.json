@@ -2,6 +2,7 @@
 	"bifrost": {
 		"contracts": [
 			{"name": "authority", "address": "0x0000000000000000000000000000000000000400", "abi_file": "abi.authority.bifrost.json", "deploy_height": 0},
+			{"name": "relayer_authority", "address": "0x0000000000000000000000000000000000002000", "abi_file": "abi.authority.bifrost.json", "deploy_height": 0},
 			{"name": "vault", "address": "0x8CB0C0f0D9B77F0cCeAE27C80b2b8Df48A466A05", "abi_file": "abi.vault.bifrost.json", "deploy_height": 890},
 			{"name": "socket", "address": "0x242f67F5A254749c17C24F8826e9b1d3a0cf038B", "abi_file": "abi.socket.bifrost.json", "deploy_height": 892},
 			{"name": "oracle", "address": "0x3Dcbe0BF17a01cF0AB61DFCed9354efd4d67e956", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 888},
