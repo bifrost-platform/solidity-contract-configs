@@ -401,7 +401,7 @@
                 "type": "uint128"
             }
         ],
-        "name": "lendingPools",
+        "name": "lending_handlers",
         "outputs": [
             {
                 "internalType": "address",
@@ -782,6 +782,24 @@
     {
         "inputs": [
             {
+                "internalType": "Socket_Struct.Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
+            {
+                "internalType": "Socket_Struct.RBCmethod[][]",
+                "name": "_methods",
+                "type": "uint64[][]"
+            }
+        ],
+        "name": "set_RBCmethod",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "Socket_Struct.Asset_Index",
                 "name": "_asset_index",
                 "type": "uint128"
@@ -899,11 +917,11 @@
             },
             {
                 "internalType": "address[]",
-                "name": "_lendingPools",
+                "name": "_handlers",
                 "type": "address[]"
             }
         ],
-        "name": "set_lendingPool",
+        "name": "set_handlers",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

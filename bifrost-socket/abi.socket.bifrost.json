@@ -16,6 +16,48 @@
         "anonymous": false,
         "inputs": [
             {
+                "components": [
+                    {
+                        "internalType": "Socket_Struct.ChainIndex",
+                        "name": "chain",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "round_id",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "sequence",
+                        "type": "uint128"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct Socket_Struct.RequestID",
+                "name": "rid",
+                "type": "tuple"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "msg_hash",
+                "type": "bytes32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "poll_count",
+                "type": "uint256"
+            }
+        ],
+        "name": "Relayed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
                 "indexed": true,
                 "internalType": "address",
                 "name": "target",
@@ -1288,34 +1330,12 @@
     {
         "inputs": [
             {
-                "internalType": "bytes32",
-                "name": "_id",
-                "type": "bytes32"
-            },
-            {
-                "components": [
-                    {
-                        "internalType": "uint8[32]",
-                        "name": "field",
-                        "type": "uint8[32]"
-                    },
-                    {
-                        "internalType": "bytes32",
-                        "name": "msg_hash",
-                        "type": "bytes32"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "registered_block",
-                        "type": "uint256"
-                    }
-                ],
-                "internalType": "struct Socket_Struct.RequestInfo",
-                "name": "req_info",
-                "type": "tuple"
+                "internalType": "uint128",
+                "name": "_sequence",
+                "type": "uint128"
             }
         ],
-        "name": "set_request_id_",
+        "name": "set_sequence",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1323,12 +1343,12 @@
     {
         "inputs": [
             {
-                "internalType": "uint128",
-                "name": "_sequence",
-                "type": "uint128"
+                "internalType": "uint256",
+                "name": "_timeout_block",
+                "type": "uint256"
             }
         ],
-        "name": "set_sequence",
+        "name": "set_timeout_block",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
