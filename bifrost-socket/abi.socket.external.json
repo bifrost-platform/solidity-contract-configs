@@ -4,6 +4,38 @@
         "inputs": [
             {
                 "indexed": false,
+                "internalType": "address",
+                "name": "previousAdmin",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "newAdmin",
+                "type": "address"
+            }
+        ],
+        "name": "AdminChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "beacon",
+                "type": "address"
+            }
+        ],
+        "name": "BeaconUpgraded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
                 "internalType": "uint8",
                 "name": "version",
                 "type": "uint8"
@@ -259,6 +291,23 @@
         ],
         "name": "TransferOwnership",
         "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "implementation",
+                "type": "address"
+            }
+        ],
+        "name": "Upgraded",
+        "type": "event"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "fallback"
     },
     {
         "inputs": [],
@@ -1238,6 +1287,19 @@
     {
         "inputs": [
             {
+                "internalType": "address",
+                "name": "_impl",
+                "type": "address"
+            }
+        ],
+        "name": "set_1967impl",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "contract IAuthority",
                 "name": "_authority",
                 "type": "address"
@@ -1270,6 +1332,19 @@
             }
         ],
         "name": "set_orc_manager",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_admin",
+                "type": "address"
+            }
+        ],
+        "name": "set_proxyAdmin",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1542,5 +1617,9 @@
         ],
         "stateMutability": "view",
         "type": "function"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "receive"
     }
 ]
