@@ -13,6 +13,14 @@
 			{"name": "USDC_BINANCE", "address": "0x535dB5959975941124877E79c51A51Bd49dEFF41", "abi_file": "abi.erc20.json"},
             {"name": "USDT_ETHEREUM", "address": "0xF2419ceE93d19F6BcC19220007DCFc418A2AaCcf", "abi_file": "abi.erc20.json"},
             {"name": "BUSD_BINANCE", "address": "0x9c8B701961C20d006cb7c4B5B91c6cb93EdB44Ac", "abi_file": "abi.erc20.json"}
+		],
+		"token_unifiers": [
+			{"name": "BIFI", "address": "0xd0E07ddF9524eD7A64403d8D107522c34a74EAb9"},
+			{"name": "BNB", "address": "0xc6EDEB2a21cE44CdDbc10F7AaFa345eA42d7b150"},
+			{"name": "BUSD", "address": "0x206d7E9C1E85237143a70102Ea6F6eBbF48f69cF"},
+			{"name": "ETH", "address": "0xBBCDEe5eeb194A29Be43C5cFeBe84Df78c215647"},
+			{"name": "USDC", "address": "0xDF33C51d349C8493c392d644cA21fF7F05F84b61"},
+			{"name": "USDT", "address": "0x644caF070f8Ecb7670E0C32988E2bEcE14196C01"}
 		]
 	},
 	"ethereum": {
