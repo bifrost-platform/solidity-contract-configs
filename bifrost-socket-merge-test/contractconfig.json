@@ -1,10 +1,10 @@
 {
 	"bifrost": {
 		"contracts": [
-			{"name": "relayer_authority", "address": "0xa49489f23687773A64E839dbcDeC7D9D6B8B535F", "abi_file": "abi.relayer.bifrost.json", "deploy_height": 1426518},
-			{"name": "vault", "address": "0xC82B7a66b08D87804B22d10128d7fCd3E6D4a038", "abi_file": "abi.vault.bifrost.json", "deploy_height": 1426522},
-			{"name": "socket", "address": "0x8D31D575eCc0419e59c988a44AdD9EE6Db9491E7", "abi_file": "abi.socket.bifrost.json", "deploy_height": 1426524},
-			{"name": "oracle", "address": "0xB7Ace4BA578626451b0B3AA2d6568F78F1442cFA", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 1542899},
+			{"name": "relayer_authority", "address": "0xa49489f23687773A64E839dbcDeC7D9D6B8B535F", "abi_file": "abi.relayer.bifrost.json", "deploy_height": 2031118},
+			{"name": "vault", "address": "0xC82B7a66b08D87804B22d10128d7fCd3E6D4a038", "abi_file": "abi.vault.bifrost.json", "deploy_height": 2031122},
+			{"name": "socket", "address": "0x8D31D575eCc0419e59c988a44AdD9EE6Db9491E7", "abi_file": "abi.socket.bifrost.json", "deploy_height": 2031124},
+			{"name": "oracle", "address": "0xB7Ace4BA578626451b0B3AA2d6568F78F1442cFA", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 2031120},
 			{"name": "ETH_ETHEREUM", "address": "0xDE23135c958536eE291019B405921EAE84fFa759", "abi_file": "abi.erc20.json"},
             {"name": "BIFI_ETHEREUM", "address": "0x619d50242bCA4141aEEE35822F751D768e63397a", "abi_file": "abi.erc20.json"},
             {"name": "BNB_BINANCE", "address": "0xd1E060FD930B75DA9A709c91E6Ad03B330Fb2950", "abi_file": "abi.erc20.json"},
@@ -25,9 +25,9 @@
 	},
 	"ethereum": {
 		"contracts": [
-			{"name": "relayer_authority", "address": "0x40FA7b9E639B9184648E3eA86a681128972C4c70", "abi_file": "abi.relayer.external.json", "deploy_height": 8173134},
-			{"name": "vault", "address": "0x50b69C33280D86fc7c647882F742db62B5A792B3", "abi_file": "abi.vault.external.json", "deploy_height": 8173136},
-			{"name": "socket", "address": "0xE758FF2E1F8199444a40De2d539e030a61561dD4", "abi_file": "abi.socket.external.json", "deploy_height": 8173138},
+			{"name": "relayer_authority", "address": "0x40FA7b9E639B9184648E3eA86a681128972C4c70", "abi_file": "abi.relayer.external.json", "deploy_height": 8179343},
+			{"name": "vault", "address": "0x50b69C33280D86fc7c647882F742db62B5A792B3", "abi_file": "abi.vault.external.json", "deploy_height": 8179346},
+			{"name": "socket", "address": "0xE758FF2E1F8199444a40De2d539e030a61561dD4", "abi_file": "abi.socket.external.json", "deploy_height": 8179350},
 			{"name": "BFC_BIFROST", "address": "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54", "abi_file": "abi.erc20.json"},
             {"name": "BIFI_ETHEREUM", "address": "0x055ED934c426855caB467FdF8441D4FD6a7D2659", "abi_file": "abi.erc20.json"},
             {"name": "USDC_ETHEREUM", "address": "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70", "abi_file": "abi.erc20.json"},
@@ -37,9 +37,9 @@
 
 	"binance": {
 		"contracts": [
-			{"name": "relayer_authority", "address": "0x6a71eCBd04A583dB4f473c54DC2f0B1da2B420Ab", "abi_file": "abi.relayer.external.json", "deploy_height": 25640528},
-			{"name": "vault", "address": "0x9d77064892f799AE41741eD4c447Db4d6aBed90f", "abi_file": "abi.vault.external.json", "deploy_height": 25640532},
-			{"name": "socket", "address": "0x4fc57fa874bE76be4F5D7EB587B20Ed011823E6f", "abi_file": "abi.socket.external.json", "deploy_height": 25640536},
+			{"name": "relayer_authority", "address": "0x6a71eCBd04A583dB4f473c54DC2f0B1da2B420Ab", "abi_file": "abi.relayer.external.json", "deploy_height": 25671407},
+			{"name": "vault", "address": "0x9d77064892f799AE41741eD4c447Db4d6aBed90f", "abi_file": "abi.vault.external.json", "deploy_height": 25671411},
+			{"name": "socket", "address": "0x4fc57fa874bE76be4F5D7EB587B20Ed011823E6f", "abi_file": "abi.socket.external.json", "deploy_height": 25671415},
 			{"name": "BUSD_BINANCE", "address": "0x312d92B462492B2D110c7b378a72F6F78B1d6289", "abi_file": "abi.erc20.json"},
 			{"name": "USDC_BINANCE", "address": "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB", "abi_file": "abi.erc20.json"}
 		]
