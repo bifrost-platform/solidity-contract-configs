@@ -1203,6 +1203,24 @@
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_unifiers",
+                "type": "address[]"
+            }
+        ],
+        "name": "set_unifiers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "socket",
         "outputs": [
@@ -1236,6 +1254,25 @@
                 "internalType": "Asset_Index",
                 "name": "",
                 "type": "uint128"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "uint128"
+            }
+        ],
+        "name": "token_unifiers",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
             }
         ],
         "stateMutability": "view",
