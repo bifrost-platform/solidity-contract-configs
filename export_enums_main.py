@@ -1,7 +1,6 @@
 import argparse
 import sys
 
-from bridgeconst.consts import SUPPORTING_ENUMS
 from bridgeconst.export import export_enum_json
 
 parser = argparse.ArgumentParser(description="bridge enum exporter")
@@ -17,4 +16,4 @@ if __name__ == "__main__":
         args = parser.parse_args()
         config = vars(args)["path"]
         _path = DEFAULT_ENUM_JSON_PATH if config.get("path") is None else config["path"]
-    export_enum_json(SUPPORTING_ENUMS, _path)
+    export_enum_json(_path)

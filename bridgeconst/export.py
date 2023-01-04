@@ -1,15 +1,14 @@
 import json
-from typing import List
 from .consts import EnumInterface, Chain, Symbol, Asset, OPCode, RBCMethodDirection, RBCMethodV1, OracleType, Oracle, \
     OracleSourceType, ChainEventStatus
 
 
-SUPPORTING_ENUMS = {
+SUPPORTING_ENUMS = [
     Chain, Symbol, Asset,
     OPCode, RBCMethodDirection, RBCMethodV1,
     OracleType, OracleSourceType, Oracle,
     ChainEventStatus
-}
+]
 
 
 def _generate_dict_for_index(index_type: EnumInterface):
@@ -24,9 +23,9 @@ def _generate_dict_for_index(index_type: EnumInterface):
     return index_dict
 
 
-def export_enum_json(supporting_enums: List[EnumInterface], file_path: str = None):
+def export_enum_json(file_path: str = None):
     enum_dict = {}
-    for _enum in supporting_enums:
+    for _enum in SUPPORTING_ENUMS:
         enum_dict[_enum.__name__] = _generate_dict_for_index(_enum)
 
     if file_path is None:
