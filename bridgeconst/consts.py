@@ -693,5 +693,3 @@ class TestEnum(unittest.TestCase):
         enum_dict["ChainEventStatus"] = TestEnum.generate_dict_for_index(ChainEventStatus)
 
         print(json.dumps(enum_dict, indent=4))
-
-        # print(BridgeIndex.BFC_BIFROST_ETHEREUM.analyze())

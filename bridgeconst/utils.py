@@ -1,5 +1,8 @@
+import json
 from enum import Enum
-from typing import Union, TYPE_CHECKING, List
+from typing import Union, List, TYPE_CHECKING
+if TYPE_CHECKING:
+    from .consts import EnumInterface
 
 
 def to_even_hex(a: Union[str, int]) -> str:
@@ -58,7 +61,7 @@ def parser(hex_str: str, element_types: List[Union[int, type]]) -> List[Union[in
         if isinstance(_type, int):
             start, end = end, end + _type * 2
             enc = lambda x: hex(x)
-        elif issubclass(_type, EnumInterface):
+        elif issubclass(_type, Enum):
             start, end = end, end + _type.size() * 2
             enc = lambda x: _type(x)
         else:
