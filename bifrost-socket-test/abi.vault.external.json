@@ -191,6 +191,19 @@
     {
         "inputs": [
             {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            }
+        ],
+        "name": "approves_swap_router",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "Asset_Index",
                 "name": "",
                 "type": "uint128"
@@ -211,24 +224,56 @@
                         "type": "uint128"
                     },
                     {
-                        "internalType": "uint32",
-                        "name": "_type",
-                        "type": "uint32"
-                    },
-                    {
-                        "internalType": "uint64",
-                        "name": "fee_rate",
-                        "type": "uint64"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "target",
-                        "type": "address"
+                        "internalType": "uint256",
+                        "name": "rate",
+                        "type": "uint256"
                     }
                 ],
-                "internalType": "struct Vault_Struct.Asset_Config",
-                "name": "config",
+                "internalType": "struct Vault_Struct.AmountCheckConfig",
+                "name": "fee_check",
                 "type": "tuple"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint128",
+                        "name": "min_amount",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "max_amount",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "rate",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Vault_Struct.AmountCheckConfig",
+                "name": "amount_check",
+                "type": "tuple"
+            },
+            {
+                "internalType": "enum Vault_Struct.Asset_Type",
+                "name": "asset_type",
+                "type": "uint8"
+            },
+            {
+                "internalType": "address",
+                "name": "lending_handler",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "unified",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "target",
+                "type": "address"
             },
             {
                 "internalType": "uint256",
@@ -359,19 +404,6 @@
     },
     {
         "inputs": [],
-        "name": "fee_rate",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "flag_up",
         "outputs": [
             {
@@ -404,7 +436,7 @@
                 "type": "address"
             }
         ],
-        "name": "get_asset_id",
+        "name": "get_asset_index",
         "outputs": [
             {
                 "internalType": "Asset_Index",
@@ -483,20 +515,95 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index",
-                "name": "",
-                "type": "uint128"
-            }
-        ],
-        "name": "lending_handlers",
-        "outputs": [
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint128",
+                                "name": "min_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint128",
+                                "name": "max_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "rate",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct Vault_Struct.AmountCheckConfig",
+                        "name": "fee_check",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint128",
+                                "name": "min_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint128",
+                                "name": "max_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "rate",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct Vault_Struct.AmountCheckConfig",
+                        "name": "amount_check",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "enum Vault_Struct.Asset_Type",
+                        "name": "asset_type",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "lending_handler",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "unified",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "target",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "fee",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Vault_Struct.Asset_Config[]",
+                "name": "_configs",
+                "type": "tuple[]"
             }
         ],
-        "stateMutability": "view",
+        "name": "init_assets_configs",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -970,17 +1077,17 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index",
-                "name": "_asset_index",
-                "type": "uint128"
-            },
-            {
                 "internalType": "address",
                 "name": "_token",
                 "type": "address"
+            },
+            {
+                "internalType": "Asset_Index",
+                "name": "_asset_index",
+                "type": "uint128"
             }
         ],
-        "name": "set_erc20_address",
+        "name": "set_address_to_index",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -988,9 +1095,9 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index",
-                "name": "_asset_index",
-                "type": "uint128"
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
             },
             {
                 "components": [
@@ -1007,24 +1114,56 @@
                                 "type": "uint128"
                             },
                             {
-                                "internalType": "uint32",
-                                "name": "_type",
-                                "type": "uint32"
-                            },
-                            {
-                                "internalType": "uint64",
-                                "name": "fee_rate",
-                                "type": "uint64"
-                            },
-                            {
-                                "internalType": "address",
-                                "name": "target",
-                                "type": "address"
+                                "internalType": "uint256",
+                                "name": "rate",
+                                "type": "uint256"
                             }
                         ],
-                        "internalType": "struct Vault_Struct.Asset_Config",
-                        "name": "config",
+                        "internalType": "struct Vault_Struct.AmountCheckConfig",
+                        "name": "fee_check",
                         "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint128",
+                                "name": "min_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint128",
+                                "name": "max_amount",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "rate",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct Vault_Struct.AmountCheckConfig",
+                        "name": "amount_check",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "enum Vault_Struct.Asset_Type",
+                        "name": "asset_type",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "lending_handler",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "unified",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "target",
+                        "type": "address"
                     },
                     {
                         "internalType": "uint256",
@@ -1037,43 +1176,12 @@
                         "type": "uint256"
                     }
                 ],
-                "internalType": "struct Vault_Struct.AssetInfo",
-                "name": "_asset_info",
-                "type": "tuple"
+                "internalType": "struct Vault_Struct.Asset_Config[]",
+                "name": "_configs",
+                "type": "tuple[]"
             }
         ],
-        "name": "set_erc20_info",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Asset_Index[]",
-                "name": "_asset_indices",
-                "type": "uint128[]"
-            },
-            {
-                "internalType": "address[]",
-                "name": "_tokens",
-                "type": "address[]"
-            }
-        ],
-        "name": "set_erc20_target",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_fee_rate",
-                "type": "uint256"
-            }
-        ],
-        "name": "set_fee_rate",
+        "name": "set_assets_configs",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1092,42 +1200,6 @@
             }
         ],
         "name": "set_handlers",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Asset_Index[]",
-                "name": "_asset_indices",
-                "type": "uint128[]"
-            },
-            {
-                "internalType": "uint128[]",
-                "name": "_max_amount",
-                "type": "uint128[]"
-            }
-        ],
-        "name": "set_max",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Asset_Index[]",
-                "name": "_asset_indices",
-                "type": "uint128[]"
-            },
-            {
-                "internalType": "uint128[]",
-                "name": "_min_amount",
-                "type": "uint128[]"
-            }
-        ],
-        "name": "set_min",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1174,17 +1246,12 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index[]",
-                "name": "_asset_indices",
-                "type": "uint128[]"
-            },
-            {
                 "internalType": "address",
                 "name": "_swap_router",
                 "type": "address"
             }
         ],
-        "name": "set_swap",
+        "name": "set_swap_router",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1198,6 +1265,24 @@
             }
         ],
         "name": "set_this_chain_coin_index",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "uint128[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_unifieds",
+                "type": "address[]"
+            }
+        ],
+        "name": "set_unifieds",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
