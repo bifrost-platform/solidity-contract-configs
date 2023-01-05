@@ -437,6 +437,7 @@ class RBCMethodV1(EnumInterface):
     NONE = 0x0000000000000000
     WARP_IN = concat_as_int(2, RBCMethodDirection.INBOUND, OPCode.WARP)
     WARP_UNIFY = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY)
+    WARP_UNIFY_SPLIT = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT)
     WARP_UNIFY_DEPOSIT = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.DEPOSIT)
     WARP_UNIFY_REPAY = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.REPAY)
     WARP_UNIFY_SWAP = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.SWAP)
@@ -444,6 +445,7 @@ class RBCMethodV1(EnumInterface):
     WARP_CALL = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.CALL, OPCode.WARP)
 
     WARP_OUT = concat_as_int(2, RBCMethodDirection.OUTBOUND, OPCode.WARP)
+    UNIFY_SPLIT_WARP = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.UNIFY_SPLIT, OPCode.WARP)
     SPLIT_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.SPLIT, OPCode.WARP)
     BORROW_SPLIT_WARP = concat_as_int(4, RBCMethodDirection.OUTBOUND, OPCode.BORROW, OPCode.SPLIT, OPCode.WARP)
     BORROW_UNIFY_SPLIT_WARP = concat_as_int(
