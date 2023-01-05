@@ -60,7 +60,7 @@ def parser(hex_str: str, element_types: List[Union[int, type]]) -> List[Union[in
     for _type in element_types:
         if isinstance(_type, int):
             start, end = end, end + _type * 2
-            enc = lambda x: hex(x)
+            enc = lambda x: to_even_hex(x)
         elif issubclass(_type, Enum):
             start, end = end, end + _type.size() * 2
             enc = lambda x: _type(x)

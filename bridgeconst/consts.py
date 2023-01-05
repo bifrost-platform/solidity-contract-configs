@@ -695,3 +695,7 @@ class TestEnum(unittest.TestCase):
         enum_dict["ChainEventStatus"] = TestEnum.generate_dict_for_index(ChainEventStatus)
 
         print(json.dumps(enum_dict, indent=4))
+
+    def test_analyze(self):
+        result = Asset.BIFI_ON_ETH_GOERLI.analyze()
+        print(result)
