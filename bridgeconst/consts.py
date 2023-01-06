@@ -606,6 +606,11 @@ class RBCMethodV1(EnumInterface):
         return self.analyze()[2]
 
     @classmethod
+    def from_bytes(cls, value: bytes):
+        len_op = int.from_bytes(value[:1], "big")
+        return cls(int.from_bytes(value[:len_op+1], "big"))
+
+    @classmethod
     def from_components(cls, direction: RBCMethodDirection, op_codes: List[OPCode]):
         return cls(concat_as_int(len(op_codes) + 1, direction, op_codes))
 
@@ -826,5 +831,5 @@ class TestEnum(unittest.TestCase):
         # print(RBCMethodV1.WARP_UNIFY.len_prefix)
         # print(RBCMethodV1.WARP_UNIFY.direction)
         # print(RBCMethodV1.WARP_UNIFY.opcodes)
-        result = Chain.from_bytes(b'\x00\x00\x00\x05')
+        result = RBCMethodV1.from_bytes(bytes.fromhex("02020100000000000000000000000000"))
         print(result)
