@@ -1,10 +1,10 @@
 {
 	"bifrost": {
 		"contracts": [
-			{"name": "relayer_authority", "address": "", "abi_file": "abi.relayer.bifrost.json", "deploy_height": 1426518},
-			{"name": "vault", "address": "", "abi_file": "abi.vault.bifrost.json", "deploy_height": 1426522},
-			{"name": "socket", "address": "", "abi_file": "abi.socket.bifrost.json", "deploy_height": 1426524},
-			{"name": "oracle", "address": "", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 2057990},
+			{"name": "relayer_authority", "address": "0x0000000000000000000000000000000000002000", "abi_file": "abi.relayer.bifrost.json", "deploy_height": 1426518},
+			{"name": "vault", "address": "0x6E4155C70567334D102b3a1D131261a57235dCfE", "abi_file": "abi.vault.bifrost.json", "deploy_height": 1426522},
+			{"name": "socket", "address": "0x2B2209970B3eAf8CF4e60646b18B46A15e6f48C9", "abi_file": "abi.socket.bifrost.json", "deploy_height": 1426524},
+			{"name": "oracle", "address": "0x346fb35bA29F9Df7cD040d38F13fa510d0bbf325", "abi_file": "abi.oracle.bifrost.json", "deploy_height": 2057990},
 			{"name": "BFC_ETHEREUM", "address": "0xfB5D65B8e8784ae3e004e1e476B05d408e6A1f2D", "abi_file": "abi.erc20.json"},
 			{"name": "ETH_ETHEREUM", "address": "0xD089773D293F43440529e6cfa84639E0498A0277", "abi_file": "abi.erc20.json"},
             {"name": "BIFI_ETHEREUM", "address": "0xC4F1CcafCBeB0BE0F1CDBA499696603528655F29", "abi_file": "abi.erc20.json"},
