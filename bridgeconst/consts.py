@@ -13,6 +13,12 @@ class EnumInterface(Enum):
         return self.name
 
     @classmethod
+    def from_bytes(cls, value: bytes):
+        if len(value) != cls.size():
+            raise Exception("Not matched size: actual({}), expected({})".format(len(value), cls.size()))
+        return cls(int.from_bytes(value, "big"))
+
+    @classmethod
     def from_name(cls, name):
         return cls.__dict__[name]
 
@@ -817,6 +823,8 @@ class TestEnum(unittest.TestCase):
             self.assertEqual(len(asset.address), 42)
 
     def test_rbc_method(self):
-        print(RBCMethodV1.WARP_UNIFY.len_prefix)
-        print(RBCMethodV1.WARP_UNIFY.direction)
-        print(RBCMethodV1.WARP_UNIFY.opcodes)
+        # print(RBCMethodV1.WARP_UNIFY.len_prefix)
+        # print(RBCMethodV1.WARP_UNIFY.direction)
+        # print(RBCMethodV1.WARP_UNIFY.opcodes)
+        result = Chain.from_bytes(b'\x00\x00\x00\x05')
+        print(result)
