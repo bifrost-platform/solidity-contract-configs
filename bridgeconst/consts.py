@@ -7,6 +7,12 @@ from bridgeconst.utils import concat_as_int, parser, to_even_hex, zero_filled_he
 
 
 class EnumInterface(Enum):
+    def __str__(self):
+        return self.name
+
+    def __repr__(self) -> str:
+        return self.name
+
     @classmethod
     def from_name(cls, name):
         return cls.__dict__[name]
