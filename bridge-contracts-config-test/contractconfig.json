@@ -1,6 +1,7 @@
 {
 	"BFC_TEST": {
 		"contracts": [
+			{"name": "authority", "address": "0x0000000000000000000000000000000000000400", "abi_file": "abi.authority.bifrost.json", "deploy_height": 1426518},
 			{"name": "relayer_authority", "address": "0x0000000000000000000000000000000000002000", "abi_file": "abi.relayer.bifrost.json", "deploy_height": 1426518},
 			{"name": "vault", "address": "0x6E4155C70567334D102b3a1D131261a57235dCfE", "abi_file": "abi.vault.bifrost.json", "deploy_height": 1426522},
 			{"name": "socket", "address": "0x2B2209970B3eAf8CF4e60646b18B46A15e6f48C9", "abi_file": "abi.socket.bifrost.json", "deploy_height": 1426524},
