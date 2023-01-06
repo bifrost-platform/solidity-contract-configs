@@ -1,8 +1,5 @@
 import json
-from .consts import EnumInterface, Chain, Symbol, Asset, OPCode, RBCMethodDirection, RBCMethodV1, OracleType, Oracle, \
-    OracleSourceType, ChainEventStatus, AssetType
-
-
+from .consts import EnumInterface, SUPPORTING_ENUMS
 
 
 def _generate_dict_for_index(index_type: EnumInterface):

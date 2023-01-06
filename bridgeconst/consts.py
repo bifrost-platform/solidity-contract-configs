@@ -38,6 +38,9 @@ class EnumInterface(Enum):
     def formatted_hex(self) -> str:
         return "0x" + self.formatted_bytes().hex()
 
+    def formatted_int(self) -> int:
+        return int(self.formatted_hex(), 16)
+
 
 class Chain(EnumInterface):
     """
