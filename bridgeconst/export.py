@@ -1,10 +1,9 @@
 import json
 from .consts import EnumInterface, Chain, Symbol, Asset, OPCode, RBCMethodDirection, RBCMethodV1, OracleType, Oracle, \
-    OracleSourceType, ChainEventStatus
-
+    OracleSourceType, ChainEventStatus, AssetType
 
 SUPPORTING_ENUMS = [
-    Chain, Symbol, Asset,
+    Chain, Symbol, AssetType, Asset,
     OPCode, RBCMethodDirection, RBCMethodV1,
     OracleType, OracleSourceType, Oracle,
     ChainEventStatus

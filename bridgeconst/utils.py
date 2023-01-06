@@ -1,8 +1,5 @@
-import json
 from enum import Enum
 from typing import Union, List, TYPE_CHECKING
-if TYPE_CHECKING:
-    from .consts import EnumInterface
 
 
 def to_even_hex(a: Union[str, int]) -> str:
