@@ -295,6 +295,30 @@
                 "internalType": "Asset_Index",
                 "name": "",
                 "type": "bytes32"
+            },
+            {
+                "internalType": "RBCmethod",
+                "name": "",
+                "type": "bytes16"
+            }
+        ],
+        "name": "assets_methods_filter",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
             }
         ],
         "name": "assets_pair",
@@ -360,7 +384,7 @@
                     {
                         "internalType": "ChainIndex",
                         "name": "chain",
-                        "type": "bytes8"
+                        "type": "bytes4"
                     },
                     {
                         "internalType": "RBCmethod",
@@ -861,7 +885,7 @@
                             {
                                 "internalType": "ChainIndex",
                                 "name": "chain",
-                                "type": "bytes8"
+                                "type": "bytes4"
                             },
                             {
                                 "internalType": "RBCmethod",
@@ -1310,6 +1334,29 @@
         "inputs": [
             {
                 "internalType": "Asset_Index[]",
+                "name": "_unified_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "ChainIndex[]",
+                "name": "_chain",
+                "type": "bytes4[]"
+            },
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_bridge_indices",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "set_unified_asset_pair",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
                 "type": "bytes32[]"
             },
@@ -1380,6 +1427,30 @@
             }
         ],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "ChainIndex",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "name": "unified_assets_pair",
+        "outputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
