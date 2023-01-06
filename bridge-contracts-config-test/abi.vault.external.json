@@ -127,7 +127,7 @@
                 "indexed": false,
                 "internalType": "Asset_Index",
                 "name": "asset_id_",
-                "type": "uint128"
+                "type": "bytes32"
             },
             {
                 "indexed": false,
@@ -193,7 +193,7 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             }
         ],
         "name": "approves_swap_router",
@@ -206,7 +206,7 @@
             {
                 "internalType": "Asset_Index",
                 "name": "",
-                "type": "uint128"
+                "type": "bytes32"
             }
         ],
         "name": "assets",
@@ -292,6 +292,25 @@
     {
         "inputs": [
             {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "name": "assets_pair",
+        "outputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "address",
                 "name": "",
                 "type": "address"
@@ -341,12 +360,12 @@
                     {
                         "internalType": "ChainIndex",
                         "name": "chain",
-                        "type": "uint64"
+                        "type": "bytes8"
                     },
                     {
                         "internalType": "RBCmethod",
                         "name": "method",
-                        "type": "uint64"
+                        "type": "bytes16"
                     }
                 ],
                 "internalType": "struct Socket_Struct.Instruction",
@@ -358,12 +377,12 @@
                     {
                         "internalType": "Asset_Index",
                         "name": "tokenIDX0",
-                        "type": "uint128"
+                        "type": "bytes32"
                     },
                     {
                         "internalType": "Asset_Index",
                         "name": "tokenIDX1",
-                        "type": "uint128"
+                        "type": "bytes32"
                     },
                     {
                         "internalType": "address",
@@ -441,7 +460,7 @@
             {
                 "internalType": "Asset_Index",
                 "name": "",
-                "type": "uint128"
+                "type": "bytes32"
             }
         ],
         "stateMutability": "view",
@@ -517,7 +536,7 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             },
             {
                 "components": [
@@ -609,9 +628,27 @@
     {
         "inputs": [
             {
+                "internalType": "Asset_Index[]",
+                "name": "pairs",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "init_assets_pair",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "Asset_Index",
                 "name": "_asset_index",
-                "type": "uint128"
+                "type": "bytes32"
             },
             {
                 "internalType": "uint256",
@@ -824,12 +861,12 @@
                             {
                                 "internalType": "ChainIndex",
                                 "name": "chain",
-                                "type": "uint64"
+                                "type": "bytes8"
                             },
                             {
                                 "internalType": "RBCmethod",
                                 "name": "method",
-                                "type": "uint64"
+                                "type": "bytes16"
                             }
                         ],
                         "internalType": "struct Socket_Struct.Instruction",
@@ -841,12 +878,12 @@
                             {
                                 "internalType": "Asset_Index",
                                 "name": "tokenIDX0",
-                                "type": "uint128"
+                                "type": "bytes32"
                             },
                             {
                                 "internalType": "Asset_Index",
                                 "name": "tokenIDX1",
-                                "type": "uint128"
+                                "type": "bytes32"
                             },
                             {
                                 "internalType": "address",
@@ -897,12 +934,12 @@
                     {
                         "internalType": "Asset_Index",
                         "name": "tokenIDX0",
-                        "type": "uint128"
+                        "type": "bytes32"
                     },
                     {
                         "internalType": "Asset_Index",
                         "name": "tokenIDX1",
-                        "type": "uint128"
+                        "type": "bytes32"
                     },
                     {
                         "internalType": "address",
@@ -986,12 +1023,12 @@
                     {
                         "internalType": "Asset_Index",
                         "name": "tokenIDX0",
-                        "type": "uint128"
+                        "type": "bytes32"
                     },
                     {
                         "internalType": "Asset_Index",
                         "name": "tokenIDX1",
-                        "type": "uint128"
+                        "type": "bytes32"
                     },
                     {
                         "internalType": "address",
@@ -1048,12 +1085,12 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             },
             {
                 "internalType": "RBCmethod[][]",
                 "name": "_methods",
-                "type": "uint64[][]"
+                "type": "bytes16[][]"
             }
         ],
         "name": "set_RBCmethod",
@@ -1084,7 +1121,7 @@
             {
                 "internalType": "Asset_Index",
                 "name": "_asset_index",
-                "type": "uint128"
+                "type": "bytes32"
             }
         ],
         "name": "set_address_to_index",
@@ -1097,7 +1134,7 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             },
             {
                 "components": [
@@ -1191,7 +1228,7 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             },
             {
                 "internalType": "address[]",
@@ -1209,7 +1246,7 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             }
         ],
         "name": "set_mintable",
@@ -1261,7 +1298,7 @@
             {
                 "internalType": "Asset_Index",
                 "name": "_coin_index",
-                "type": "uint128"
+                "type": "bytes32"
             }
         ],
         "name": "set_this_chain_coin_index",
@@ -1274,7 +1311,7 @@
             {
                 "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
-                "type": "uint128[]"
+                "type": "bytes32[]"
             },
             {
                 "internalType": "address[]",
@@ -1320,7 +1357,7 @@
             {
                 "internalType": "Asset_Index",
                 "name": "",
-                "type": "uint128"
+                "type": "bytes32"
             }
         ],
         "stateMutability": "view",
