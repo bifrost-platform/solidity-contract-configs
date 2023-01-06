@@ -572,16 +572,20 @@ class RBCMethodV1(EnumInterface):
     def formatted_bytes(self) -> bytes:
         return bytes.fromhex(self.formatted_hex().replace("0x", ""))
 
-    def analyze(self) -> Tuple[int, List[OPCode]]:
+    def analyze(self) -> Tuple[int, RBCMethodDirection, List[OPCode]]:
         self_hex = self.formatted_hex().replace("0x", "")
-        len_op, self_hex = int(self_hex[:2], 16), self_hex[2:]
+        len_op, direction, self_hex = int(self_hex[:2], 16), RBCMethodDirection(int(self_hex[2:4])), self_hex[4:]
 
-        start, end = 0, 0
         op_code_list = list()
-        for i in range(len_op):
-            op_code_list.append(OPCode(int(self_hex[i * OPCode.size() * 2:(i + 1) * OPCode.size() * 2], 16)))
-            self_hex = self_hex[end:]
-        return len_op, op_code_list
+        for i in range(len_op - 1):
+            parsed_int = int(self_hex[:OPCode.size() * 2], 16)
+            self_hex = self_hex[OPCode.size() * 2:]
+            op_code_list.append(OPCode(parsed_int))
+
+        if self.size() - len_op - 1 - len(self_hex) // 2 != 0:
+            raise Exception("Wrong enum value")
+
+        return len_op, direction, op_code_list
 
     @property
     def len_prefix(self) -> int:
@@ -811,3 +815,8 @@ class TestEnum(unittest.TestCase):
             self.assertTrue(asset.address, str)
             self.assertTrue(asset.address.startswith("0x"))
             self.assertEqual(len(asset.address), 42)
+
+    def test_rbc_method(self):
+        print(RBCMethodV1.WARP_UNIFY.len_prefix)
+        print(RBCMethodV1.WARP_UNIFY.direction)
+        print(RBCMethodV1.WARP_UNIFY.opcodes)
