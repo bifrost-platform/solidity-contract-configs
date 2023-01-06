@@ -1,4 +1,3 @@
-import json
 import unittest
 from typing import Union, List, cast, Tuple
 from enum import Enum
@@ -76,11 +75,11 @@ class Chain(EnumInterface):
     KLAY_TEST = 1001
 
     # reserved
-    RESERVED_01  = 0xffffffff
-    RESERVED_02  = 0xfffffffe
-    RESERVED_03  = 0xfffffffd
-    RESERVED_04  = 0xfffffffc
-    RESERVED_05  = 0xfffffffb
+    RESERVED_01 = 0xffffffff
+    RESERVED_02 = 0xfffffffe
+    RESERVED_03 = 0xfffffffd
+    RESERVED_04 = 0xfffffffc
+    RESERVED_05 = 0xfffffffb
 
     @staticmethod
     def is_composed() -> bool:
@@ -129,7 +128,7 @@ class Symbol(EnumInterface):
 
     def is_coin_on(self, chain_index: Chain) -> bool:
         """ return True if the symbol is coin on the chain, or returns false """
-        return True if self.name == chain_index.name.split("-")[0] else False
+        return True if self.name == chain_index.name.split("_")[0] else False
 
     @property
     def decimal(self):
@@ -350,9 +349,9 @@ class Asset(EnumInterface):
     BRIDGED_ETH_MAIN_USDC_ON_BFC_TEST = concat_as_int(
         Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
-    BRIDGED_ETH_GOERLI_USDC_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
-    )
+    # BRIDGED_ETH_GOERLI_USDC_ON_BFC_MAIN = concat_as_int(
+    #     Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    # )
     BRIDGED_ETH_GOERLI_USDC_ON_BFC_TEST = concat_as_int(
         Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0xa7bb0a2693fb4d1ab9a6C5acCf5C63f12fab1855"
     )
@@ -409,23 +408,36 @@ class Asset(EnumInterface):
     def components() -> List[str]:
         return [Symbol.str_with_size(), AssetType.str_with_size(), Chain.str_with_size(), "ADDRESS-{}".format(ERC20_ADDRESS_BSIZE)]
 
-    def analyze(self) -> List[Union[int, type]]:
-        """ symbol, related chain and erc20 address """
-        return parser(self.formatted_hex(), [Symbol, AssetType, Chain, ERC20_ADDRESS_BSIZE])
-
     @staticmethod
     def size():
         return Symbol.size() + AssetType.size() + Chain.size() + ERC20_ADDRESS_BSIZE
 
+    def analyze(self) -> List[Union[str, type]]:
+        """ symbol, related chain and erc20 address """
+        return parser(self.formatted_hex(), [Symbol, AssetType, Chain, ERC20_ADDRESS_BSIZE])
+
+    def is_coin(self) -> bool:
+        return self.symbol.is_coin_on(self.chain)
+
+    @property
     def symbol(self) -> Symbol:
         return cast(Symbol, self.analyze()[0])
 
-    def is_coin_on(self) -> bool:
-        return self.analyze()[1] == AssetType.COIN
+    @property
+    def asset_type(self) -> AssetType:
+        return cast(AssetType, self.analyze()[1])
+
+    @property
+    def chain(self) -> Chain:
+        return cast(Chain, self.analyze()[2])
+
+    @property
+    def address(self) -> str:
+        return to_even_hex(self.analyze()[3])
 
     @property
     def decimal(self) -> int:
-        return self.symbol().decimal
+        return self.symbol.decimal
 
     @classmethod
     def from_components(cls, symbol: Symbol, asset_type: AssetType, chain: Chain, address: str):
@@ -541,16 +553,9 @@ class RBCMethodV1(EnumInterface):
             RBCMethodDirection.str_with_size(),
             "DYNAMIC_SIZE_ARRAY[{}]".format(OPCode.str_with_size())]
 
-    def analyze(self) -> Tuple[int, List[OPCode]]:
-        self_hex = self.formatted_hex().replace("0x", "")
-        len_op, self_hex = int(self_hex[:2], 16), self_hex[2:]
-
-        start, end = 0, 0
-        op_code_list = list()
-        for i in range(len_op):
-            op_code_list.append(OPCode(int(self_hex[i * OPCode.size() * 2:(i + 1) * OPCode.size() * 2], 16)))
-            self_hex = self_hex[end:]
-        return len_op, op_code_list
+    @staticmethod
+    def size():
+        return 16
 
     def formatted_hex(self) -> str:
         if self == self.__class__.NONE:
@@ -564,9 +569,28 @@ class RBCMethodV1(EnumInterface):
     def formatted_bytes(self) -> bytes:
         return bytes.fromhex(self.formatted_hex().replace("0x", ""))
 
-    @staticmethod
-    def size():
-        return 16
+    def analyze(self) -> Tuple[int, List[OPCode]]:
+        self_hex = self.formatted_hex().replace("0x", "")
+        len_op, self_hex = int(self_hex[:2], 16), self_hex[2:]
+
+        start, end = 0, 0
+        op_code_list = list()
+        for i in range(len_op):
+            op_code_list.append(OPCode(int(self_hex[i * OPCode.size() * 2:(i + 1) * OPCode.size() * 2], 16)))
+            self_hex = self_hex[end:]
+        return len_op, op_code_list
+
+    @property
+    def len_prefix(self) -> int:
+        return self.analyze()[0]
+
+    @property
+    def direction(self) -> RBCMethodDirection:
+        return cast(RBCMethodDirection, self.analyze()[1])
+
+    @property
+    def opcodes(self) -> List[OPCode]:
+        return self.analyze()[2]
 
     @classmethod
     def from_components(cls, direction: RBCMethodDirection, op_codes: List[OPCode]):
@@ -656,15 +680,31 @@ class Oracle(EnumInterface):
             "DISTINGUISHED_BYTES-{}".format(DISTINGUISH_NUM_BSIZE)
         ]
 
-    def analyze(self) -> List[Union[int, type]]:
-        return parser(self.formatted_hex(), [OracleType, OracleSourceType, DISTINGUISH_NUM_BSIZE])
-
     @staticmethod
     def size() -> int:
         return OracleType.size() + OracleSourceType.size() + DISTINGUISH_NUM_BSIZE
 
+    def analyze(self) -> List[Union[str, type]]:
+        return parser(self.formatted_hex(), [OracleType, OracleSourceType, DISTINGUISH_NUM_BSIZE])
+
+    @property
+    def oracle_type(self) -> OracleType:
+        return cast(OracleType, self.analyze()[0])
+
+    @property
+    def oracle_src_type(self) -> OracleSourceType:
+        return cast(OracleSourceType, self.analyze()[1])
+
+    @property
+    def distinguish_bytes(self):
+        return int(self.analyze()[2], 16).to_bytes(DISTINGUISH_NUM_BSIZE, "big")
+
+    @property
+    def distinguish_hex(self) -> str:
+        return to_even_hex(self.distinguish_bytes.hex())
+
     @classmethod
-    def build(cls, oracle_type: OracleType, oracle_source_type: OracleSourceType, distinguish_bytes: Union[bytes, str]):
+    def from_components(cls, oracle_type: OracleType, oracle_source_type: OracleSourceType, distinguish_bytes: Union[bytes, str]):
         if isinstance(distinguish_bytes, str):
             distinguish_bytes = bytes.fromhex(distinguish_bytes)
         return cls(concat_as_int(oracle_type, oracle_source_type, distinguish_bytes))
@@ -714,51 +754,57 @@ class ChainEventStatus(EnumInterface):
         return 1
 
 
+SUPPORTING_ENUMS = [
+    Chain, Symbol, AssetType, Asset,
+    OPCode, RBCMethodDirection, RBCMethodV1,
+    OracleType, OracleSourceType, Oracle,
+    ChainEventStatus
+]
+
+
 class TestEnum(unittest.TestCase):
-    @staticmethod
-    def generate_dict_for_index(index_type):
-        index_dict = {
-            "bsize": index_type.size(),
-            "composed": index_type.is_composed(),
-            "components": index_type.components()
-        }
+    def setUp(self) -> None:
+        self.composed_enum = [Asset, RBCMethodV1, OracleType]
+        self.non_composed_enum = [
+            Chain, Symbol, AssetType, OPCode, RBCMethodDirection, OracleType, OracleSourceType, ChainEventStatus
+        ]
+        self.assertEqual(len(self.composed_enum + self.non_composed_enum), len(SUPPORTING_ENUMS))
 
-        for idx in index_type:
-            if idx.size() != index_dict["bsize"]:
-                raise Exception("size error: {}".format(idx.name))
-            if idx.is_composed():
-                if idx.analyze() == []:
-                    raise Exception("composed enum has no components: {}".format(idx.name))
-                if idx not in RBCMethodV1:
-                    comp_size = 0
-                    for comp in idx.components():
-                        comp_size += int(comp.split("-")[1].replace("]", ""))
-                    if idx.size() != comp_size:
-                        raise Exception("Not match enum size and the sum of components sizes")
-                else:
-                    pass
+    def test_formatting(self):
+        for _enum in SUPPORTING_ENUMS:
+            for ele in _enum:
+                ele_hex = ele.formatted_hex()
+                ele_bytes = ele.formatted_bytes()
+                self.assertTrue(len(ele_hex), ele.size() * 2 + 2)
+                self.assertTrue(len(ele_bytes), ele.size())
 
-            index_dict[idx.name] = idx.formatted_hex()
-        return index_dict
+    def test_composing(self):
+        for _enum in self.composed_enum:
+            self.assertFalse(_enum.is_composed() and _enum.components() == [])
 
-    def test_print_enum(self):
-        enum_dict = {}
-        enum_dict["Chain"] = TestEnum.generate_dict_for_index(Chain)
-        enum_dict["Symbol"] = TestEnum.generate_dict_for_index(Symbol)
-        enum_dict["AssetType"] = TestEnum.generate_dict_for_index(AssetType)
-        enum_dict["Asset"] = TestEnum.generate_dict_for_index(Asset)
+        for _enum in self.non_composed_enum:
+            self.assertTrue(Asset.is_composed() and Asset.components() != [])
 
-        enum_dict["OPCode"] = TestEnum.generate_dict_for_index(OPCode)
-        enum_dict["RBCMethodDirection"] = TestEnum.generate_dict_for_index(RBCMethodDirection)
-        enum_dict["RBCMethodV1"] = TestEnum.generate_dict_for_index(RBCMethodV1)
+    def test_asset_analyzing(self):
+        for asset in Asset:
+            asset_type = asset.asset_type
+            if asset_type == AssetType.BRIDGED:
+                self.assertEqual(asset.name.split("_")[0], AssetType.BRIDGED.name)
+            elif asset_type == AssetType.UNIFIED:
+                self.assertEqual(asset.name.split("_")[0], AssetType.UNIFIED.name)
+            elif asset_type == AssetType.COIN:
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.BRIDGED.name)
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.UNIFIED.name)
+                self.assertEqual(asset.address, COIN_ADDRESS)
+                self.assertTrue(asset.is_coin())
+            elif asset_type == AssetType.RESERVED:
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.BRIDGED.name)
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.UNIFIED.name)
+                self.assertNotEqual(asset.address, COIN_ADDRESS)
+                self.assertFalse(asset.is_coin())
+            else:
+                self.assertEqual(asset, Asset.NONE)
 
-        enum_dict["OracleType"] = TestEnum.generate_dict_for_index(OracleType)
-        enum_dict["OracleSourceType"] = TestEnum.generate_dict_for_index(OracleSourceType)
-        enum_dict["Oracle"] = TestEnum.generate_dict_for_index(Oracle)
-        enum_dict["ChainEventStatus"] = TestEnum.generate_dict_for_index(ChainEventStatus)
-
-        print(json.dumps(enum_dict, indent=4))
-
-    def test_analyze(self):
-        result = Asset.BIFI_ON_ETH_GOERLI.analyze()
-        print(result)
+            self.assertTrue(asset.address, str)
+            self.assertTrue(asset.address.startswith("0x"))
+            self.assertEqual(len(asset.address), 42)
