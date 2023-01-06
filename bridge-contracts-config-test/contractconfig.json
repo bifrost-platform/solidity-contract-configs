@@ -1,5 +1,5 @@
 {
-	"bifrost": {
+	"BFC_TEST": {
 		"contracts": [
 			{"name": "relayer_authority", "address": "0x0000000000000000000000000000000000002000", "abi_file": "abi.relayer.bifrost.json", "deploy_height": 1426518},
 			{"name": "vault", "address": "0x6E4155C70567334D102b3a1D131261a57235dCfE", "abi_file": "abi.vault.bifrost.json", "deploy_height": 1426522},
@@ -18,7 +18,7 @@
 			{"name": "UNIFIED_BFC_ON_USDC_TEST", "address": "0x28661511CDA7119B2185c647F23106a637CC074f", "abi_file": "abi.unified.erc20.json"}
 		]
 	},
-	"ethereum": {
+	"ETH_GOERLI": {
 		"contracts": [
 			{"name": "relayer_authority", "address": "0x42535cc405bd2CA37379781b66cBb2A7A2f097E4", "abi_file": "abi.relayer.external.json", "deploy_height": 8052946},
 			{"name": "vault", "address": "0x587D1B3d4706a5e5039f7959a58506C93057CDb5", "abi_file": "abi.vault.external.json", "deploy_height": 8052948},
@@ -28,7 +28,7 @@
             {"name": "USDC_ON_ETH_GOERLI", "address": "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70", "abi_file": "abi.erc20.json"}
 		]
 	},
-	"binance": {
+	"BNB_TEST": {
 		"contracts": [
 			{"name": "relayer_authority", "address": "0x1E404cF7CEE4F181d9dD4dFd642338A9bE96270C", "abi_file": "abi.relayer.external.json", "deploy_height": 25067012},
 			{"name": "vault", "address": "0xFaf2c8BFd8f7Edb4F7E48c33508c81020f6274A1", "abi_file": "abi.vault.external.json", "deploy_height": 25067016},
