@@ -20,9 +20,9 @@
 	},
 	"ethereum": {
 		"contracts": [
-			{"name": "relayer_authority", "address": "", "abi_file": "abi.relayer.external.json", "deploy_height": 8052946},
-			{"name": "vault", "address": "", "abi_file": "abi.vault.external.json", "deploy_height": 8052948},
-			{"name": "socket", "address": "", "abi_file": "abi.socket.external.json", "deploy_height": 8052951},
+			{"name": "relayer_authority", "address": "0x42535cc405bd2CA37379781b66cBb2A7A2f097E4", "abi_file": "abi.relayer.external.json", "deploy_height": 8052946},
+			{"name": "vault", "address": "0x587D1B3d4706a5e5039f7959a58506C93057CDb5", "abi_file": "abi.vault.external.json", "deploy_height": 8052948},
+			{"name": "socket", "address": "0x3b4774D4AFA8164918Dd288bd0061764c28E7Ef0", "abi_file": "abi.socket.external.json", "deploy_height": 8052951},
 			{"name": "BFC_ON_ETH_GOERLI", "address": "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54", "abi_file": "abi.erc20.json"},
             {"name": "BIFI_ON_ETH_GOERLI", "address": "0x055ED934c426855caB467FdF8441D4FD6a7D2659", "abi_file": "abi.erc20.json"},
             {"name": "USDC_ON_ETH_GOERLI", "address": "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70", "abi_file": "abi.erc20.json"}
