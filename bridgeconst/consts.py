@@ -1,4 +1,3 @@
-import json
 import unittest
 from typing import Union, List, cast, Tuple
 from enum import Enum
@@ -7,6 +6,12 @@ from bridgeconst.utils import concat_as_int, parser, to_even_hex, zero_filled_he
 
 
 class EnumInterface(Enum):
+    def __str__(self):
+        return self.name
+
+    def __repr__(self) -> str:
+        return self.name
+
     @classmethod
     def from_name(cls, name):
         return cls.__dict__[name]
@@ -32,6 +37,9 @@ class EnumInterface(Enum):
 
     def formatted_hex(self) -> str:
         return "0x" + self.formatted_bytes().hex()
+
+    def formatted_int(self) -> int:
+        return int(self.formatted_hex(), 16)
 
 
 class Chain(EnumInterface):
@@ -70,11 +78,11 @@ class Chain(EnumInterface):
     KLAY_TEST = 1001
 
     # reserved
-    RESERVED_01  = 0xffffffff
-    RESERVED_02  = 0xfffffffe
-    RESERVED_03  = 0xfffffffd
-    RESERVED_04  = 0xfffffffc
-    RESERVED_05  = 0xfffffffb
+    RESERVED_01 = 0xffffffff
+    RESERVED_02 = 0xfffffffe
+    RESERVED_03 = 0xfffffffd
+    RESERVED_04 = 0xfffffffc
+    RESERVED_05 = 0xfffffffb
 
     @staticmethod
     def is_composed() -> bool:
@@ -86,7 +94,7 @@ class Chain(EnumInterface):
 
     @staticmethod
     def size():
-        return 8
+        return 4
 
 
 class Symbol(EnumInterface):
@@ -123,12 +131,32 @@ class Symbol(EnumInterface):
 
     def is_coin_on(self, chain_index: Chain) -> bool:
         """ return True if the symbol is coin on the chain, or returns false """
-        return True if self.name == chain_index.name.split("-")[0] else False
+        return True if self.name == chain_index.name.split("_")[0] else False
 
     @property
     def decimal(self):
         """ return a decimal of the asset (self) """
         return 6 if self == Symbol.USDC or self == Symbol.USDT else 18
+
+
+class AssetType(EnumInterface):
+    NONE = 0
+    COIN = 1
+    UNIFIED = 2
+    BRIDGED = 3
+    RESERVED = 0xffffffff
+
+    @classmethod
+    def size(cls) -> int:
+        return 4
+
+    @classmethod
+    def is_composed(cls) -> bool:
+        return False
+
+    @classmethod
+    def components(cls) -> List[str]:
+        return []
 
 
 ERC20_ADDRESS_BSIZE = 20
@@ -177,179 +205,202 @@ class Asset(EnumInterface):
 
     # BFC
     # ------------------------------------------------------------------------------------------------------------------
-    BFC_ON_BFC_MAIN = concat_as_int(Symbol.BFC, Chain.BFC_MAIN, COIN_ADDRESS)
-    BFC_ON_BFC_TEST = concat_as_int(Symbol.BFC, Chain.BFC_TEST, COIN_ADDRESS)
+    BFC_ON_BFC_MAIN = concat_as_int(Symbol.BFC, AssetType.COIN, Chain.BFC_MAIN, COIN_ADDRESS)
+    BFC_ON_BFC_TEST = concat_as_int(Symbol.BFC, AssetType.COIN, Chain.BFC_TEST, COIN_ADDRESS)
     # ------------------------------------------------------------------------------------------------------------------
-    BFC_ON_ETH_MAIN = concat_as_int(Symbol.BFC, Chain.ETH_MAIN, "0x000000000000000000000000000000000000000")
-    BFC_ON_ETH_GOERLI = concat_as_int(Symbol.BFC, Chain.ETH_GOERLI, "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54")
+    BFC_ON_ETH_MAIN = concat_as_int(Symbol.BFC, AssetType.RESERVED, Chain.ETH_MAIN, "0x000000000000000000000000000000000000000")
+    BFC_ON_ETH_GOERLI = concat_as_int(Symbol.BFC, AssetType.RESERVED, Chain.ETH_GOERLI, "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54")
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_BFC_ON_BFC_MAIN = concat_as_int(
-        Symbol.BFC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+        Symbol.BFC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     )
     BRIDGED_ETH_MAIN_BFC_ON_BFC_TEST = concat_as_int(
-        Symbol.BFC, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
+        Symbol.BFC, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
     # BRIDGED_ETH_GOERLI_BFC_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.BFC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    #     Symbol.BFC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     # )
     BRIDGED_ETH_GOERLI_BFC_ON_BFC_TEST = concat_as_int(
-        Symbol.BFC, Chain.BFC_TEST, "0xfB5D65B8e8784ae3e004e1e476B05d408e6A1f2D"
+        Symbol.BFC, AssetType.BRIDGED, Chain.BFC_TEST, "0xfB5D65B8e8784ae3e004e1e476B05d408e6A1f2D"
     )
-    UNIFIED_BFC_ON_BFC_MAIN = concat_as_int(Symbol.BFC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000")
-    UNIFIED_BFC_ON_BFC_TEST = concat_as_int(Symbol.BFC, Chain.BFC_TEST, "0xB0fF18CB2d0F3f51a9c54Af862ed98f3caa027A1")
+    UNIFIED_BFC_ON_BFC_MAIN = concat_as_int(
+        Symbol.BFC, AssetType.UNIFIED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    UNIFIED_BFC_ON_BFC_TEST = concat_as_int(
+        Symbol.BFC, AssetType.UNIFIED, Chain.BFC_TEST, "0xB0fF18CB2d0F3f51a9c54Af862ed98f3caa027A1"
+    )
     # ------------------------------------------------------------------------------------------------------------------
 
     # BIFI
     # ------------------------------------------------------------------------------------------------------------------
-    BIFI_ON_ETH_MAIN = concat_as_int(Symbol.BIFI, Chain.ETH_MAIN, "0x000000000000000000000000000000000000000")
-    BIFI_ON_ETH_GOERLI = concat_as_int(Symbol.BIFI, Chain.ETH_GOERLI, "0x055ED934c426855caB467FdF8441D4FD6a7D2659")
+    BIFI_ON_ETH_MAIN = concat_as_int(
+        Symbol.BIFI, AssetType.RESERVED, Chain.ETH_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    BIFI_ON_ETH_GOERLI = concat_as_int(
+        Symbol.BIFI, AssetType.RESERVED, Chain.ETH_GOERLI, "0x055ED934c426855caB467FdF8441D4FD6a7D2659"
+    )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_BIFI_ON_BFC_MAIN = concat_as_int(
-        Symbol.BIFI, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+        Symbol.BIFI, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     )
     BRIDGED_ETH_MAIN_BIFI_ON_BFC_TEST = concat_as_int(
-        Symbol.BIFI, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
+        Symbol.BIFI, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
     # BRIDGED_ETH_GOERLI_BIFI_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.BIFI, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    #     Symbol.BIFI, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     # )
     BRIDGED_ETH_GOERLI_BIFI_ON_BFC_TEST = concat_as_int(
-        Symbol.BIFI, Chain.BFC_TEST, "0xC4F1CcafCBeB0BE0F1CDBA499696603528655F29"
+        Symbol.BIFI, AssetType.BRIDGED, Chain.BFC_TEST, "0xC4F1CcafCBeB0BE0F1CDBA499696603528655F29"
     )
-    UNIFIED_BIFI_ON_BFC_MAIN = concat_as_int(Symbol.BIFI, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000")
-    UNIFIED_BIFI_ON_BFC_TEST = concat_as_int(Symbol.BIFI, Chain.BFC_TEST, "0x8010a873d59719e895E20f15f9906B5a1F399C3A")
+    UNIFIED_BIFI_ON_BFC_MAIN = concat_as_int(
+        Symbol.BIFI, AssetType.UNIFIED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    UNIFIED_BIFI_ON_BFC_TEST = concat_as_int(
+        Symbol.BIFI, AssetType.UNIFIED, Chain.BFC_TEST, "0x8010a873d59719e895E20f15f9906B5a1F399C3A")
     # ------------------------------------------------------------------------------------------------------------------
 
     # ETH
     # ------------------------------------------------------------------------------------------------------------------
-    ETH_ON_ETH_MAIN = concat_as_int(Symbol.ETH, Chain.ETH_MAIN, COIN_ADDRESS)
-    ETH_ON_ETH_GOERLI = concat_as_int(Symbol.ETH, Chain.ETH_GOERLI, COIN_ADDRESS)
+    ETH_ON_ETH_MAIN = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.ETH_MAIN, COIN_ADDRESS)
+    ETH_ON_ETH_GOERLI = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.ETH_GOERLI, COIN_ADDRESS)
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_ETH_ON_BFC_MAIN = concat_as_int(
-        Symbol.ETH, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+        Symbol.ETH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     )
     BRIDGED_ETH_MAIN_ETH_ON_BFC_TEST = concat_as_int(
-        Symbol.ETH, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
+        Symbol.ETH, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
     # BRIDGED_ETH_GOERLI_ETH_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.ETH, Chain.BFC_MAIN, 0
+    #     Symbol.ETH, AssetType.BRIDGED, Chain.BFC_MAIN, 0
     # )
     BRIDGED_ETH_GOERLI_ETH_ON_BFC_TEST = concat_as_int(
-        Symbol.ETH, Chain.BFC_TEST, "0xD089773D293F43440529e6cfa84639E0498A0277"
+        Symbol.ETH, AssetType.BRIDGED, Chain.BFC_TEST, "0xD089773D293F43440529e6cfa84639E0498A0277"
     )
-    UNIFIED_ETH_ON_BFC_MAIN = concat_as_int(Symbol.ETH, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000")
-    UNIFIED_ETH_ON_BFC_TEST = concat_as_int(Symbol.ETH, Chain.BFC_TEST, "0xc83EEd1bf5464eD5383bc3342b918E08f6815950")
+    UNIFIED_ETH_ON_BFC_MAIN = concat_as_int(
+        Symbol.ETH, AssetType.UNIFIED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    UNIFIED_ETH_ON_BFC_TEST = concat_as_int(
+        Symbol.ETH, AssetType.UNIFIED, Chain.BFC_TEST, "0xc83EEd1bf5464eD5383bc3342b918E08f6815950"
+    )
     # ------------------------------------------------------------------------------------------------------------------
 
     # BNB
     # ------------------------------------------------------------------------------------------------------------------
-    BNB_ON_BNB_MAIN = concat_as_int(Symbol.BNB, Chain.BNB_MAIN, COIN_ADDRESS)
-    BNB_ON_BNB_TEST = concat_as_int(Symbol.BNB, Chain.BNB_TEST, COIN_ADDRESS)
+    BNB_ON_BNB_MAIN = concat_as_int(Symbol.BNB, AssetType.COIN, Chain.BNB_MAIN, COIN_ADDRESS)
+    BNB_ON_BNB_TEST = concat_as_int(Symbol.BNB, AssetType.COIN, Chain.BNB_TEST, COIN_ADDRESS)
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_BNB_MAIN_BNB_ON_BFC_MAIN = concat_as_int(
-        Symbol.BNB, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+        Symbol.BNB, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     )
     BRIDGED_BNB_MAIN_BNB_ON_BFC_TEST = concat_as_int(
-        Symbol.BNB, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
+        Symbol.BNB, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
     # BRIDGED_BNB_TEST_BNB_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.BNB, Chain.BFC_MAIN, 0
+    #     Symbol.BNB, AssetType.BRIDGED, Chain.BFC_MAIN, 0
     # )
     BRIDGED_BNB_TEST_BNB_ON_BFC_TEST = concat_as_int(
-        Symbol.BNB, Chain.BFC_TEST, "0x72D22DF54b86d25D9F9E0C10D516Ab22517b7051"
+        Symbol.BNB, AssetType.BRIDGED, Chain.BFC_TEST, "0x72D22DF54b86d25D9F9E0C10D516Ab22517b7051"
     )
-    UNIFIED_BNB_ON_BFC_MAIN = concat_as_int(Symbol.BNB, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000")
-    UNIFIED_BNB_ON_BFC_TEST = concat_as_int(Symbol.BNB, Chain.BFC_TEST, "0xCd8bf79fA84D551f2465C0a646cABc295d43Be5C")
+    UNIFIED_BNB_ON_BFC_MAIN = concat_as_int(
+        Symbol.BNB, AssetType.UNIFIED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    UNIFIED_BNB_ON_BFC_TEST = concat_as_int(
+        Symbol.BNB, AssetType.UNIFIED, Chain.BFC_TEST, "0xCd8bf79fA84D551f2465C0a646cABc295d43Be5C"
+    )
     # ------------------------------------------------------------------------------------------------------------------
 
-    # # AVAX
+    # AVAX
     # # ----------------------------------------------------------------------------------------------------------------
-    # AVAX_ON_AVAX_MAIN = concat_items_as_int(Symbol.AVAX, Chain.AVAX_MAIN, COIN_ADDRESS)
-    # AVAX_ON_AVAX_FUJI = concat_items_as_int(Symbol.AVAX, Chain.AVAX_FUJI, COIN_ADDRESS)
+    # AVAX_ON_AVAX_MAIN = concat_as_int(Symbol.AVAX, AssetType.COIN, Chain.AVAX_MAIN, COIN_ADDRESS)
+    # AVAX_ON_AVAX_FUJI = concat_as_int(Symbol.AVAX, AssetType.COIN, Chain.AVAX_FUJI, COIN_ADDRESS)
     # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGE_AVAX_MAIN_AVAX_ON_BFC_MAIN = concat_items_as_int(Symbol.AVAX, Chain.BFC_MAIN, 48)
-    # BRIDGE_AVAX_MAIN_AVAX_ON_BFC_TEST = concat_items_as_int(Symbol.AVAX, Chain.BFC_TEST, 49)
-    # BRIDGE_AVAX_FUJI_AVAX_ON_BFC_MAIN = concat_items_as_int(Symbol.AVAX, Chain.BFC_MAIN, 50)
-    # BRIDGE_AVAX_FUJI_AVAX_ON_BFC_TEST = concat_items_as_int(Symbol.AVAX, Chain.BFC_TEST, 51)
-    # UNIFIED_AVAX_ON_BFC_MAIN = concat_items_as_int(Symbol.AVAX, Chain.BFC_MAIN, 52)
-    # UNIFIED_AVAX_ON_BFC_TEST = concat_items_as_int(Symbol.AVAX, Chain.BFC_TEST, 53)
+    # BRIDGE_AVAX_MAIN_AVAX_ON_BFC_MAIN = concat_as_int(Symbol.AVAX, AssetType.BRIDGED, Chain.BFC_MAIN, 48)
+    # BRIDGE_AVAX_MAIN_AVAX_ON_BFC_TEST = concat_as_int(Symbol.AVAX, AssetType.BRIDGED, Chain.BFC_TEST, 49)
+    # BRIDGE_AVAX_FUJI_AVAX_ON_BFC_MAIN = concat_as_int(Symbol.AVAX, AssetType.BRIDGED, Chain.BFC_MAIN, 50)
+    # BRIDGE_AVAX_FUJI_AVAX_ON_BFC_TEST = concat_as_int(Symbol.AVAX, AssetType.BRIDGED, Chain.BFC_TEST, 51)
+    # UNIFIED_AVAX_ON_BFC_MAIN = concat_as_int(Symbol.AVAX, AssetType.UNIFIED, Chain.BFC_MAIN, 52)
+    # UNIFIED_AVAX_ON_BFC_TEST = concat_as_int(Symbol.AVAX, AssetType.UNIFIED, Chain.BFC_TEST, 53)
     # # ----------------------------------------------------------------------------------------------------------------
     #
     # # MATIC
     # # ----------------------------------------------------------------------------------------------------------------
-    # MATIC_ON_MATIC_MAIN = concat_items_as_int(Symbol.MATIC, Chain.MATIC_MAIN, COIN_ADDRESS)
-    # MATIC_ON_MATIC_MUMBAI = concat_items_as_int(Symbol.MATIC, Chain.MATIC_MUMBAI, COIN_ADDRESS)
+    # MATIC_ON_MATIC_MAIN = concat_as_int(Symbol.MATIC, AssetType.COIN, Chain.MATIC_MAIN, COIN_ADDRESS)
+    # MATIC_ON_MATIC_MUMBAI = concat_as_int(Symbol.MATIC, AssetType.COIN, Chain.MATIC_MUMBAI, COIN_ADDRESS)
     # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGED_MATIC_MAIN_MATIC_ON_BFC_MAIN = concat_items_as_int(Symbol.MATIC, Chain.BFC_MAIN, 56)
-    # BRIDGED_MATIC_MAIN_MATIC_ON_BFC_TEST = concat_items_as_int(Symbol.MATIC, Chain.BFC_TEST, 57)
-    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_MAIN = concat_items_as_int(Symbol.MATIC, Chain.BFC_MAIN, 58)
-    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_TEST = concat_items_as_int(Symbol.MATIC, Chain.BFC_TEST, 59)
-    # UNIFIED_MATIC_ON_BFC_MAIN = concat_items_as_int(Symbol.MATIC, Chain.BFC_MAIN, 60)
-    # UNIFIED_MATIC_ON_BFC_TEST = concat_items_as_int(Symbol.MATIC, Chain.BFC_TEST, 61)
+    # BRIDGED_MATIC_MAIN_MATIC_ON_BFC_MAIN = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_MAIN, 56)
+    # BRIDGED_MATIC_MAIN_MATIC_ON_BFC_TEST = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_TEST, 57)
+    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_MAIN = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_MAIN, 58)
+    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_TEST = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_TEST, 59)
+    # UNIFIED_MATIC_ON_BFC_MAIN = concat_as_int(Symbol.MATIC, AssetType.UNIFIED, Chain.BFC_MAIN, 60)
+    # UNIFIED_MATIC_ON_BFC_TEST = concat_as_int(Symbol.MATIC, AssetType.UNIFIED, Chain.BFC_TEST, 61)
     # # ----------------------------------------------------------------------------------------------------------------
 
     # USDC
     # ------------------------------------------------------------------------------------------------------------------
-    USDC_ON_ETH_MAIN = concat_as_int(Symbol.USDC, Chain.ETH_MAIN, "0x000000000000000000000000000000000000000")
-    USDC_ON_ETH_GOERLI = concat_as_int(Symbol.USDC, Chain.ETH_GOERLI, "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70")
-    USDC_ON_BNB_MAIN = concat_as_int(Symbol.USDC, Chain.BNB_MAIN, "0x000000000000000000000000000000000000000")
-    USDC_ON_BNB_TEST = concat_as_int(Symbol.USDC, Chain.BNB_TEST, "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB")
-    # USDC_ON_MATIC_MAIN = concat_items_as_int(Symbol.USDC, Chain.MATIC_MAIN, 64)
-    # USDC_ON_MATIC_MUMBAI = concat_items_as_int(Symbol.USDC, Chain.MATIC_MUMBAI, 64)
-    # USDC_ON_AVAX_MAIN = concat_items_as_int(Symbol.USDC, Chain.AVAX_MAIN, 64)
-    # USDC_ON_AVAX_FUJI = concat_items_as_int(Symbol.USDC, Chain.AVAX_FUJI, 64)
+    USDC_ON_ETH_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.ETH_MAIN, "0x000000000000000000000000000000000000000")
+    USDC_ON_ETH_GOERLI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.ETH_GOERLI, "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70")
+    USDC_ON_BNB_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.BNB_MAIN, "0x000000000000000000000000000000000000000")
+    USDC_ON_BNB_TEST = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.BNB_TEST, "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB")
+    # USDC_ON_MATIC_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MAIN, 64)
+    # USDC_ON_MATIC_MUMBAI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MUMBAI, 64)
+    # USDC_ON_AVAX_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_MAIN, 64)
+    # USDC_ON_AVAX_FUJI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_FUJI, 64)
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_USDC_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     )
     BRIDGED_ETH_MAIN_USDC_ON_BFC_TEST = concat_as_int(
-        Symbol.USDC, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
-    BRIDGED_ETH_GOERLI_USDC_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
-    )
+    # BRIDGED_ETH_GOERLI_USDC_ON_BFC_MAIN = concat_as_int(
+    #     Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    # )
     BRIDGED_ETH_GOERLI_USDC_ON_BFC_TEST = concat_as_int(
-        Symbol.USDC, Chain.BFC_TEST, "0xa7bb0a2693fb4d1ab9a6C5acCf5C63f12fab1855"
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0xa7bb0a2693fb4d1ab9a6C5acCf5C63f12fab1855"
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_BNB_MAIN_USDC_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     )
     BRIDGED_BNB_MAIN_USDC_ON_BFC_TEST = concat_as_int(
-        Symbol.USDC, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000"
     )
     # BRIDGED_BNB_TEST_USDC_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.USDC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    #     Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
     # )
     BRIDGED_BNB_TEST_USDC_ON_BFC_TEST = concat_as_int(
-        Symbol.USDC, Chain.BFC_TEST, "0xC67f0b7c01f6888D43B563B3a8B851856BcfAB64"
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0xC67f0b7c01f6888D43B563B3a8B851856BcfAB64"
     )
     # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGED_MATIC_MAIN_USDC_ON_BFC_MAIN = concat_items_as_int(Symbol.USDC, Chain.BFC_MAIN, 80)
-    # BRIDGED_MATIC_MAIN_USDC_ON_BFC_TEST = concat_items_as_int(Symbol.USDC, Chain.BFC_TEST, 81)
-    # BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_MAIN = concat_items_as_int(Symbol.USDC, Chain.BFC_MAIN, 82)
-    # BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_TEST = concat_items_as_int(Symbol.USDC, Chain.BFC_TEST, 83)
+    # BRIDGED_MATIC_MAIN_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, 80)
+    # BRIDGED_MATIC_MAIN_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, 81)
+    # BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, 82)
+    # BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, 83)
     # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGED_AVAX_MAIN_USDC_ON_BFC_MAIN = concat_items_as_int(Symbol.USDC, Chain.BFC_MAIN, 88)
-    # BRIDGED_AVAX_MAIN_USDC_ON_BFC_TEST = concat_items_as_int(Symbol.USDC, Chain.BFC_TEST, 89)
-    # BRIDGED_AVAX_FUJI_USDC_ON_BFC_MAIN = concat_items_as_int(Symbol.USDC, Chain.BFC_MAIN, 91)
-    # BRIDGED_AVAX_FUJI_USDC_ON_BFC_TEST = concat_items_as_int(Symbol.USDC, Chain.BFC_TEST, 92)
+    # BRIDGED_AVAX_MAIN_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, 88)
+    # BRIDGED_AVAX_MAIN_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, 89)
+    # BRIDGED_AVAX_FUJI_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, 91)
+    # BRIDGED_AVAX_FUJI_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, 92)
     # # ----------------------------------------------------------------------------------------------------------------
-    UNIFIED_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000")
-    UNIFIED_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, Chain.BFC_TEST, "0x28661511CDA7119B2185c647F23106a637CC074f")
+    UNIFIED_USDC_ON_BFC_MAIN = concat_as_int(
+        Symbol.USDC, AssetType.UNIFIED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    UNIFIED_USDC_ON_BFC_TEST = concat_as_int(
+        Symbol.USDC, AssetType.UNIFIED, Chain.BFC_TEST, "0x28661511CDA7119B2185c647F23106a637CC074f"
+    )
     # ------------------------------------------------------------------------------------------------------------------
 
     # # BUSD
     # # ----------------------------------------------------------------------------------------------------------------
-    # BUSD_ON_BNB_MAIN = concat_items_as_int(Symbol.BUSD, Chain.BNB_MAIN, 97)
-    # BUSD_ON_BNB_TEST = concat_items_as_int(Symbol.BUSD, Chain.BNB_TEST, 98)
+    # BUSD_ON_BNB_MAIN = concat_as_int(Symbol.BUSD, AssetType.RESERVED, Chain.BNB_MAIN, 97)
+    # BUSD_ON_BNB_TEST = concat_as_int(Symbol.BUSD, AssetType.RESERVED, Chain.BNB_TEST, 98)
     # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGED_BNB_MAIN_BUSD_ON_BFC_MAIN = concat_items_as_int(Symbol.BUSD, Chain.BFC_MAIN, 99)
-    # BRIDGED_BNB_MAIN_BUSD_ON_BFC_TEST = concat_items_as_int(Symbol.BUSD, Chain.BFC_TEST, 99)
-    # BRIDGED_BNB_TEST_BUSD_ON_BFC_MAIN = concat_items_as_int(Symbol.BUSD, Chain.BFC_MAIN, 100)
-    # BRIDGED_BNB_TEST_BUSD_ON_BFC_TEST = concat_items_as_int(Symbol.BUSD, Chain.BFC_MAIN, 101)
-    # UNIFIED_BUSD_ON_BFC_MAIN = concat_items_as_int(Symbol.BUSD, Chain.BFC_MAIN, 102)
-    # UNIFIED_BUSD_ON_BFC_TEST = concat_items_as_int(Symbol.BUSD, Chain.BFC_TEST, 103)
+    # BRIDGED_BNB_MAIN_BUSD_ON_BFC_MAIN = concat_as_int(Symbol.BUSD, AssetType.BRIDGED, Chain.BFC_MAIN, 99)
+    # BRIDGED_BNB_MAIN_BUSD_ON_BFC_TEST = concat_as_int(Symbol.BUSD, AssetType.BRIDGED, Chain.BFC_TEST, 99)
+    # BRIDGED_BNB_TEST_BUSD_ON_BFC_MAIN = concat_as_int(Symbol.BUSD, AssetType.BRIDGED, Chain.BFC_MAIN, 100)
+    # BRIDGED_BNB_TEST_BUSD_ON_BFC_TEST = concat_as_int(Symbol.BUSD, AssetType.BRIDGED, Chain.BFC_MAIN, 101)
+    # UNIFIED_BUSD_ON_BFC_MAIN = concat_as_int(Symbol.BUSD, AssetType.UNIFIED, Chain.BFC_MAIN, 102)
+    # UNIFIED_BUSD_ON_BFC_TEST = concat_as_int(Symbol.BUSD, AssetType.UNIFIED, Chain.BFC_TEST, 103)
     # # ----------------------------------------------------------------------------------------------------------------
 
     @staticmethod
@@ -358,29 +409,42 @@ class Asset(EnumInterface):
 
     @staticmethod
     def components() -> List[str]:
-        return [Symbol.str_with_size(), Chain.str_with_size(), "ADDRESS-{}".format(ERC20_ADDRESS_BSIZE)]
-
-    def analyze(self) -> List[Union[int, type]]:
-        """ symbol, related chain and erc20 address """
-        return parser(self.formatted_hex(), [Symbol, Chain, ERC20_ADDRESS_BSIZE])
+        return [Symbol.str_with_size(), AssetType.str_with_size(), Chain.str_with_size(), "ADDRESS-{}".format(ERC20_ADDRESS_BSIZE)]
 
     @staticmethod
     def size():
-        return Symbol.size() + Chain.size() + ERC20_ADDRESS_BSIZE
+        return Symbol.size() + AssetType.size() + Chain.size() + ERC20_ADDRESS_BSIZE
 
+    def analyze(self) -> List[Union[str, type]]:
+        """ symbol, related chain and erc20 address """
+        return parser(self.formatted_hex(), [Symbol, AssetType, Chain, ERC20_ADDRESS_BSIZE])
+
+    def is_coin(self) -> bool:
+        return self.symbol.is_coin_on(self.chain)
+
+    @property
     def symbol(self) -> Symbol:
         return cast(Symbol, self.analyze()[0])
 
-    def is_coin_on(self, chain_index: Chain) -> bool:
-        return self.symbol().is_coin_on(chain_index)
+    @property
+    def asset_type(self) -> AssetType:
+        return cast(AssetType, self.analyze()[1])
+
+    @property
+    def chain(self) -> Chain:
+        return cast(Chain, self.analyze()[2])
+
+    @property
+    def address(self) -> str:
+        return to_even_hex(self.analyze()[3])
 
     @property
     def decimal(self) -> int:
-        return self.symbol().decimal
+        return self.symbol.decimal
 
     @classmethod
-    def from_components(cls, symbol: Symbol, chain: Chain, address: str):
-        return cls(concat_as_int(symbol, chain, to_even_hex(address)))
+    def from_components(cls, symbol: Symbol, asset_type: AssetType, chain: Chain, address: str):
+        return cls(concat_as_int(symbol, asset_type, chain, to_even_hex(address)))
 
 
 class OPCode(EnumInterface):
@@ -437,6 +501,7 @@ class RBCMethodV1(EnumInterface):
     NONE = 0x0000000000000000
     WARP_IN = concat_as_int(2, RBCMethodDirection.INBOUND, OPCode.WARP)
     WARP_UNIFY = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY)
+    WARP_UNIFY_SPLIT = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT)
     WARP_UNIFY_DEPOSIT = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.DEPOSIT)
     WARP_UNIFY_REPAY = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.REPAY)
     WARP_UNIFY_SWAP = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.SWAP)
@@ -445,6 +510,7 @@ class RBCMethodV1(EnumInterface):
 
     WARP_OUT = concat_as_int(2, RBCMethodDirection.OUTBOUND, OPCode.WARP)
     SPLIT_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.SPLIT, OPCode.WARP)
+    UNIFY_SPLIT_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.UNIFY_SPLIT, OPCode.WARP)
     BORROW_SPLIT_WARP = concat_as_int(4, RBCMethodDirection.OUTBOUND, OPCode.BORROW, OPCode.SPLIT, OPCode.WARP)
     BORROW_UNIFY_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.OUTBOUND, OPCode.BORROW, OPCode.UNIFY_SPLIT, OPCode.WARP
@@ -490,16 +556,9 @@ class RBCMethodV1(EnumInterface):
             RBCMethodDirection.str_with_size(),
             "DYNAMIC_SIZE_ARRAY[{}]".format(OPCode.str_with_size())]
 
-    def analyze(self) -> Tuple[int, List[OPCode]]:
-        self_hex = self.formatted_hex().replace("0x", "")
-        len_op, self_hex = int(self_hex[:2], 16), self_hex[2:]
-
-        start, end = 0, 0
-        op_code_list = list()
-        for i in range(len_op):
-            op_code_list.append(OPCode(int(self_hex[i * OPCode.size() * 2:(i + 1) * OPCode.size() * 2], 16)))
-            self_hex = self_hex[end:]
-        return len_op, op_code_list
+    @staticmethod
+    def size():
+        return 16
 
     def formatted_hex(self) -> str:
         if self == self.__class__.NONE:
@@ -513,9 +572,28 @@ class RBCMethodV1(EnumInterface):
     def formatted_bytes(self) -> bytes:
         return bytes.fromhex(self.formatted_hex().replace("0x", ""))
 
-    @staticmethod
-    def size():
-        return 16
+    def analyze(self) -> Tuple[int, List[OPCode]]:
+        self_hex = self.formatted_hex().replace("0x", "")
+        len_op, self_hex = int(self_hex[:2], 16), self_hex[2:]
+
+        start, end = 0, 0
+        op_code_list = list()
+        for i in range(len_op):
+            op_code_list.append(OPCode(int(self_hex[i * OPCode.size() * 2:(i + 1) * OPCode.size() * 2], 16)))
+            self_hex = self_hex[end:]
+        return len_op, op_code_list
+
+    @property
+    def len_prefix(self) -> int:
+        return self.analyze()[0]
+
+    @property
+    def direction(self) -> RBCMethodDirection:
+        return cast(RBCMethodDirection, self.analyze()[1])
+
+    @property
+    def opcodes(self) -> List[OPCode]:
+        return self.analyze()[2]
 
     @classmethod
     def from_components(cls, direction: RBCMethodDirection, op_codes: List[OPCode]):
@@ -605,15 +683,31 @@ class Oracle(EnumInterface):
             "DISTINGUISHED_BYTES-{}".format(DISTINGUISH_NUM_BSIZE)
         ]
 
-    def analyze(self) -> List[Union[int, type]]:
-        return parser(self.formatted_hex(), [OracleType, OracleSourceType, DISTINGUISH_NUM_BSIZE])
-
     @staticmethod
     def size() -> int:
         return OracleType.size() + OracleSourceType.size() + DISTINGUISH_NUM_BSIZE
 
+    def analyze(self) -> List[Union[str, type]]:
+        return parser(self.formatted_hex(), [OracleType, OracleSourceType, DISTINGUISH_NUM_BSIZE])
+
+    @property
+    def oracle_type(self) -> OracleType:
+        return cast(OracleType, self.analyze()[0])
+
+    @property
+    def oracle_src_type(self) -> OracleSourceType:
+        return cast(OracleSourceType, self.analyze()[1])
+
+    @property
+    def distinguish_bytes(self):
+        return int(self.analyze()[2], 16).to_bytes(DISTINGUISH_NUM_BSIZE, "big")
+
+    @property
+    def distinguish_hex(self) -> str:
+        return to_even_hex(self.distinguish_bytes.hex())
+
     @classmethod
-    def build(cls, oracle_type: OracleType, oracle_source_type: OracleSourceType, distinguish_bytes: Union[bytes, str]):
+    def from_components(cls, oracle_type: OracleType, oracle_source_type: OracleSourceType, distinguish_bytes: Union[bytes, str]):
         if isinstance(distinguish_bytes, str):
             distinguish_bytes = bytes.fromhex(distinguish_bytes)
         return cls(concat_as_int(oracle_type, oracle_source_type, distinguish_bytes))
@@ -663,33 +757,57 @@ class ChainEventStatus(EnumInterface):
         return 1
 
 
+SUPPORTING_ENUMS = [
+    Chain, Symbol, AssetType, Asset,
+    OPCode, RBCMethodDirection, RBCMethodV1,
+    OracleType, OracleSourceType, Oracle,
+    ChainEventStatus
+]
+
+
 class TestEnum(unittest.TestCase):
+    def setUp(self) -> None:
+        self.composed_enum = [Asset, RBCMethodV1, OracleType]
+        self.non_composed_enum = [
+            Chain, Symbol, AssetType, OPCode, RBCMethodDirection, OracleType, OracleSourceType, ChainEventStatus
+        ]
+        self.assertEqual(len(self.composed_enum + self.non_composed_enum), len(SUPPORTING_ENUMS))
 
-    @staticmethod
-    def generate_dict_for_index(index_type):
-        index_dict = {
-            "bsize": index_type.size(),
-            "composed": index_type.is_composed(),
-            "components": index_type.components()
-        }
+    def test_formatting(self):
+        for _enum in SUPPORTING_ENUMS:
+            for ele in _enum:
+                ele_hex = ele.formatted_hex()
+                ele_bytes = ele.formatted_bytes()
+                self.assertTrue(len(ele_hex), ele.size() * 2 + 2)
+                self.assertTrue(len(ele_bytes), ele.size())
 
-        for idx in index_type:
-            index_dict[idx.name] = idx.formatted_hex()
-        return index_dict
+    def test_composing(self):
+        for _enum in self.composed_enum:
+            self.assertFalse(_enum.is_composed() and _enum.components() == [])
 
-    def test_print_enum(self):
-        enum_dict = {}
-        enum_dict["Chain"] = TestEnum.generate_dict_for_index(Chain)
-        enum_dict["Symbol"] = TestEnum.generate_dict_for_index(Symbol)
-        enum_dict["Asset"] = TestEnum.generate_dict_for_index(Asset)
+        for _enum in self.non_composed_enum:
+            self.assertTrue(Asset.is_composed() and Asset.components() != [])
 
-        enum_dict["OPCode"] = TestEnum.generate_dict_for_index(OPCode)
-        enum_dict["RBCMethodDirection"] = TestEnum.generate_dict_for_index(RBCMethodDirection)
-        enum_dict["RBCMethodV1"] = TestEnum.generate_dict_for_index(RBCMethodV1)
+    def test_asset_analyzing(self):
+        for asset in Asset:
+            asset_type = asset.asset_type
+            if asset_type == AssetType.BRIDGED:
+                self.assertEqual(asset.name.split("_")[0], AssetType.BRIDGED.name)
+            elif asset_type == AssetType.UNIFIED:
+                self.assertEqual(asset.name.split("_")[0], AssetType.UNIFIED.name)
+            elif asset_type == AssetType.COIN:
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.BRIDGED.name)
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.UNIFIED.name)
+                self.assertEqual(asset.address, COIN_ADDRESS)
+                self.assertTrue(asset.is_coin())
+            elif asset_type == AssetType.RESERVED:
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.BRIDGED.name)
+                self.assertNotEqual(asset.name.split("_")[0], AssetType.UNIFIED.name)
+                self.assertNotEqual(asset.address, COIN_ADDRESS)
+                self.assertFalse(asset.is_coin())
+            else:
+                self.assertEqual(asset, Asset.NONE)
 
-        enum_dict["OracleType"] = TestEnum.generate_dict_for_index(OracleType)
-        enum_dict["OracleSourceType"] = TestEnum.generate_dict_for_index(OracleSourceType)
-        enum_dict["Oracle"] = TestEnum.generate_dict_for_index(Oracle)
-        enum_dict["ChainEventStatus"] = TestEnum.generate_dict_for_index(ChainEventStatus)
-
-        print(json.dumps(enum_dict, indent=4))
+            self.assertTrue(asset.address, str)
+            self.assertTrue(asset.address.startswith("0x"))
+            self.assertEqual(len(asset.address), 42)
