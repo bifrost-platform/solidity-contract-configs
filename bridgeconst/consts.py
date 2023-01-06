@@ -426,7 +426,7 @@ class Asset(EnumInterface):
         return parser(self.formatted_hex(), [Symbol, AssetType, Chain, ERC20_ADDRESS_BSIZE])
 
     def is_coin(self) -> bool:
-        return self.symbol.is_coin_on(self.chain)
+        return self.asset_type == AssetType.COIN
 
     @property
     def symbol(self) -> Symbol:
