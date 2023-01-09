@@ -618,7 +618,7 @@ class RBCMethodV1(EnumInterface):
 class OracleType(EnumInterface):
     NONE = 0x00
     AGGREGATED = 0x01
-    CONSENSUS = 0x02
+    EXACT = 0x02
 
     @staticmethod
     def size():
@@ -683,7 +683,7 @@ class Oracle(EnumInterface):
         OracleType.AGGREGATED, OracleSourceType.ASSET_PRICE, zero_filled_hex(Symbol.BUSD.value, DISTINGUISH_NUM_BSIZE)
     )
     BITCOIN_BLOCK_HASH = concat_as_int(
-        OracleType.CONSENSUS, OracleSourceType.BLOCK_HASH, zero_filled_hex(Symbol.BTC.value, DISTINGUISH_NUM_BSIZE)
+        OracleType.EXACT, OracleSourceType.BLOCK_HASH, zero_filled_hex(Symbol.BTC.value, DISTINGUISH_NUM_BSIZE)
     )
 
     @staticmethod
@@ -740,7 +740,7 @@ class Oracle(EnumInterface):
         if symbol != Symbol.BTC:
             raise Exception("Not supported block hash oracle: {}".format(symbol.name))
         return cls(concat_as_int(
-            OracleType.CONSENSUS,
+            OracleType.EXACT,
             OracleSourceType.BLOCK_HASH,
             zero_filled_hex(symbol.value, DISTINGUISH_NUM_BSIZE)
         ))

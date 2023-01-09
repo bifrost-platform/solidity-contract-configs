@@ -169,7 +169,7 @@
         "components": [],
         "NONE": "0x00",
         "AGGREGATED": "0x01",
-        "CONSENSUS": "0x02"
+        "EXACT": "0x02"
     },
     "OracleSourceType": {
         "bsize": 2,
