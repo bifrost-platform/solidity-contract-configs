@@ -1372,6 +1372,24 @@
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_split_indices",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "set_unify_split_pair",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "socket",
         "outputs": [
@@ -1448,6 +1466,30 @@
                 "internalType": "Asset_Index",
                 "name": "",
                 "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "name": "unify_split_pair",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
             }
         ],
         "stateMutability": "view",
