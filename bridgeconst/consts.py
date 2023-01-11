@@ -328,18 +328,30 @@ class Asset(EnumInterface):
     # UNIFIED_AVAX_ON_BFC_TEST = concat_as_int(Symbol.AVAX, AssetType.UNIFIED, Chain.BFC_TEST, 53)
     # # ----------------------------------------------------------------------------------------------------------------
     #
-    # # MATIC
-    # # ----------------------------------------------------------------------------------------------------------------
-    # MATIC_ON_MATIC_MAIN = concat_as_int(Symbol.MATIC, AssetType.COIN, Chain.MATIC_MAIN, COIN_ADDRESS)
-    # MATIC_ON_MATIC_MUMBAI = concat_as_int(Symbol.MATIC, AssetType.COIN, Chain.MATIC_MUMBAI, COIN_ADDRESS)
-    # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGED_MATIC_MAIN_MATIC_ON_BFC_MAIN = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_MAIN, 56)
-    # BRIDGED_MATIC_MAIN_MATIC_ON_BFC_TEST = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_TEST, 57)
-    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_MAIN = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_MAIN, 58)
-    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_TEST = concat_as_int(Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_TEST, 59)
-    # UNIFIED_MATIC_ON_BFC_MAIN = concat_as_int(Symbol.MATIC, AssetType.UNIFIED, Chain.BFC_MAIN, 60)
-    # UNIFIED_MATIC_ON_BFC_TEST = concat_as_int(Symbol.MATIC, AssetType.UNIFIED, Chain.BFC_TEST, 61)
-    # # ----------------------------------------------------------------------------------------------------------------
+    # MATIC
+    # ----------------------------------------------------------------------------------------------------------------
+    MATIC_ON_MATIC_MAIN = concat_as_int(Symbol.MATIC, AssetType.COIN, Chain.MATIC_MAIN, COIN_ADDRESS)
+    MATIC_ON_MATIC_MUMBAI = concat_as_int(Symbol.MATIC, AssetType.COIN, Chain.MATIC_MUMBAI, COIN_ADDRESS)
+    # ----------------------------------------------------------------------------------------------------------------
+    BRIDGED_MATIC_MAIN_MATIC_ON_BFC_MAIN = concat_as_int(
+        Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    BRIDGED_MATIC_MAIN_MATIC_ON_BFC_TEST = concat_as_int(
+        Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_TEST, "0x000000000000000000000000000000000000000")
+
+    # BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_MAIN = concat_as_int(
+    #     Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    # )
+    BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_TEST = concat_as_int(
+        Symbol.MATIC, AssetType.BRIDGED, Chain.BFC_TEST, "0x82c1aD3aF709210F203869a03CdE8C7d0b9841d8"
+    )
+    UNIFIED_MATIC_ON_BFC_MAIN = concat_as_int(
+        Symbol.MATIC, AssetType.UNIFIED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000000"
+    )
+    UNIFIED_MATIC_ON_BFC_TEST = concat_as_int(
+        Symbol.MATIC, AssetType.UNIFIED, Chain.BFC_TEST, "0xad115F901a1Af99dc83D055C89641031fd1a50Dc"
+    )
+    # ----------------------------------------------------------------------------------------------------------------
 
     # USDC
     # ------------------------------------------------------------------------------------------------------------------
