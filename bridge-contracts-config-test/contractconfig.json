@@ -17,6 +17,7 @@
 			{"name": "UNIFIED_BIFI_ON_BFC_TEST", "address": "0x8010a873d59719e895E20f15f9906B5a1F399C3A", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_BNB_ON_BFC_TEST", "address": "0xCd8bf79fA84D551f2465C0a646cABc295d43Be5C", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_ETH_ON_BFC_TEST", "address": "0xc83EEd1bf5464eD5383bc3342b918E08f6815950", "abi_file": "abi.unified.erc20.json"},
+			{"name": "UNIFIED_USDC_ON_BFC_TEST", "address": "0x28661511CDA7119B2185c647F23106a637CC074f", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_MATIC_ON_BFC_TEST", "address": "0xad115F901a1Af99dc83D055C89641031fd1a50Dc", "abi_file": "abi.unified.erc20.json"}
 		]
 	},
