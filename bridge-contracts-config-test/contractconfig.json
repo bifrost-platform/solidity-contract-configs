@@ -37,5 +37,12 @@
 			{"name": "socket", "address": "0x8039c3AD8ED55509fD3f6Daa78867923fDe6E61c", "abi_file": "abi.socket.external.json", "deploy_height": 25067020},
 			{"name": "USDC_ON_BNB_TEST", "address": "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB", "abi_file": "abi.erc20.json"}
 		]
+	},
+	"MATIC_MUMBAI": {
+		"contracts": [
+			{"name": "relayer_authority", "address": "0x2FD5232fDFa6e1c127e7821CC48108Ca79281a38", "abi_file": "abi.relayer.external.json"},
+			{"name": "vault", "address": "0xB2ba0020560cF6c164DC48D1E29559AbA8472208", "abi_file": "abi.vault.external.json"},
+			{"name": "socket", "address": "0xA25357F3C313Bd13885678f935178211f0dF6722", "abi_file": "abi.socket.external.json"}
+		]
 	}
 }
