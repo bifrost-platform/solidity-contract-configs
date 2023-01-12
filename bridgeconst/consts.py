@@ -214,8 +214,12 @@ class Asset(EnumInterface):
     BFC_ON_BFC_MAIN = concat_as_int(Symbol.BFC, AssetType.COIN, Chain.BFC_MAIN, COIN_ADDRESS)
     BFC_ON_BFC_TEST = concat_as_int(Symbol.BFC, AssetType.COIN, Chain.BFC_TEST, COIN_ADDRESS)
     # ------------------------------------------------------------------------------------------------------------------
-    BFC_ON_ETH_MAIN = concat_as_int(Symbol.BFC, AssetType.RESERVED, Chain.ETH_MAIN, "0x000000000000000000000000000000000000001")
-    BFC_ON_ETH_GOERLI = concat_as_int(Symbol.BFC, AssetType.RESERVED, Chain.ETH_GOERLI, "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54")
+    BFC_ON_ETH_MAIN = concat_as_int(
+        Symbol.BFC, AssetType.RESERVED, Chain.ETH_MAIN, "0x0c7D5ae016f806603CB1782bEa29AC69471CAb9c"
+    )
+    BFC_ON_ETH_GOERLI = concat_as_int(
+        Symbol.BFC, AssetType.RESERVED, Chain.ETH_GOERLI, "0x3A815eBa66EaBE966a6Ae7e5Df9652eca24e9c54"
+    )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_BFC_ON_BFC_MAIN = concat_as_int(
         Symbol.BFC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x000000000000000000000000000000000000002"
@@ -240,7 +244,7 @@ class Asset(EnumInterface):
     # BIFI
     # ------------------------------------------------------------------------------------------------------------------
     BIFI_ON_ETH_MAIN = concat_as_int(
-        Symbol.BIFI, AssetType.RESERVED, Chain.ETH_MAIN, "0x000000000000000000000000000000000000005"
+        Symbol.BIFI, AssetType.RESERVED, Chain.ETH_MAIN, "0x2791BfD60D232150Bff86b39B7146c0eaAA2BA81"
     )
     BIFI_ON_ETH_GOERLI = concat_as_int(
         Symbol.BIFI, AssetType.RESERVED, Chain.ETH_GOERLI, "0x055ED934c426855caB467FdF8441D4FD6a7D2659"
@@ -355,10 +359,18 @@ class Asset(EnumInterface):
 
     # USDC
     # ------------------------------------------------------------------------------------------------------------------
-    USDC_ON_ETH_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.ETH_MAIN, "0x000000000000000000000000000000000000011")
-    USDC_ON_ETH_GOERLI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.ETH_GOERLI, "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70")
-    USDC_ON_BNB_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.BNB_MAIN, "0x000000000000000000000000000000000000012")
-    USDC_ON_BNB_TEST = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.BNB_TEST, "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB")
+    USDC_ON_ETH_MAIN = concat_as_int(
+        Symbol.USDC, AssetType.RESERVED, Chain.ETH_MAIN, "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+    )
+    USDC_ON_ETH_GOERLI = concat_as_int(
+        Symbol.USDC, AssetType.RESERVED, Chain.ETH_GOERLI, "0xD978Be30CE95D42DF7067b988f25bCa2b286Fb70"
+    )
+    USDC_ON_BNB_MAIN = concat_as_int(
+        Symbol.USDC, AssetType.RESERVED, Chain.BNB_MAIN, "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+    )
+    USDC_ON_BNB_TEST = concat_as_int(
+        Symbol.USDC, AssetType.RESERVED, Chain.BNB_TEST, "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB"
+    )
     # USDC_ON_MATIC_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MAIN, 64)
     # USDC_ON_MATIC_MUMBAI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MUMBAI, 64)
     # USDC_ON_AVAX_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_MAIN, 64)
