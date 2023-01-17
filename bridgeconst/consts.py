@@ -536,7 +536,7 @@ class RBCMethodV1(EnumInterface):
     WARP_UNIFY_REPAY = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.REPAY)
     WARP_UNIFY_SWAP = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.SWAP)
     WARP_XOPEN = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.X_OPEN)
-    WARP_CALL = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.CALL, OPCode.WARP)
+    WARP_CALL = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.CALL)
 
     WARP_OUT = concat_as_int(2, RBCMethodDirection.OUTBOUND, OPCode.WARP)
     SPLIT_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.SPLIT, OPCode.WARP)
