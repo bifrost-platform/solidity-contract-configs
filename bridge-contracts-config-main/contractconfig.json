@@ -26,9 +26,9 @@
 			{"name": "relayer_authority", "address": "", "abi_file": "abi.relayer.external.json", "deploy_height": 8052946},
 			{"name": "vault", "address": "", "abi_file": "abi.vault.external.json", "deploy_height": 8052948},
 			{"name": "socket", "address": "", "abi_file": "abi.socket.external.json", "deploy_height": 8052951},
-			{"name": "BFC_ON_ETH_MAIN", "address": "", "abi_file": "abi.erc20.json"},
-            {"name": "BIFI_ON_ETH_MAIN", "address": "", "abi_file": "abi.erc20.json"},
-            {"name": "USDC_ON_ETH_MAIN", "address": "", "abi_file": "abi.erc20.json"}
+			{"name": "BFC_ON_ETH_MAIN", "address": "0x0c7D5ae016f806603CB1782bEa29AC69471CAb9c", "abi_file": "abi.erc20.json"},
+            {"name": "BIFI_ON_ETH_MAIN", "address": "0x2791BfD60D232150Bff86b39B7146c0eaAA2BA81", "abi_file": "abi.erc20.json"},
+            {"name": "USDC_ON_ETH_MAIN", "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", "abi_file": "abi.erc20.json"}
 		]
 	},
 	"BNB_MAIN": {
@@ -36,7 +36,7 @@
 			{"name": "relayer_authority", "address": "", "abi_file": "abi.relayer.external.json", "deploy_height": 25067012},
 			{"name": "vault", "address": "", "abi_file": "abi.vault.external.json", "deploy_height": 25067016},
 			{"name": "socket", "address": "", "abi_file": "abi.socket.external.json", "deploy_height": 25067020},
-			{"name": "USDC_ON_BNB_MAIN", "address": "", "abi_file": "abi.erc20.json"}
+			{"name": "USDC_ON_BNB_MAIN", "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", "abi_file": "abi.erc20.json"}
 		]
 	},
 	"MATIC_MAIN": {
