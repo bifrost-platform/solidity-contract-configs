@@ -6,7 +6,7 @@ from bridgeconst.export import export_enum_json
 parser = argparse.ArgumentParser(description="bridge enum exporter")
 parser.add_argument("-p", "--path", type=str, help="insert configuration directory")
 
-DEFAULT_ENUM_JSON_PATH = "./enums.json"
+DEFAULT_ENUM_JSON_PATH = "bridgeconst/enums.json"
 
 
 if __name__ == "__main__":
