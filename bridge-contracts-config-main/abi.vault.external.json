@@ -1308,24 +1308,6 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index[]",
-                "name": "_asset_indices",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "RBCmethod[][]",
-                "name": "_methods",
-                "type": "bytes16[][]"
-            }
-        ],
-        "name": "set_RBCmethod",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "internalType": "address",
                 "name": "_wbfc",
                 "type": "address"
@@ -1514,6 +1496,24 @@
             }
         ],
         "name": "set_assets_fee_check",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "RBCmethod[][]",
+                "name": "_methods",
+                "type": "bytes16[][]"
+            }
+        ],
+        "name": "set_assets_methods_filter",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
