@@ -281,6 +281,19 @@
     },
     {
         "inputs": [],
+        "name": "BFC_MAIN",
+        "outputs": [
+            {
+                "internalType": "ChainIndex",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "ZeroAddress",
         "outputs": [
             {

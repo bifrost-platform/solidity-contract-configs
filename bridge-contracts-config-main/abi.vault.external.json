@@ -324,6 +324,19 @@
     },
     {
         "inputs": [],
+        "name": "BFC_MAIN",
+        "outputs": [
+            {
+                "internalType": "ChainIndex",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "WBFC",
         "outputs": [
             {
@@ -548,6 +561,42 @@
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "RBCmethod[][]",
+                "name": "_methods",
+                "type": "bytes16[][]"
+            }
+        ],
+        "name": "delete_assets_methods_filter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_split_indices",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "delete_unify_split_filter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
