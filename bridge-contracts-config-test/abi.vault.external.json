@@ -3,7 +3,7 @@
         "inputs": [
             {
                 "internalType": "bytes20",
-                "name": "_commit_hash",
+                "name": "_code_hash",
                 "type": "bytes20"
             }
         ],
@@ -324,6 +324,19 @@
     },
     {
         "inputs": [],
+        "name": "BFC_MAIN",
+        "outputs": [
+            {
+                "internalType": "ChainIndex",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "WBFC",
         "outputs": [
             {
@@ -388,7 +401,7 @@
                 "type": "bytes32"
             }
         ],
-        "name": "assets",
+        "name": "assets_config",
         "outputs": [
             {
                 "components": [
@@ -495,25 +508,6 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index",
-                "name": "",
-                "type": "bytes32"
-            }
-        ],
-        "name": "assets_pair",
-        "outputs": [
-            {
-                "internalType": "Asset_Index",
-                "name": "",
-                "type": "bytes32"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "internalType": "address",
                 "name": "",
                 "type": "address"
@@ -558,7 +552,7 @@
     },
     {
         "inputs": [],
-        "name": "commit_hash",
+        "name": "code_hash",
         "outputs": [
             {
                 "internalType": "bytes20",
@@ -567,6 +561,42 @@
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "RBCmethod[][]",
+                "name": "_methods",
+                "type": "bytes16[][]"
+            }
+        ],
+        "name": "delete_assets_methods_filter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_split_indices",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "delete_unify_split_filter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -713,7 +743,7 @@
                 "type": "address"
             }
         ],
-        "name": "get_asset_index",
+        "name": "get_asset_by_addr",
         "outputs": [
             {
                 "internalType": "Asset_Index",
@@ -896,7 +926,7 @@
                 "type": "bytes32[]"
             }
         ],
-        "name": "init_assets_pair",
+        "name": "init_remote_asset_pair",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1050,6 +1080,25 @@
             }
         ],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "name": "remote_asset_pair",
+        "outputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -1308,24 +1357,6 @@
     {
         "inputs": [
             {
-                "internalType": "Asset_Index[]",
-                "name": "_asset_indices",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "RBCmethod[][]",
-                "name": "_methods",
-                "type": "bytes16[][]"
-            }
-        ],
-        "name": "set_RBCmethod",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "internalType": "address",
                 "name": "_wbfc",
                 "type": "address"
@@ -1521,12 +1552,30 @@
     {
         "inputs": [
             {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "RBCmethod[][]",
+                "name": "_methods",
+                "type": "bytes16[][]"
+            }
+        ],
+        "name": "set_assets_methods_filter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "bytes20",
-                "name": "_commit_hash",
+                "name": "_code_hash",
                 "type": "bytes20"
             }
         ],
-        "name": "set_commit_hash",
+        "name": "set_code_hash",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1618,29 +1667,6 @@
         "inputs": [
             {
                 "internalType": "Asset_Index[]",
-                "name": "_unified_indices",
-                "type": "bytes32[]"
-            },
-            {
-                "internalType": "ChainIndex[]",
-                "name": "_chain",
-                "type": "bytes4[]"
-            },
-            {
-                "internalType": "Asset_Index[]",
-                "name": "_bridge_indices",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "set_unified_asset_pair",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
                 "type": "bytes32[]"
             },
@@ -1659,6 +1685,29 @@
         "inputs": [
             {
                 "internalType": "Asset_Index[]",
+                "name": "_unified_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "ChainIndex[]",
+                "name": "_chain",
+                "type": "bytes4[]"
+            },
+            {
+                "internalType": "Asset_Index[]",
+                "name": "_bridge_indices",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "set_unify_split_asset",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index[]",
                 "name": "_asset_indices",
                 "type": "bytes32[]"
             },
@@ -1668,7 +1717,7 @@
                 "type": "bytes32[]"
             }
         ],
-        "name": "set_unify_split_pair",
+        "name": "set_unify_split_filter",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1744,7 +1793,7 @@
                 "type": "bytes4"
             }
         ],
-        "name": "unified_assets_pair",
+        "name": "unify_split_asset",
         "outputs": [
             {
                 "internalType": "Asset_Index",
@@ -1768,7 +1817,7 @@
                 "type": "bytes32"
             }
         ],
-        "name": "unify_split_pair",
+        "name": "unify_split_filter",
         "outputs": [
             {
                 "internalType": "bool",
