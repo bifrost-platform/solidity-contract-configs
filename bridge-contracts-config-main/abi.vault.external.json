@@ -1633,6 +1633,24 @@
     {
         "inputs": [
             {
+                "internalType": "Asset_Index[]",
+                "name": "_asset_indices",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_target_address",
+                "type": "address[]"
+            }
+        ],
+        "name": "set_target_address",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "Asset_Index",
                 "name": "_coin_index",
                 "type": "bytes32"

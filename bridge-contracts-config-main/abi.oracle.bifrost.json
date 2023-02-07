@@ -458,12 +458,12 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "block",
+                        "name": "block_number",
                         "type": "uint64"
                     },
                     {
                         "internalType": "uint64",
-                        "name": "time",
+                        "name": "timestamp",
                         "type": "uint64"
                     },
                     {
@@ -473,7 +473,7 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "_reserved",
+                        "name": "majority",
                         "type": "uint64"
                     }
                 ],
@@ -547,12 +547,12 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "block",
+                        "name": "block_number",
                         "type": "uint64"
                     },
                     {
                         "internalType": "uint64",
-                        "name": "time",
+                        "name": "timestamp",
                         "type": "uint64"
                     },
                     {
@@ -562,7 +562,7 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "_reserved",
+                        "name": "majority",
                         "type": "uint64"
                     }
                 ],
@@ -636,6 +636,57 @@
             }
         ],
         "name": "oracle_history",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "bytes32",
+                        "name": "data",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "block_number",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "timestamp",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "authority_round",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "majority",
+                        "type": "uint64"
+                    }
+                ],
+                "internalType": "struct Oracle_Manager_Source",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "round",
+                "type": "uint256"
+            }
+        ],
+        "name": "oracle_history_data",
         "outputs": [
             {
                 "internalType": "bytes32",
@@ -934,6 +985,11 @@
             {
                 "internalType": "uint256",
                 "name": "majority",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "timestamp",
                 "type": "uint256"
             }
         ],
