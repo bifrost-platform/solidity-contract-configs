@@ -487,50 +487,75 @@ RBC_METHOD_LENGTH_SIZE = 1
 
 class RBCMethodV1(EnumInterface):
     NONE = 0x0000000000000000
+    # INBOUND **********************************************************************************************************
     WARP_IN = concat_as_int(2, RBCMethodDirection.INBOUND, OPCode.WARP)
+
     WARP_UNIFY = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY)
     WARP_UNIFY_SPLIT = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT)
+
     WARP_UNIFY_DEPOSIT = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.DEPOSIT)
+    WARP_UNIFY_SPLIT_DEPOSIT = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT, OPCode.DEPOSIT)
+
     WARP_UNIFY_REPAY = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.REPAY)
+    WARP_UNIFY_SPLIT_REPAY = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT, OPCode.REPAY)
+
     WARP_UNIFY_SWAP = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.SWAP)
-    WARP_XOPEN = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.X_OPEN)
+    WARP_UNIFY_SPLIT_SWAP = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT, OPCode.SWAP)
+
+    WARP_UNIFY_XOPEN = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.X_OPEN)
+    WARP_UNIFY_SPLIT_XOPEN = concat_as_int(4, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT, OPCode.X_OPEN)
+
     WARP_CALL = concat_as_int(3, RBCMethodDirection.INBOUND, OPCode.WARP, OPCode.CALL)
 
+    # OUTBOUND *********************************************************************************************************
     WARP_OUT = concat_as_int(2, RBCMethodDirection.OUTBOUND, OPCode.WARP)
+
     SPLIT_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.SPLIT, OPCode.WARP)
     UNIFY_SPLIT_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.UNIFY_SPLIT, OPCode.WARP)
+
     BORROW_SPLIT_WARP = concat_as_int(4, RBCMethodDirection.OUTBOUND, OPCode.BORROW, OPCode.SPLIT, OPCode.WARP)
     BORROW_UNIFY_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.OUTBOUND, OPCode.BORROW, OPCode.UNIFY_SPLIT, OPCode.WARP
     )
+
     WITHDRAW_SPLIT_WARP = concat_as_int(4, RBCMethodDirection.OUTBOUND, OPCode.WITHDRAW, OPCode.SPLIT, OPCode.WARP)
     WITHDRAW_UNIFY_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.OUTBOUND, OPCode.WITHDRAW, OPCode.UNIFY_SPLIT, OPCode.WARP
     )
+
     SWAP_SPLIT_WARP = concat_as_int(4, RBCMethodDirection.OUTBOUND, OPCode.SWAP, OPCode.SPLIT, OPCode.WARP)
     SWAP_UNIFY_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.OUTBOUND, OPCode.SWAP, OPCode.UNIFY_SPLIT, OPCode.WARP
     )
+
     XEND_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.OUTBOUND, OPCode.X_END, OPCode.SPLIT, OPCode.WARP
     )
     XEND_UNIFY_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.OUTBOUND, OPCode.X_END, OPCode.UNIFY_SPLIT, OPCode.WARP
     )
-    CALL_WARP = concat_as_int(
-        3, RBCMethodDirection.OUTBOUND, OPCode.CALL, OPCode.WARP
-    )
-    # in-and-out bound swap without the Unifier
+
+    CALL_WARP = concat_as_int(3, RBCMethodDirection.OUTBOUND, OPCode.CALL, OPCode.WARP)
+
+    # IN_AND_OUT BOUND *************************************************************************************************
     WARP_SWAP_WARP = concat_as_int(
         4, RBCMethodDirection.IN_AND_OUTBOUND, OPCode.WARP, OPCode.SWAP, OPCode.WARP
     )
-    # in-and-out bound 1-1 exchange with the Unifier
+    # 1-1 exchange with Unified Token contract
     WARP_UNIFY_SPLIT_WARP = concat_as_int(
         4, RBCMethodDirection.IN_AND_OUTBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT, OPCode.WARP
     )
-    # in-and-out bound swap with the Unifier
+    # in-and-out bound swap (from a token to the other token)
     WARP_UNIFY_SWAP_SPLIT_WARP = concat_as_int(
-        6, RBCMethodDirection.IN_AND_OUTBOUND, OPCode.WARP, OPCode.SPLIT, OPCode.SWAP, OPCode.UNIFY, OPCode.WARP
+        6, RBCMethodDirection.IN_AND_OUTBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.SWAP, OPCode.SPLIT, OPCode.WARP
+    )
+    # in-and-out bound swap (from the BFC to a token)
+    WARP_UNIFY_SPLIT_SWAP_SPLIT_WARP = concat_as_int(
+        6, RBCMethodDirection.IN_AND_OUTBOUND, OPCode.WARP, OPCode.UNIFY_SPLIT, OPCode.SWAP, OPCode.SPLIT, OPCode.WARP
+    )
+    # in-and-out bound swap (from a token to the BFC)
+    WARP_UNIFY_SWAP_UNIFY_SPLIT_WARP = concat_as_int(
+        6, RBCMethodDirection.IN_AND_OUTBOUND, OPCode.WARP, OPCode.UNIFY, OPCode.SWAP, OPCode.UNIFY_SPLIT, OPCode.WARP
     )
 
     @staticmethod
