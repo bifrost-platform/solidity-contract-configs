@@ -1,17 +1,25 @@
 {
-	"bifrost": {
+	"bifrost-testnet": {
 		"contracts": [
-			{"name": "coinhandler", "address": "0x698d46D0064D02c423b91bc3299E1F3C951C40dA", "abi_file": "abi.lendinghandler.json", "deploy_height": 2062},
-			{"name": "ethhandler", "address": "0xb7b637B0C6b8Cc0951BE6f56aB0cDFeE92Ad1b89", "abi_file": "abi.lendinghandler.json", "deploy_height": 2069},
-			{"name": "bnbhandler", "address": "0xEaDD2907428abF60115e0d3c5dAC0476288C9b93", "abi_file": "abi.lendinghandler.json", "deploy_height": 2075},
-			{"name": "matichandler", "address": "0xb7C53932f982390A399d2319253fa14DFA94A138", "abi_file": "abi.lendinghandler.json", "deploy_height": 2080},
-			{"name": "usdchandler", "address": "0xAbdfcDc7FF08F86D42b7f4eD5bf97B5d015dF96F", "abi_file": "abi.lendinghandler.json", "deploy_height": 2092},
-			{"name": "usdthandler", "address": "0x2b8986F7Ef72E7f69E9f8086a171302066076d2B", "abi_file": "abi.lendinghandler.json", "deploy_height": 2098},
-			{"name": "busdhandler", "address": "0x0687CD1810144435132F82b4aC873dc5477236FA", "abi_file": "abi.lendinghandler.json", "deploy_height": 2104},
-			
-			{"name": "uniswapv2factory", "address": "0xB7a4A4858f8D1D33522A2A0c5c9ADb9480548067", "abi_file": "abi.uniswapv2factory.json", "deploy_height": 2417},
-			{"name": "UniswapV2Router02", "address": "0xD1B6c663F23522D0e5A7D3f6a3634ED2496041E8", "abi_file": "abi.uniswapv2router02.json", "deploy_height": 2424},
-			{"name": "WBFC_BIFROST", "address": "0x92AF0FC56D48D97f9420Ac249D4C2543a1870Eb5", "abi_file": "abi.wbfc.json", "deploy_height": 2405}
+			{"name": "Coinhandler", "address": "0x6Ce967791643F6CCbdE829e9aF132F7B98f9F088", "abi_file": "abi.lendinghandler.json", "deploy_height": 2574079},
+			{"name": "Ethhandler", "address": "0x3f1A1bb3C11Eb14Bc83005853B55f448227f0B4e", "abi_file": "abi.lendinghandler.json", "deploy_height": 2574085},
+			{"name": "Bnbhandler", "address": "0xBd2D3D04c1612241418E7c137C532960E7559508", "abi_file": "abi.lendinghandler.json", "deploy_height": 2574090},
+			{"name": "Usdchandler", "address": "0xBfE6FAD8E6a0F8529d6ADF1FA91Bb9f7aeA2baba", "abi_file": "abi.lendinghandler.json", "deploy_height": 2574094},
+			{"name": "Uniswapv2factory", "address": "0xE828E190A16C7b2A8b9aCE16D807fDb7141f59CC", "abi_file": "abi.uniswapv2factory.json", "deploy_height": 3064970},
+			{"name": "UniswapV2Router02", "address": "0x5eA1fA6e03468B0BBF76811e5B163fA18636080f", "abi_file": "abi.uniswapv2router02.json", "deploy_height": 3150491},
+			{"name": "WBFC_BIFROST", "address": "0x1745F24d85192545E5eD1c9574782d067D3Fda09", "abi_file": "abi.wbfc.json", "deploy_height": 3063710}
+		]
+	},
+	"bifrost-mainnet": {
+		"contracts": [
+			{"name": "coinhandler", "address": "0x4bAE7ba39E4e71660307dcE780f1Ec9b7B7666Ee", "abi_file": "abi.lendinghandler.json", "deploy_height": 429117},
+			{"name": "ethhandler", "address": "0xCbf6065954fC17d07b28102c84902F20FFaC0A33", "abi_file": "abi.lendinghandler.json", "deploy_height": 429122},
+			{"name": "bnbhandler", "address": "0x942A9bF629d1E17D87294B0f20898eEb8316cDd6", "abi_file": "abi.lendinghandler.json", "deploy_height": 429127},
+			{"name": "matichandler", "address": "0xA1Bd1d501aF7d0B146951fDFF49BD4C0bD25e220", "abi_file": "abi.lendinghandler.json", "deploy_height": 429133},
+			{"name": "usdchandler", "address": "0x168b2D7dd6b9812392f99bA01A14db03ED06dedc", "abi_file": "abi.lendinghandler.json", "deploy_height": 429138},
+			{"name": "uniswapv2factory", "address": "0x19f21b0AB98EC10d734E314356Ad562ae349177d", "abi_file": "abi.uniswapv2factory.json", "deploy_height": 429651},
+			{"name": "UniswapV2Router02", "address": "0x734eE67fA402d800581F80ddA2AeB844cB497230", "abi_file": "abi.uniswapv2router02.json", "deploy_height": 494050},
+			{"name": "WBFC_BIFROST", "address": "0x1c1b06405058AbE02e4748753aeD1458BEFEE3B9", "abi_file": "abi.wbfc.json", "deploy_height": 429641}
 		]
 	}
 }
