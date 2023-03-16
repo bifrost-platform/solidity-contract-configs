@@ -102,6 +102,14 @@ class Chain(EnumInterface):
     def size():
         return 4
 
+    @staticmethod
+    def is_inbound(chain_name: str) -> bool:
+        bifrost = [Chain.BFC_MAIN.name, Chain.BFC_TEST.name]
+        if chain_name not in bifrost:
+            return True
+        else:
+            return False
+
 
 class Symbol(EnumInterface):
     """
