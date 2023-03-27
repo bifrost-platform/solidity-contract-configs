@@ -110,6 +110,20 @@ class Chain(EnumInterface):
         else:
             return False
 
+    @staticmethod
+    def is_testnet(chain_name: str) -> bool:
+        testnets = [Chain.BFC_TEST.name,
+                    Chain.ETH_GOERLI.name,
+                    Chain.ETH_SEPOLIA.name,
+                    Chain.BNB_TEST.name,
+                    Chain.MATIC_MUMBAI.name,
+                    Chain.AVAX_FUJI.name,
+                    Chain.KLAY_TEST.name]
+        if chain_name in testnets:
+            return True
+        else:
+            return False
+
 
 class Symbol(EnumInterface):
     """
