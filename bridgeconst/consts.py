@@ -103,9 +103,9 @@ class Chain(EnumInterface):
         return 4
 
     @staticmethod
-    def is_inbound(chain_name: str) -> bool:
+    def is_bifrost(chain_name: str) -> bool:
         bifrost = [Chain.BFC_MAIN.name, Chain.BFC_TEST.name]
-        if chain_name not in bifrost:
+        if chain_name in bifrost:
             return True
         else:
             return False
