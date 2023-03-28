@@ -800,8 +800,8 @@ class ChainEventStatus(EnumInterface):
     def size():
         return 1
 
-    @property
-    def outbound_event_sequence(self) -> List:
+    @staticmethod
+    def outbound_event_sequence() -> List["ChainEventStatus"]:
         return [
                 ChainEventStatus.FAILED,
                 ChainEventStatus.REQUESTED,
