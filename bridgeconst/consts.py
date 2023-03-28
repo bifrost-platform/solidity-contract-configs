@@ -800,6 +800,19 @@ class ChainEventStatus(EnumInterface):
     def size():
         return 1
 
+    @property
+    def outbound_event_sequence(self) -> List:
+        return [
+                ChainEventStatus.FAILED,
+                ChainEventStatus.REQUESTED,
+                ChainEventStatus.REJECTED,
+                ChainEventStatus.ACCEPTED,
+                ChainEventStatus.REVERTED,
+                ChainEventStatus.EXECUTED,
+                ChainEventStatus.ROLLBACKED,
+                ChainEventStatus.COMMITTED
+            ]
+
 
 SUPPORTING_ENUMS = [
     Chain, Symbol, AssetType, Asset,
