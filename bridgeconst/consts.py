@@ -378,6 +378,30 @@ class Asset(EnumInterface):
     )
     # ------------------------------------------------------------------------------------------------------------------
 
+    # USDT
+    # ------------------------------------------------------------------------------------------------------------------
+    USDT_ON_ETH_MAIN = concat_as_int(
+        Symbol.USDT, AssetType.RESERVED, Chain.ETH_MAIN, "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+    )
+    USDT_ON_ETH_GOERLI = concat_as_int(
+        Symbol.USDT, AssetType.RESERVED, Chain.ETH_GOERLI, "0xF26d15E6484e00Af2772b840eb4F2B36F0BD569C"
+    )
+    # ------------------------------------------------------------------------------------------------------------------
+    BRIDGED_ETH_MAIN_USDT_ON_BFC_MAIN = concat_as_int(
+        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, ""
+    )
+    BRIDGED_ETH_GOERLI_USDT_ON_BFC_TEST = concat_as_int(
+        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_TEST, "0x43585F3De72c712e0a2DbC6a24Dd6d9A962B6e90"
+    )
+    UNIFIED_USDT_ON_BFC_MAIN = concat_as_int(
+        Symbol.USDT, AssetType.UNIFIED, Chain.BFC_MAIN, ""
+    )
+    UNIFIED_USDT_ON_BFC_TEST = concat_as_int(
+        Symbol.USDT, AssetType.UNIFIED, Chain.BFC_TEST, "0x815e850CDDb2BB8C8afb61266525daFfB9adD7dc"
+    )
+    # ----------------------------------------------------------------------------------------------------------------
+
+
     # # BUSD
     # # ----------------------------------------------------------------------------------------------------------------
     # BUSD_ON_BNB_MAIN = concat_as_int(Symbol.BUSD, AssetType.RESERVED, Chain.BNB_MAIN, 97)
