@@ -102,6 +102,28 @@ class Chain(EnumInterface):
     def size():
         return 4
 
+    @staticmethod
+    def is_bifrost(chain_name: str) -> bool:
+        bifrost = [Chain.BFC_MAIN.name, Chain.BFC_TEST.name]
+        if chain_name in bifrost:
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def is_testnet(chain_name: str) -> bool:
+        testnets = [Chain.BFC_TEST.name,
+                    Chain.ETH_GOERLI.name,
+                    Chain.ETH_SEPOLIA.name,
+                    Chain.BNB_TEST.name,
+                    Chain.MATIC_MUMBAI.name,
+                    Chain.AVAX_FUJI.name,
+                    Chain.KLAY_TEST.name]
+        if chain_name in testnets:
+            return True
+        else:
+            return False
+
 
 class Symbol(EnumInterface):
     """
@@ -801,6 +823,19 @@ class ChainEventStatus(EnumInterface):
     @staticmethod
     def size():
         return 1
+
+    @staticmethod
+    def outbound_event_sequence() -> List["ChainEventStatus"]:
+        return [
+                ChainEventStatus.FAILED,
+                ChainEventStatus.REQUESTED,
+                ChainEventStatus.REJECTED,
+                ChainEventStatus.ACCEPTED,
+                ChainEventStatus.REVERTED,
+                ChainEventStatus.EXECUTED,
+                ChainEventStatus.ROLLBACKED,
+                ChainEventStatus.COMMITTED
+            ]
 
 
 SUPPORTING_ENUMS = [
