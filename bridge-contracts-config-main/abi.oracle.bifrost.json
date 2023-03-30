@@ -156,6 +156,62 @@
         "inputs": [
             {
                 "indexed": true,
+                "internalType": "Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "feeder",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "data",
+                "type": "bytes32"
+            }
+        ],
+        "name": "UpdateAggregate",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "feeder",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "roundId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "data",
+                "type": "bytes32"
+            }
+        ],
+        "name": "UpdateConsensus",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
                 "internalType": "address",
                 "name": "implementation",
                 "type": "address"
@@ -316,6 +372,59 @@
                 "internalType": "bytes32",
                 "name": "",
                 "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "_feeder",
+                "type": "address"
+            }
+        ],
+        "name": "get_aggregate_feed_info",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Oracle_ID",
+                "name": "oid",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "_feeder",
+                "type": "address"
+            }
+        ],
+        "name": "get_aggregate_feedtime",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -1009,6 +1118,32 @@
         "name": "set_proxyAdmin",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_timestamp_filter",
+                "type": "uint256"
+            }
+        ],
+        "name": "set_timestamp_filter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "timestamp_filter",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {

@@ -803,6 +803,62 @@
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "_asset_index",
+                "type": "bytes32"
+            }
+        ],
+        "name": "get_remote_asset_pair",
+        "outputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "get_this_chain_coin_index",
+        "outputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "_asset_index",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "ChainIndex",
+                "name": "_chain",
+                "type": "bytes4"
+            }
+        ],
+        "name": "get_unify_split_asset",
+        "outputs": [
+            {
+                "internalType": "Asset_Index",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "init",
         "outputs": [],
@@ -1277,6 +1333,23 @@
     },
     {
         "inputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "ChainIndex",
+                        "name": "chain",
+                        "type": "bytes4"
+                    },
+                    {
+                        "internalType": "RBCmethod",
+                        "name": "method",
+                        "type": "bytes16"
+                    }
+                ],
+                "internalType": "struct Socket_Struct.Instruction",
+                "name": "_code",
+                "type": "tuple"
+            },
             {
                 "components": [
                     {
