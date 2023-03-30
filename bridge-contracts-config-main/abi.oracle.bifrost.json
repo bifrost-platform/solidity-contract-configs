@@ -156,62 +156,6 @@
         "inputs": [
             {
                 "indexed": true,
-                "internalType": "Oracle_ID",
-                "name": "oid",
-                "type": "bytes32"
-            },
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "feeder",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "bytes32",
-                "name": "data",
-                "type": "bytes32"
-            }
-        ],
-        "name": "UpdateAggregate",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "internalType": "Oracle_ID",
-                "name": "oid",
-                "type": "bytes32"
-            },
-            {
-                "indexed": true,
-                "internalType": "address",
-                "name": "feeder",
-                "type": "address"
-            },
-            {
-                "indexed": true,
-                "internalType": "uint256",
-                "name": "roundId",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "internalType": "bytes32",
-                "name": "data",
-                "type": "bytes32"
-            }
-        ],
-        "name": "UpdateConsensus",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
                 "internalType": "address",
                 "name": "implementation",
                 "type": "address"
@@ -388,59 +332,6 @@
                 "internalType": "address",
                 "name": "_feeder",
                 "type": "address"
-            }
-        ],
-        "name": "get_aggregate_feed_info",
-        "outputs": [
-            {
-                "internalType": "bytes32",
-                "name": "",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_ID",
-                "name": "oid",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "address",
-                "name": "_feeder",
-                "type": "address"
-            }
-        ],
-        "name": "get_aggregate_feedtime",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_ID",
-                "name": "oid",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "address",
-                "name": "_feeder",
-                "type": "address"
             },
             {
                 "internalType": "uint256",
@@ -567,12 +458,12 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "block_number",
+                        "name": "block",
                         "type": "uint64"
                     },
                     {
                         "internalType": "uint64",
-                        "name": "timestamp",
+                        "name": "time",
                         "type": "uint64"
                     },
                     {
@@ -582,7 +473,7 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "majority",
+                        "name": "_reserved",
                         "type": "uint64"
                     }
                 ],
@@ -656,12 +547,12 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "block_number",
+                        "name": "block",
                         "type": "uint64"
                     },
                     {
                         "internalType": "uint64",
-                        "name": "timestamp",
+                        "name": "time",
                         "type": "uint64"
                     },
                     {
@@ -671,7 +562,7 @@
                     },
                     {
                         "internalType": "uint64",
-                        "name": "majority",
+                        "name": "_reserved",
                         "type": "uint64"
                     }
                 ],
@@ -745,57 +636,6 @@
             }
         ],
         "name": "oracle_history",
-        "outputs": [
-            {
-                "components": [
-                    {
-                        "internalType": "bytes32",
-                        "name": "data",
-                        "type": "bytes32"
-                    },
-                    {
-                        "internalType": "uint64",
-                        "name": "block_number",
-                        "type": "uint64"
-                    },
-                    {
-                        "internalType": "uint64",
-                        "name": "timestamp",
-                        "type": "uint64"
-                    },
-                    {
-                        "internalType": "uint64",
-                        "name": "authority_round",
-                        "type": "uint64"
-                    },
-                    {
-                        "internalType": "uint64",
-                        "name": "majority",
-                        "type": "uint64"
-                    }
-                ],
-                "internalType": "struct Oracle_Manager_Source",
-                "name": "",
-                "type": "tuple"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "Oracle_ID",
-                "name": "oid",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "uint256",
-                "name": "round",
-                "type": "uint256"
-            }
-        ],
-        "name": "oracle_history_data",
         "outputs": [
             {
                 "internalType": "bytes32",
@@ -1095,11 +935,6 @@
                 "internalType": "uint256",
                 "name": "majority",
                 "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "timestamp",
-                "type": "uint256"
             }
         ],
         "name": "set_oracle_data",
@@ -1118,32 +953,6 @@
         "name": "set_proxyAdmin",
         "outputs": [],
         "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_timestamp_filter",
-                "type": "uint256"
-            }
-        ],
-        "name": "set_timestamp_filter",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "timestamp_filter",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
         "type": "function"
     },
     {
