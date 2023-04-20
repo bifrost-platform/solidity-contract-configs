@@ -1,6 +1,6 @@
 import unittest
-from typing import Union, List, cast, Tuple
 from enum import Enum
+from typing import Union, List, cast, Tuple
 
 from bridgeconst.utils import concat_as_int, parser, to_even_hex, zero_filled_hex
 
@@ -421,8 +421,8 @@ class Asset(EnumInterface):
     UNIFIED_USDT_ON_BFC_TEST = concat_as_int(
         Symbol.USDT, AssetType.UNIFIED, Chain.BFC_TEST, "0x815e850CDDb2BB8C8afb61266525daFfB9adD7dc"
     )
-    # ----------------------------------------------------------------------------------------------------------------
 
+    # ----------------------------------------------------------------------------------------------------------------
 
     # # BUSD
     # # ----------------------------------------------------------------------------------------------------------------
@@ -661,7 +661,7 @@ class RBCMethodV1(EnumInterface):
     @classmethod
     def from_bytes(cls, value: bytes):
         len_op = int.from_bytes(value[:1], "big")
-        return cls(int.from_bytes(value[:len_op+1], "big"))
+        return cls(int.from_bytes(value[:len_op + 1], "big"))
 
     @classmethod
     def from_components(cls, direction: RBCMethodDirection, op_codes: List[OPCode]):
@@ -731,6 +731,9 @@ class Oracle(EnumInterface):
     )
     USDC_PRICE = concat_as_int(
         OracleType.AGGREGATED, OracleSourceType.ASSET_PRICE, zero_filled_hex(Symbol.USDC.value, DISTINGUISH_NUM_BSIZE)
+    )
+    USDT_PRICE = concat_as_int(
+        OracleType.AGGREGATED, OracleSourceType.ASSET_PRICE, zero_filled_hex(Symbol.USDT.value, DISTINGUISH_NUM_BSIZE)
     )
     BUSD_PRICE = concat_as_int(
         OracleType.AGGREGATED, OracleSourceType.ASSET_PRICE, zero_filled_hex(Symbol.BUSD.value, DISTINGUISH_NUM_BSIZE)
@@ -827,15 +830,15 @@ class ChainEventStatus(EnumInterface):
     @staticmethod
     def outbound_event_sequence() -> List["ChainEventStatus"]:
         return [
-                ChainEventStatus.FAILED,
-                ChainEventStatus.REQUESTED,
-                ChainEventStatus.REJECTED,
-                ChainEventStatus.ACCEPTED,
-                ChainEventStatus.REVERTED,
-                ChainEventStatus.EXECUTED,
-                ChainEventStatus.ROLLBACKED,
-                ChainEventStatus.COMMITTED
-            ]
+            ChainEventStatus.FAILED,
+            ChainEventStatus.REQUESTED,
+            ChainEventStatus.REJECTED,
+            ChainEventStatus.ACCEPTED,
+            ChainEventStatus.REVERTED,
+            ChainEventStatus.EXECUTED,
+            ChainEventStatus.ROLLBACKED,
+            ChainEventStatus.COMMITTED
+        ]
 
 
 SUPPORTING_ENUMS = [
