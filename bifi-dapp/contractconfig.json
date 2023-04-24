@@ -7,6 +7,7 @@
 			{"name": "Usdchandler", "address": "0xBfE6FAD8E6a0F8529d6ADF1FA91Bb9f7aeA2baba", "abi_file": "abi.lendinghandler.json", "deploy_height": 2574094},
 			{"name": "Matichandler", "address": "0x31DEBF429fab8507169904E0d45a871df5018118", "abi_file": "abi.lendinghandler.json", "deploy_height": 4986842},
 			{"name": "Usdthandler", "address": "0xf155d6Ca0c2Ecfc8C90FD30D88c17c11B3d20f16", "abi_file": "abi.lendinghandler.json", "deploy_height": 4986854},
+			{"name": "Bifihandler", "address": "0x6aFF83F741313eCE1F920e4ec7313F1C4aB4BC45", "abi_file": "abi.lendinghandler.json", "deploy_height": 5453674},
 			{"name": "Uniswapv2factory", "address": "0xE828E190A16C7b2A8b9aCE16D807fDb7141f59CC", "abi_file": "abi.uniswapv2factory.json", "deploy_height": 3064970},
 			{"name": "UniswapV2Router02", "address": "0x5eA1fA6e03468B0BBF76811e5B163fA18636080f", "abi_file": "abi.uniswapv2router02.json", "deploy_height": 3150491},
 			{"name": "WBFC_BIFROST", "address": "0x1745F24d85192545E5eD1c9574782d067D3Fda09", "abi_file": "abi.wbfc.json", "deploy_height": 3063710}
