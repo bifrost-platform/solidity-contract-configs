@@ -144,6 +144,7 @@ class Symbol(EnumInterface):
     DAI = 0x0b
     LINK = 0x0c
     KLAY = 0x0d
+    SAT = 0x0e
 
     @staticmethod
     def size():
@@ -422,6 +423,27 @@ class Asset(EnumInterface):
         Symbol.USDT, AssetType.UNIFIED, Chain.BFC_TEST, "0x815e850CDDb2BB8C8afb61266525daFfB9adD7dc"
     )
 
+    # SAT
+    # ------------------------------------------------------------------------------------------------------------------
+    SAT_ON_ETH_MAIN = concat_as_int(
+        Symbol.SAT, AssetType.RESERVED, Chain.ETH_MAIN, "0x5abf88cf3444611d13f6d1b39f3f3ee8575c91a2"
+    )
+    SAT_ON_ETH_GOERLI = concat_as_int(
+        Symbol.SAT, AssetType.RESERVED, Chain.ETH_GOERLI, "0x4a5FC8893Db2Fa06ebe3D7Ec21a1d9466ee54442"
+    )
+    # ------------------------------------------------------------------------------------------------------------------
+    BRIDGED_ETH_MAIN_SAT_ON_BFC_MAIN = concat_as_int(
+        Symbol.SAT, AssetType.BRIDGED, Chain.BFC_MAIN, "0xAD01dE2A0413B764F16643dBdc1667adc6D88FE9"
+    )
+    BRIDGED_ETH_GOERLI_SAT_ON_BFC_TEST = concat_as_int(
+        Symbol.SAT, AssetType.BRIDGED, Chain.BFC_TEST, "0xd2Ae6529057BE0b4Ef44bB4A127ee76B1c2863CB"
+    )
+    UNIFIED_SAT_ON_BFC_MAIN = concat_as_int(
+        Symbol.SAT, AssetType.UNIFIED, Chain.BFC_MAIN, "0x17102AC78a02a98fC78B0c29B7b0506f035A99E5"
+    )
+    UNIFIED_SAT_ON_BFC_TEST = concat_as_int(
+        Symbol.SAT, AssetType.UNIFIED, Chain.BFC_TEST, "0x3325B631CD1B972628f021c3bB776e21290baB21"
+    )
     # ----------------------------------------------------------------------------------------------------------------
 
     # # BUSD
