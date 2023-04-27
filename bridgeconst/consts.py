@@ -418,10 +418,10 @@ class Asset(EnumInterface):
         Symbol.USDT, AssetType.RESERVED, Chain.MATIC_MUMBAI, "0x312d92B462492B2D110c7b378a72F6F78B1d6289"
     )
     USDT_ON_BNB_MAIN = concat_as_int(
-        Symbol.USDT, AssetType.RESERVED, Chain.BNB_MAIN, ""
+        Symbol.USDT, AssetType.RESERVED, Chain.BNB_MAIN, "0x55d398326f99059fF775485246999027B3197955"
     )
     USDT_ON_BNB_TEST = concat_as_int(
-        Symbol.USDT, AssetType.RESERVED, Chain.BNB_TEST, "0x48E13910C4AE9C753AdF036CdBC127CFA4c71373"
+        Symbol.USDT, AssetType.RESERVED, Chain.BNB_TEST, "0x66B57c5ea363cFC94033275675C57776F89B06C4"
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_USDT_ON_BFC_MAIN = concat_as_int(
@@ -487,7 +487,7 @@ class Asset(EnumInterface):
         Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
     )
     BRIDGED_ETH_GOERLI_WITCH_ON_BFC_TEST = concat_as_int(
-        Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_TEST, "0xd2Ae6529057BE0b4Ef44bB4A127ee76B1c2863CB"
+        Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_TEST, "0xb8fFfC7111FCCC3ceBeE680c5221bB5E6f9F5935"
     )
     UNIFIED_WITCH_ON_BFC_MAIN = concat_as_int(
         Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
