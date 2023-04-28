@@ -432,20 +432,20 @@ class Asset(EnumInterface):
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_BNB_MAIN_USDT_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
+        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000b0"
     )
     BRIDGED_BNB_TEST_USDT_ON_BFC_TEST = concat_as_int(
         Symbol.USDT, AssetType.BRIDGED, Chain.BFC_TEST, "0xe2baDe8Ff7ce0ABcF5952ecc79A1212e7B6C496E"
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_MATIC_MAIN_USDT_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
+        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000c0"
     )
     BRIDGED_MATIC_MUMBAI_USDT_ON_BFC_TEST = concat_as_int(
         Symbol.USDT, AssetType.BRIDGED, Chain.BFC_TEST, "0xC3C12EF3BC5A8914eB3f4C190358ce5A41B19b46"
     )
     UNIFIED_USDT_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDT, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
+        Symbol.USDT, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000d0"
     )
     UNIFIED_USDT_ON_BFC_TEST = concat_as_int(
         Symbol.USDT, AssetType.UNIFIED, Chain.BFC_TEST, "0x815e850CDDb2BB8C8afb61266525daFfB9adD7dc"
@@ -484,13 +484,13 @@ class Asset(EnumInterface):
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_WITCH_ON_BFC_MAIN = concat_as_int(
-        Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
+        Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000e0"
     )
     BRIDGED_ETH_GOERLI_WITCH_ON_BFC_TEST = concat_as_int(
         Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_TEST, "0xb8fFfC7111FCCC3ceBeE680c5221bB5E6f9F5935"
     )
     UNIFIED_WITCH_ON_BFC_MAIN = concat_as_int(
-        Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
+        Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000f0"
     )
     UNIFIED_WITCH_ON_BFC_TEST = concat_as_int(
         Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_TEST, "0x97C46701A8599DF99abB306ce8980B5f57D833fB"
