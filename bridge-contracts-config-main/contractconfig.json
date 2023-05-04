@@ -33,6 +33,7 @@
 			{"name": "BFC_ON_ETH_MAIN", "address": "0x0c7D5ae016f806603CB1782bEa29AC69471CAb9c", "abi_file": "abi.erc20.json"},
             {"name": "BIFI_ON_ETH_MAIN", "address": "0x2791BfD60D232150Bff86b39B7146c0eaAA2BA81", "abi_file": "abi.erc20.json"},
             {"name": "USDC_ON_ETH_MAIN", "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", "abi_file": "abi.erc20.json"},
+			{"name": "USDT_ON_ETH_MAIN", "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7", "abi_file": "abi.erc20.json"},
 			{"name": "SAT_ON_ETH_MAIN", "address": "0x5abf88cf3444611d13f6d1b39f3f3ee8575c91a2", "abi_file": "abi.erc20.json"}
 		]
 	},
