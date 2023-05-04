@@ -425,7 +425,7 @@ class Asset(EnumInterface):
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_USDT_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000a0"
+        Symbol.USDT, AssetType.BRIDGED, Chain.BFC_MAIN, "0x228F3875392CFb0Ad0e4aF2E95A050EdbCc8668B"
     )
     BRIDGED_ETH_GOERLI_USDT_ON_BFC_TEST = concat_as_int(
         Symbol.USDT, AssetType.BRIDGED, Chain.BFC_TEST, "0x43585F3De72c712e0a2DbC6a24Dd6d9A962B6e90"
@@ -445,7 +445,7 @@ class Asset(EnumInterface):
         Symbol.USDT, AssetType.BRIDGED, Chain.BFC_TEST, "0xC3C12EF3BC5A8914eB3f4C190358ce5A41B19b46"
     )
     UNIFIED_USDT_ON_BFC_MAIN = concat_as_int(
-        Symbol.USDT, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000d0"
+        Symbol.USDT, AssetType.UNIFIED, Chain.BFC_MAIN, "0x3eA8654d5755e673599473ab37d92788B5bA12aE"
     )
     UNIFIED_USDT_ON_BFC_TEST = concat_as_int(
         Symbol.USDT, AssetType.UNIFIED, Chain.BFC_TEST, "0x815e850CDDb2BB8C8afb61266525daFfB9adD7dc"
