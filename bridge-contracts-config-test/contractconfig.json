@@ -16,6 +16,7 @@
             {"name": "BRIDGED_BNB_TEST_USDC_ON_BFC_TEST", "address": "0xC67f0b7c01f6888D43B563B3a8B851856BcfAB64", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_BNB_TEST_BNB_ON_BFC_TEST", "address": "0x72D22DF54b86d25D9F9E0C10D516Ab22517b7051", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_BNB_TEST_USDT_ON_BFC_TEST", "address": "0xe2baDe8Ff7ce0ABcF5952ecc79A1212e7B6C496E", "abi_file": "abi.erc20.json"},
+			{"name": "BRIDGED_BNB_TEST_P2D_ON_BFC_TEST", "address": "0x90848FD52d615f733dCdA8290e9a96152148413e", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_TEST", "address": "0x82c1aD3aF709210F203869a03CdE8C7d0b9841d8", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_MATIC_MUMBAI_USDT_ON_BFC_TEST", "address": "0xC3C12EF3BC5A8914eB3f4C190358ce5A41B19b46", "abi_file": "abi.erc20.json"},
 			{"name": "UNIFIED_BFC_ON_BFC_TEST", "address": "0xB0fF18CB2d0F3f51a9c54Af862ed98f3caa027A1", "abi_file": "abi.unified.coin.json"},
@@ -26,7 +27,8 @@
 			{"name": "UNIFIED_USDT_ON_BFC_TEST", "address": "0x815e850CDDb2BB8C8afb61266525daFfB9adD7dc", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_SAT_ON_BFC_TEST", "address": "0x3325B631CD1B972628f021c3bB776e21290baB21", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_MATIC_ON_BFC_TEST", "address": "0xad115F901a1Af99dc83D055C89641031fd1a50Dc", "abi_file": "abi.unified.erc20.json"},
-			{"name": "UNIFIED_WITCH_ON_BFC_TEST", "address": "0x97C46701A8599DF99abB306ce8980B5f57D833fB", "abi_file": "abi.unified.erc20.json"}
+			{"name": "UNIFIED_WITCH_ON_BFC_TEST", "address": "0x97C46701A8599DF99abB306ce8980B5f57D833fB", "abi_file": "abi.unified.erc20.json"},
+			{"name": "UNIFIED_P2D_ON_BFC_TEST", "address": "0xDa007Bea12013Ee90D5DEC4111DBA5bd98314F93", "abi_file": "abi.unified.erc20.json"}
 		]
 	},
 	"ETH_GOERLI": {
@@ -49,7 +51,8 @@
 			{"name": "socket", "address": "0x8039c3AD8ED55509fD3f6Daa78867923fDe6E61c", "abi_file": "abi.socket.external.json", "deploy_height": 25067020},
 			{"name": "USDC_ON_BNB_TEST", "address": "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB", "abi_file": "abi.erc20.json"},
 			{"name": "BUSD_ON_BNB_TEST", "address": "0x312d92B462492B2D110c7b378a72F6F78B1d6289", "abi_file": "abi.erc20.json"},
-			{"name": "USDT_ON_BNB_TEST", "address": "0x66B57c5ea363cFC94033275675C57776F89B06C4", "abi_file": "abi.erc20.json"}
+			{"name": "USDT_ON_BNB_TEST", "address": "0x66B57c5ea363cFC94033275675C57776F89B06C4", "abi_file": "abi.erc20.json"},
+			{"name": "P2D_ON_BNB_TEST", "address": "0x018185EB57D6DA77A269EC740e80EF6eBEE793EC", "abi_file": "abi.erc20.json"}
 		]
 	},
 	"MATIC_MUMBAI": {
