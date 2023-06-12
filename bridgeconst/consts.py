@@ -508,10 +508,10 @@ class Asset(EnumInterface):
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_BNB_MAIN_P2D_ON_BFC_MAIN = concat_as_int(
-        Symbol.P2D, AssetType.BRIDGED, Chain.BNB_MAIN, "0x8bf78DAa2f98758ac116acdb64e9E9979a697d81"
+        Symbol.P2D, AssetType.BRIDGED, Chain.BFC_MAIN, "0x8bf78DAa2f98758ac116acdb64e9E9979a697d81"
     )
     BRIDGED_BNB_TEST_P2D_ON_BFC_TEST = concat_as_int(
-        Symbol.P2D, AssetType.BRIDGED, Chain.BNB_TEST, "0x90848FD52d615f733dCdA8290e9a96152148413e"
+        Symbol.P2D, AssetType.BRIDGED, Chain.BFC_TEST, "0x90848FD52d615f733dCdA8290e9a96152148413e"
     )
     UNIFIED_P2D_ON_BFC_MAIN = concat_as_int(
         Symbol.P2D, AssetType.UNIFIED, Chain.BFC_MAIN, "0xAa2E0911AC56C6f8A9C4f0006A8C907D5d180A6a"
