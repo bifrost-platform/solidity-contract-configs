@@ -146,6 +146,7 @@ class Symbol(EnumInterface):
     KLAY = 0x0d
     SAT = 0x0e
     WITCH = 0x0f
+    P2D = 0x10
 
     @staticmethod
     def size():
@@ -494,6 +495,29 @@ class Asset(EnumInterface):
     )
     UNIFIED_WITCH_ON_BFC_TEST = concat_as_int(
         Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_TEST, "0x97C46701A8599DF99abB306ce8980B5f57D833fB"
+    )
+    # ----------------------------------------------------------------------------------------------------------------
+
+    # P2D
+    # ------------------------------------------------------------------------------------------------------------------
+    P2D_ON_BNB_MAIN = concat_as_int(
+        Symbol.P2D, AssetType.RESERVED, Chain.BNB_MAIN, "0x3ce414000C518FC55846388ef0aaB5d0abf275Be"
+    )
+    P2D_ON_BNB_TEST = concat_as_int(
+        Symbol.P2D, AssetType.RESERVED, Chain.BNB_TEST, "0x018185EB57D6DA77A269EC740e80EF6eBEE793EC"
+    )
+    # ------------------------------------------------------------------------------------------------------------------
+    BRIDGED_BNB_MAIN_P2D_ON_BFC_MAIN = concat_as_int(
+        Symbol.P2D, AssetType.BRIDGED, Chain.BNB_MAIN, "0x8bf78DAa2f98758ac116acdb64e9E9979a697d81"
+    )
+    BRIDGED_BNB_TEST_P2D_ON_BFC_TEST = concat_as_int(
+        Symbol.P2D, AssetType.BRIDGED, Chain.BNB_TEST, "0x90848FD52d615f733dCdA8290e9a96152148413e"
+    )
+    UNIFIED_P2D_ON_BFC_MAIN = concat_as_int(
+        Symbol.P2D, AssetType.UNIFIED, Chain.BFC_MAIN, "0xAa2E0911AC56C6f8A9C4f0006A8C907D5d180A6a"
+    )
+    UNIFIED_P2D_ON_BFC_TEST = concat_as_int(
+        Symbol.P2D, AssetType.UNIFIED, Chain.BFC_TEST, "0xDa007Bea12013Ee90D5DEC4111DBA5bd98314F93"
     )
     # ----------------------------------------------------------------------------------------------------------------
 
