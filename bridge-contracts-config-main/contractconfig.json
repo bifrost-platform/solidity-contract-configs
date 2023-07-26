@@ -16,6 +16,7 @@
 			{"name": "BRIDGED_BNB_MAIN_BNB_ON_BFC_MAIN", "address": "0x872b347cd764d46c127ffefbcaB605FFF3f3a48C", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_BNB_MAIN_P2D_ON_BFC_MAIN", "address": "0x8bf78DAa2f98758ac116acdb64e9E9979a697d81", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_MATIC_MAIN_MATIC_ON_BFC_MAIN", "address": "0xf549E4B5B4Cb7fd4e83b8AA047C742C06D527429", "abi_file": "abi.erc20.json"},
+			{"name": "BRIDGED_MATIC_MAIN_USDC_ON_BFC_MAIN", "address": "0x7E3A761afceC9f3E2fb7E853fFc45a62319143fA", "abi_file": "abi.erc20.json"},
 			{"name": "UNIFIED_BFC_ON_BFC_MAIN", "address": "0xAe172D8c5E428D4b7C70f9E593b207F9daC9BF3e", "abi_file": "abi.unified.coin.json"},
 			{"name": "UNIFIED_BIFI_ON_BFC_MAIN", "address": "0x047938C3aD13c1eB821C8e310B2B6F889b6d0003", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_BNB_ON_BFC_MAIN", "address": "0xB800EaF843F962DFe5e145A8c9D07A3e70b11d7F", "abi_file": "abi.unified.erc20.json"},
@@ -52,7 +53,8 @@
 		"contracts": [
 			{"name": "relayer_authority", "address": "0x7F48909fBd1E38f1e05B5E326A44175fc2462B13", "abi_file": "abi.relayer.external.json", "deploy_height": 38217005},
 			{"name": "vault", "address": "0x5fA7fe5F94f2D15585a3134C1C5d3019c8c1645d", "abi_file": "abi.vault.external.json", "deploy_height": 38217005},
-			{"name": "socket", "address": "0x050606CC2Bcd9504991Be2c309D6c6c832Bb5bd0", "abi_file": "abi.socket.external.json", "deploy_height": 38217005}
+			{"name": "socket", "address": "0x050606CC2Bcd9504991Be2c309D6c6c832Bb5bd0", "abi_file": "abi.socket.external.json", "deploy_height": 38217005},
+			{"name": "USDC_ON_MATIC_MAIN", "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", "abi_file": "abi.erc20.json"}
 		]
 	}
 }

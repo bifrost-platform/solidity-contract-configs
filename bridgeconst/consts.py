@@ -366,10 +366,13 @@ class Asset(EnumInterface):
     USDC_ON_BNB_TEST = concat_as_int(
         Symbol.USDC, AssetType.RESERVED, Chain.BNB_TEST, "0xC9C0aD3179eE2f4801454926ED5D6A2Da30b56FB"
     )
+    USDC_ON_MATIC_MAIN = concat_as_int(
+        Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MAIN, "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+        )
+    USDC_ON_MATIC_MUMBAI = concat_as_int(
+        Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MUMBAI, "0xc508ab50142721A0213A47AaFF4E93C3eDb978E2"
+        )
 
-    USDC_ON_MATIC_MUMBAI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MUMBAI, "0xc508ab50142721A0213A47AaFF4E93C3eDb978E2")
-
-    # USDC_ON_MATIC_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MAIN, 64)
     # USDC_ON_AVAX_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_MAIN, 64)
     # USDC_ON_AVAX_FUJI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_FUJI, 64)
     # ------------------------------------------------------------------------------------------------------------------
@@ -386,10 +389,14 @@ class Asset(EnumInterface):
     BRIDGED_BNB_TEST_USDC_ON_BFC_TEST = concat_as_int(
         Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0xC67f0b7c01f6888D43B563B3a8B851856BcfAB64"
     )
-    BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0x6442Fdd287E04e68f0C6f40b4a8e5a375d16482C")
+    BRIDGED_MATIC_MAIN_USDC_ON_BFC_MAIN = concat_as_int(
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, "0x7E3A761afceC9f3E2fb7E853fFc45a62319143fA"
+    )
+    BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_TEST = concat_as_int(
+        Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, "0x6442Fdd287E04e68f0C6f40b4a8e5a375d16482C"
+    )
 
     # # ----------------------------------------------------------------------------------------------------------------
-    # BRIDGED_MATIC_MAIN_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, 80)
     # BRIDGED_MATIC_MAIN_USDC_ON_BFC_TEST = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_TEST, 81)
     # BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_MAIN = concat_as_int(Symbol.USDC, AssetType.BRIDGED, Chain.BFC_MAIN, 82)
     # # ----------------------------------------------------------------------------------------------------------------
