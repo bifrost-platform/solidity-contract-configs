@@ -69,6 +69,11 @@
         "max_amount": 500000000,
         "rate": 50000000000000
     },
+    "0x000000080000000300000bfc7e3a761afcec9f3e2fb7e853ffc45a62319143fa": {
+        "min_amount": 95000,
+        "max_amount": 500000000,
+        "rate": 50000000000000
+    },
     "0x000000040000000100000001ffffffffffffffffffffffffffffffffffffffff": {
         "min_amount": 1584304393373081,
         "max_amount": 323327427218996096,
@@ -134,6 +139,11 @@
         "max_amount": 500000000,
         "rate": 50000000000000
     },
+    "0x00000008ffffffff000000892791bca1f2de4661ed88a30c99a7a9449aa84174": {
+        "min_amount": 95000,
+        "max_amount": 500000000,
+        "rate": 50000000000000
+    },
     "0x00000001000000010000bfc0ffffffffffffffffffffffffffffffffffffffff": {
         "min_amount": 29250587996513808384,
         "max_amount": 5969507754390572761088,
@@ -189,12 +199,22 @@
         "max_amount": 500000000000000000000,
         "rate": 50000000000000
     },
+    "0x00000010000000030000bfc090848fd52d615f733dcda8290e9a96152148413e": {
+        "min_amount": 35714285714285707264,
+        "max_amount": 7142857142857142108160,
+        "rate": 500000000000000
+    },
     "0x00000006000000030000bfc082c1ad3af709210f203869a03cde8c7d0b9841d8": {
         "min_amount": 2644607117166673408,
         "max_amount": 528921423433334652928,
         "rate": 500000000000000
     },
     "0x0000000a000000030000bfc0c3c12ef3bc5a8914eb3f4c190358ce5a41b19b46": {
+        "min_amount": 95000,
+        "max_amount": 500000000,
+        "rate": 50000000000000
+    },
+    "0x00000008000000030000bfc06442fdd287e04e68f0c6f40b4a8e5a375d16482c": {
         "min_amount": 95000,
         "max_amount": 500000000,
         "rate": 50000000000000
@@ -249,12 +269,22 @@
         "max_amount": 500000000000000000000,
         "rate": 50000000000000
     },
+    "0x00000010ffffffff00000061018185eb57d6da77a269ec740e80ef6ebee793ec": {
+        "min_amount": 35714285714285707264,
+        "max_amount": 7142857142857142108160,
+        "rate": 500000000000000
+    },
     "0x000000060000000100013881ffffffffffffffffffffffffffffffffffffffff": {
         "min_amount": 2644607117166673408,
         "max_amount": 528921423433334652928,
         "rate": 500000000000000
     },
     "0x0000000affffffff00013881312d92b462492b2d110c7b378a72f6f78b1d6289": {
+        "min_amount": 95000,
+        "max_amount": 500000000,
+        "rate": 50000000000000
+    },
+    "0x00000008ffffffff00013881c508ab50142721a0213a47aaff4e93c3edb978e2": {
         "min_amount": 95000,
         "max_amount": 500000000,
         "rate": 50000000000000
