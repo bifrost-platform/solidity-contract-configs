@@ -147,6 +147,7 @@ class Symbol(EnumInterface):
     SAT = 0x0e
     WITCH = 0x0f
     P2D = 0x10
+    EGG = 0x11
 
     @staticmethod
     def size():
@@ -530,6 +531,30 @@ class Asset(EnumInterface):
         Symbol.P2D, AssetType.UNIFIED, Chain.BFC_TEST, "0xDa007Bea12013Ee90D5DEC4111DBA5bd98314F93"
     )
     # ----------------------------------------------------------------------------------------------------------------
+     
+    # EGG
+    # ------------------------------------------------------------------------------------------------------------------
+    # EGG_ON_ETH_MAIN = concat_as_int(
+    #     Symbol.EGG, AssetType.RESERVED, Chain.ETH_MAIN, ""
+    # )
+    EGG_ON_ETH_GOERLI = concat_as_int(
+        Symbol.EGG, AssetType.RESERVED, Chain.ETH_GOERLI, "0x9225c534403eEAB0B80394F60683F51EF9acD627"
+    )
+    # ------------------------------------------------------------------------------------------------------------------
+    # BRIDGED_ETH_MAIN_EGG_ON_BFC_MAIN = concat_as_int(
+    #     Symbol.EGG, AssetType.BRIDGED, Chain.BFC_MAIN, ""
+    # )
+    BRIDGED_ETH_GOERLI_EGG_ON_BFC_TEST = concat_as_int(
+        Symbol.EGG, AssetType.BRIDGED, Chain.BFC_TEST, "0x2E4a76c993CAD19595049fAE0D747E51fa452300"
+    )
+    # UNIFIED_EGG_ON_BFC_MAIN = concat_as_int(
+    #     Symbol.EGG, AssetType.UNIFIED, Chain.BFC_MAIN, ""
+    # )
+    UNIFIED_EGG_ON_BFC_TEST = concat_as_int(
+        Symbol.EGG, AssetType.UNIFIED, Chain.BFC_TEST, "0xc53CE1aA929e9E8B7F9587bbEE2aB0fB530Fe676"
+    )
+    # ----------------------------------------------------------------------------------------------------------------
+
 
     # # BUSD
     # # ----------------------------------------------------------------------------------------------------------------
