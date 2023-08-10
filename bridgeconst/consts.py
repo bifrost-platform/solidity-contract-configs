@@ -496,13 +496,13 @@ class Asset(EnumInterface):
     )
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_WITCH_ON_BFC_MAIN = concat_as_int(
-        Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000e0"
+        Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_MAIN, "0xA041E39E010B9B1B2483074a28F88c2ABA1F5a8c"
     )
     BRIDGED_ETH_GOERLI_WITCH_ON_BFC_TEST = concat_as_int(
         Symbol.WITCH, AssetType.BRIDGED, Chain.BFC_TEST, "0xb8fFfC7111FCCC3ceBeE680c5221bB5E6f9F5935"
     )
     UNIFIED_WITCH_ON_BFC_MAIN = concat_as_int(
-        Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_MAIN, "0x00000000000000000000000000000000000000f0"
+        Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_MAIN, "0xB1f3A83597Bce2AD842c29bD750AE17afc474137"
     )
     UNIFIED_WITCH_ON_BFC_TEST = concat_as_int(
         Symbol.WITCH, AssetType.UNIFIED, Chain.BFC_TEST, "0x97C46701A8599DF99abB306ce8980B5f57D833fB"
@@ -534,22 +534,22 @@ class Asset(EnumInterface):
      
     # EGG
     # ------------------------------------------------------------------------------------------------------------------
-    # EGG_ON_ETH_MAIN = concat_as_int(
-    #     Symbol.EGG, AssetType.RESERVED, Chain.ETH_MAIN, ""
-    # )
+    EGG_ON_ETH_MAIN = concat_as_int(
+        Symbol.EGG, AssetType.RESERVED, Chain.ETH_MAIN, "0x65ccd72c0813ce6f2703593b633202a0f3ca6a0c"
+    )
     EGG_ON_ETH_GOERLI = concat_as_int(
         Symbol.EGG, AssetType.RESERVED, Chain.ETH_GOERLI, "0x9225c534403eEAB0B80394F60683F51EF9acD627"
     )
     # ------------------------------------------------------------------------------------------------------------------
-    # BRIDGED_ETH_MAIN_EGG_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.EGG, AssetType.BRIDGED, Chain.BFC_MAIN, ""
-    # )
+    BRIDGED_ETH_MAIN_EGG_ON_BFC_MAIN = concat_as_int(
+        Symbol.EGG, AssetType.BRIDGED, Chain.BFC_MAIN, "0xa24c671711DF240fD6967D655aD1Ef056675be01"
+    )
     BRIDGED_ETH_GOERLI_EGG_ON_BFC_TEST = concat_as_int(
         Symbol.EGG, AssetType.BRIDGED, Chain.BFC_TEST, "0x2E4a76c993CAD19595049fAE0D747E51fa452300"
     )
-    # UNIFIED_EGG_ON_BFC_MAIN = concat_as_int(
-    #     Symbol.EGG, AssetType.UNIFIED, Chain.BFC_MAIN, ""
-    # )
+    UNIFIED_EGG_ON_BFC_MAIN = concat_as_int(
+        Symbol.EGG, AssetType.UNIFIED, Chain.BFC_MAIN, "0x9DD4d64e41EA7Fc90ACEC15B08552172Ce94556a"
+    )
     UNIFIED_EGG_ON_BFC_TEST = concat_as_int(
         Symbol.EGG, AssetType.UNIFIED, Chain.BFC_TEST, "0xc53CE1aA929e9E8B7F9587bbEE2aB0fB530Fe676"
     )
