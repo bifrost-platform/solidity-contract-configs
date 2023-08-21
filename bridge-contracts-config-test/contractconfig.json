@@ -21,6 +21,8 @@
 			{"name": "BRIDGED_MATIC_MUMBAI_MATIC_ON_BFC_TEST", "address": "0x82c1aD3aF709210F203869a03CdE8C7d0b9841d8", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_MATIC_MUMBAI_USDT_ON_BFC_TEST", "address": "0xC3C12EF3BC5A8914eB3f4C190358ce5A41B19b46", "abi_file": "abi.erc20.json"},
 			{"name": "BRIDGED_MATIC_MUMBAI_USDC_ON_BFC_TEST", "address": "0x6442Fdd287E04e68f0C6f40b4a8e5a375d16482C", "abi_file": "abi.erc20.json"},
+			{"name": "BRIDGED_BASE_GOERLI_DAI_ON_BFC_TEST", "address": "0x0D83DaE4cadeBeBd6709068810CD2E4C0D761856", "abi_file": "abi.erc20.json"},
+			{"name": "BRIDGED_BASE_GOERLI_ETH_ON_BFC_TEST", "address": "0xf86fd65bA36Dca61892e3e6a41b40BEAb9171d00", "abi_file": "abi.erc20.json"},
 			{"name": "UNIFIED_BFC_ON_BFC_TEST", "address": "0xB0fF18CB2d0F3f51a9c54Af862ed98f3caa027A1", "abi_file": "abi.unified.coin.json"},
 			{"name": "UNIFIED_BIFI_ON_BFC_TEST", "address": "0x8010a873d59719e895E20f15f9906B5a1F399C3A", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_BNB_ON_BFC_TEST", "address": "0xCd8bf79fA84D551f2465C0a646cABc295d43Be5C", "abi_file": "abi.unified.erc20.json"},
@@ -31,7 +33,8 @@
 			{"name": "UNIFIED_MATIC_ON_BFC_TEST", "address": "0xad115F901a1Af99dc83D055C89641031fd1a50Dc", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_WITCH_ON_BFC_TEST", "address": "0x97C46701A8599DF99abB306ce8980B5f57D833fB", "abi_file": "abi.unified.erc20.json"},
 			{"name": "UNIFIED_P2D_ON_BFC_TEST", "address": "0xDa007Bea12013Ee90D5DEC4111DBA5bd98314F93", "abi_file": "abi.unified.erc20.json"},
-			{"name": "UNIFIED_EGG_ON_BFC_TEST", "address": "0xc53CE1aA929e9E8B7F9587bbEE2aB0fB530Fe676", "abi_file": "abi.unified.erc20.json"}
+			{"name": "UNIFIED_EGG_ON_BFC_TEST", "address": "0xc53CE1aA929e9E8B7F9587bbEE2aB0fB530Fe676", "abi_file": "abi.unified.erc20.json"},
+			{"name": "UNIFIED_DAI_ON_BFC_TEST", "address": "0x2353859d0c5CD0CB4Da701d2aCA9f1222Ad71110", "abi_file": "abi.unified.erc20.json"}
 		]
 	},
 	"ETH_GOERLI": {
@@ -67,6 +70,14 @@
 			{"name": "socket", "address": "0xA25357F3C313Bd13885678f935178211f0dF6722", "abi_file": "abi.socket.external.json", "deploy_height": 30814949},
 			{"name": "USDT_ON_MATIC_TEST", "address": "0x312d92B462492B2D110c7b378a72F6F78B1d6289", "abi_file": "abi.erc20.json"},
 			{"name": "USDC_ON_MATIC_TEST", "address": "0xc508ab50142721A0213A47AaFF4E93C3eDb978E2", "abi_file": "abi.erc20.json"}
+		]
+	},
+	"BASE_GOERLI": {
+		"contracts": [
+			{"name": "relayer_authority", "address": "0xb3f5C3a2237Df09F94dDAC32F63E5D962Ae66a42", "abi_file": "abi.relayer.external.json", "deploy_height": 8693872},
+			{"name": "vault", "address": "0x6EeE91b7c69e3576C13cE7a9C7C0E305dF6996F9", "abi_file": "abi.vault.external.json", "deploy_height": 8693879},
+			{"name": "socket", "address": "0x9c8B701961C20d006cb7c4B5B91c6cb93EdB44Ac", "abi_file": "abi.socket.external.json", "deploy_height": 8693887},
+			{"name": "DAI_ON_BASE_GOERLI", "address": "0x263deEAd49900486A1E9C312BB70CC172E333917", "abi_file": "abi.erc20.json"}
 		]
 	}
 }

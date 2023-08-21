@@ -83,6 +83,10 @@ class Chain(EnumInterface):
     KLAY_MAIN = 8217
     KLAY_TEST = 1001
 
+    # Base chains
+    BASE_MAIN = 8453
+    BASE_GOERLI = 84531
+
     # reserved
     RESERVED_01 = 0xffffffff
     RESERVED_02 = 0xfffffffe
@@ -117,6 +121,7 @@ class Chain(EnumInterface):
                     Chain.ETH_SEPOLIA.name,
                     Chain.BNB_TEST.name,
                     Chain.MATIC_MUMBAI.name,
+                    Chain.BASE_GOERLI.name,
                     Chain.AVAX_FUJI.name,
                     Chain.KLAY_TEST.name]
         if chain_name in testnets:
@@ -287,6 +292,9 @@ class Asset(EnumInterface):
     # ------------------------------------------------------------------------------------------------------------------
     ETH_ON_ETH_MAIN = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.ETH_MAIN, COIN_ADDRESS)
     ETH_ON_ETH_GOERLI = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.ETH_GOERLI, COIN_ADDRESS)
+    
+    ETH_ON_BASE_MAIN = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.BASE_MAIN, COIN_ADDRESS)
+    ETH_ON_BASE_GOERLI = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.BASE_GOERLI, COIN_ADDRESS)
     # ------------------------------------------------------------------------------------------------------------------
     BRIDGED_ETH_MAIN_ETH_ON_BFC_MAIN = concat_as_int(
         Symbol.ETH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x98e266BDb0eedd38BF45232B9316959ad0Aad90c"
@@ -299,6 +307,13 @@ class Asset(EnumInterface):
     )
     UNIFIED_ETH_ON_BFC_TEST = concat_as_int(
         Symbol.ETH, AssetType.UNIFIED, Chain.BFC_TEST, "0xc83EEd1bf5464eD5383bc3342b918E08f6815950"
+    )
+
+    BRIDGED_BASE_MAIN_ETH_ON_BFC_MAIN = concat_as_int(
+        Symbol.ETH, AssetType.BRIDGED, Chain.BFC_MAIN, "0x0000000000000000000000000000000000000000"
+    )
+    BRIDGED_BASE_GOERLI_ETH_ON_BFC_TEST = concat_as_int(
+        Symbol.ETH, AssetType.BRIDGED, Chain.BFC_TEST, "0xf86fd65bA36Dca61892e3e6a41b40BEAb9171d00"
     )
     # ------------------------------------------------------------------------------------------------------------------
 
@@ -555,6 +570,29 @@ class Asset(EnumInterface):
     )
     # ----------------------------------------------------------------------------------------------------------------
 
+
+    # DAI
+    # ------------------------------------------------------------------------------------------------------------------
+    DAI_ON_BASE_MAIN = concat_as_int(
+        Symbol.DAI, AssetType.RESERVED, Chain.BASE_MAIN, "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb"
+    )
+    DAI_ON_BASE_GOERLI = concat_as_int(
+        Symbol.DAI, AssetType.RESERVED, Chain.BASE_GOERLI, "0x263deEAd49900486A1E9C312BB70CC172E333917"
+    )
+    # ------------------------------------------------------------------------------------------------------------------
+    BRIDGED_BASE_MAIN_DAI_ON_BFC_MAIN = concat_as_int(
+        Symbol.DAI, AssetType.BRIDGED, Chain.BFC_MAIN, "0x0000000000000000000000000000000000000000"
+    )
+    BRIDGED_BASE_GOERLI_DAI_ON_BFC_TEST = concat_as_int(
+        Symbol.DAI, AssetType.BRIDGED, Chain.BFC_TEST, "0x0D83DaE4cadeBeBd6709068810CD2E4C0D761856"
+    )
+    UNIFIED_DAI_ON_BFC_MAIN = concat_as_int(
+        Symbol.DAI, AssetType.UNIFIED, Chain.BFC_MAIN, "0x0000000000000000000000000000000000000000"
+    )
+    UNIFIED_DAI_ON_BFC_TEST = concat_as_int(
+        Symbol.DAI, AssetType.UNIFIED, Chain.BFC_TEST, "0x2353859d0c5CD0CB4Da701d2aCA9f1222Ad71110"
+    )
+    # ----------------------------------------------------------------------------------------------------------------
 
     # # BUSD
     # # ----------------------------------------------------------------------------------------------------------------

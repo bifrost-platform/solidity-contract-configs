@@ -34,9 +34,14 @@
         "max_amount": 15728849591728269437173760,
         "rate": 0
     },
-    "0x0000000f0000000300000bfc00000000000000000000000000000000000000e0": {
-        "min_amount": 18406936034019024896,
-        "max_amount": 611448362909648176545792,
+    "0x0000000f0000000300000bfca041e39e010b9b1b2483074a28f88c2aba1f5a8c": {
+        "min_amount": 242513899077840896000,
+        "max_amount": 493424841911252006469632,
+        "rate": 0
+    },
+    "0x000000110000000300000bfca24c671711df240fd6967d655ad1ef056675be01": {
+        "min_amount": 10802489973938992447488,
+        "max_amount": 21979016163225619136512000,
         "rate": 0
     },
     "0x000000050000000300000bfc872b347cd764d46c127ffefbcab605fff3f3a48c": {
@@ -105,8 +110,13 @@
         "rate": 0
     },
     "0x0000000fffffffff00000001dc524e3c6910257744c1f93cf15e9f472b5bd236": {
-        "min_amount": 18406936034019024896,
-        "max_amount": 611448362909648176545792,
+        "min_amount": 242513899077840896000,
+        "max_amount": 493424841911252006469632,
+        "rate": 0
+    },
+    "0x00000011ffffffff0000000165ccd72c0813ce6f2703593b633202a0f3ca6a0c": {
+        "min_amount": 10802489973938992447488,
+        "max_amount": 21979016163225619136512000,
         "rate": 0
     },
     "0x000000050000000100000038ffffffffffffffffffffffffffffffffffffffff": {
@@ -224,6 +234,16 @@
         "max_amount": 81385000000,
         "rate": 0
     },
+    "0x00000004000000030000bfc0f86fd65ba36dca61892e3e6a41b40beab9171d00": {
+        "min_amount": 1455586779707338,
+        "max_amount": 48352216353665990656,
+        "rate": 0
+    },
+    "0x0000000b000000030000bfc00d83dae4cadebebd6709068810cd2e4c0d761856": {
+        "min_amount": 95000000000000000,
+        "max_amount": 81384999999999999737856,
+        "rate": 0
+    },
     "0x000000040000000100000005ffffffffffffffffffffffffffffffffffffffff": {
         "min_amount": 1584304393373081,
         "max_amount": 52628005328435994624,
@@ -297,6 +317,16 @@
     "0x00000008ffffffff00013881c508ab50142721a0213a47aaff4e93c3edb978e2": {
         "min_amount": 95000,
         "max_amount": 81385000000,
+        "rate": 0
+    },
+    "0x000000040000000100014a33ffffffffffffffffffffffffffffffffffffffff": {
+        "min_amount": 1455586779707338,
+        "max_amount": 48352216353665990656,
+        "rate": 0
+    },
+    "0x0000000bffffffff00014a33263deead49900486a1e9c312bb70cc172e333917": {
+        "min_amount": 95000000000000000,
+        "max_amount": 81384999999999999737856,
         "rate": 0
     }
 }
