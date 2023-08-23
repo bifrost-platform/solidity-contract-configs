@@ -292,7 +292,7 @@ class Asset(EnumInterface):
     # ------------------------------------------------------------------------------------------------------------------
     ETH_ON_ETH_MAIN = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.ETH_MAIN, COIN_ADDRESS)
     ETH_ON_ETH_GOERLI = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.ETH_GOERLI, COIN_ADDRESS)
-    
+
     ETH_ON_BASE_MAIN = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.BASE_MAIN, COIN_ADDRESS)
     ETH_ON_BASE_GOERLI = concat_as_int(Symbol.ETH, AssetType.COIN, Chain.BASE_GOERLI, COIN_ADDRESS)
     # ------------------------------------------------------------------------------------------------------------------
@@ -384,10 +384,10 @@ class Asset(EnumInterface):
     )
     USDC_ON_MATIC_MAIN = concat_as_int(
         Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MAIN, "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
-        )
+    )
     USDC_ON_MATIC_MUMBAI = concat_as_int(
         Symbol.USDC, AssetType.RESERVED, Chain.MATIC_MUMBAI, "0xc508ab50142721A0213A47AaFF4E93C3eDb978E2"
-        )
+    )
 
     # USDC_ON_AVAX_MAIN = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_MAIN, 64)
     # USDC_ON_AVAX_FUJI = concat_as_int(Symbol.USDC, AssetType.RESERVED, Chain.AVAX_FUJI, 64)
@@ -428,7 +428,6 @@ class Asset(EnumInterface):
         Symbol.USDC, AssetType.UNIFIED, Chain.BFC_TEST, "0x28661511CDA7119B2185c647F23106a637CC074f"
     )
     # ------------------------------------------------------------------------------------------------------------------
-
 
     # USDT
     # ------------------------------------------------------------------------------------------------------------------
@@ -546,7 +545,7 @@ class Asset(EnumInterface):
         Symbol.P2D, AssetType.UNIFIED, Chain.BFC_TEST, "0xDa007Bea12013Ee90D5DEC4111DBA5bd98314F93"
     )
     # ----------------------------------------------------------------------------------------------------------------
-     
+
     # EGG
     # ------------------------------------------------------------------------------------------------------------------
     EGG_ON_ETH_MAIN = concat_as_int(
@@ -570,7 +569,6 @@ class Asset(EnumInterface):
     )
     # ----------------------------------------------------------------------------------------------------------------
 
-
     # DAI
     # ------------------------------------------------------------------------------------------------------------------
     DAI_ON_BASE_MAIN = concat_as_int(
@@ -592,6 +590,7 @@ class Asset(EnumInterface):
     UNIFIED_DAI_ON_BFC_TEST = concat_as_int(
         Symbol.DAI, AssetType.UNIFIED, Chain.BFC_TEST, "0x2353859d0c5CD0CB4Da701d2aCA9f1222Ad71110"
     )
+
     # ----------------------------------------------------------------------------------------------------------------
 
     # # BUSD
@@ -907,6 +906,9 @@ class Oracle(EnumInterface):
     )
     BUSD_PRICE = concat_as_int(
         OracleType.AGGREGATED, OracleSourceType.ASSET_PRICE, zero_filled_hex(Symbol.BUSD.value, DISTINGUISH_NUM_BSIZE)
+    )
+    DAI_PRICE = concat_as_int(
+        OracleType.AGGREGATED, OracleSourceType.ASSET_PRICE, zero_filled_hex(Symbol.DAI.value, DISTINGUISH_NUM_BSIZE)
     )
     BITCOIN_BLOCK_HASH = concat_as_int(
         OracleType.EXACT, OracleSourceType.BLOCK_HASH, zero_filled_hex(Symbol.BTC.value, DISTINGUISH_NUM_BSIZE)
